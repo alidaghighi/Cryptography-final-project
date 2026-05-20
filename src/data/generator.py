@@ -333,11 +333,72 @@ def generate_reconnaissance(rng, base_ts):
     return rows
 
 
+def generate_evasive_lateral_movement(rng, base_ts):
+    """Adversarial variant: attacker rate-limits failures and adds benign-timing pauses.
+    Designed to evade td-based features by mimicking benign inter-event gaps."""
+    sid = str(uuid.uuid4())
+    attacker_ip = f"192.168.{int(rng.integers(1,254))}.{int(rng.integers(1,254))}"
+    target_host = str(rng.choice(SCADA_HOSTS))
+    user = str(rng.choice(USERS))
+    ts = base_ts
+    rows = []
+
+    # Slow-down: only 3-5 failures, spaced 60-300s apart (like legit typos)
+    n_fails = int(rng.integers(3, 6))
+    for _ in range(n_fails):
+        rows.append(
+            _row(
+                ts, 4625, SOURCES[0], user, target_host, f"Failed logon from {attacker_ip}", 1, sid
+            )
+        )
+        ts += timedelta(seconds=int(rng.integers(60, 300)))  # slow — blend with benign
+
+    rows.append(
+        _row(ts, 4624, SOURCES[0], user, target_host, f"Logon success from {attacker_ip}", 1, sid)
+    )
+    ts = _jitter(rng, ts, 10, 120)  # long pause before acting (benign-like)
+    rows.append(_row(ts, 4672, SOURCES[0], user, target_host, EVENT_DESCRIPTIONS[4672], 1, sid))
+    ts = _jitter(rng, ts, 5, 60)  # benign-range gap between 4672 and process
+    proc = str(rng.choice(OFFENSIVE_PROCESSES))
+    rows.append(_row(ts, 4688, SOURCES[0], user, target_host, f"Process created: {proc}", 1, sid))
+    ts = _cover_traffic(rng, ts, user, target_host, sid, rows, 1)
+    if rng.random() < 0.50:  # clean logoff more often (active evasion)
+        rows.append(_row(ts, 4634, SOURCES[0], user, target_host, EVENT_DESCRIPTIONS[4634], 1, sid))
+    return rows
+
+
+def generate_evasive_reconnaissance(rng, base_ts):
+    """Adversarial variant: object access rate-limited to 2-9s intervals
+    (overlaps upper end of benign 1.5-8s range) to evade td_min detection."""
+    sid = str(uuid.uuid4())
+    host = str(rng.choice(HMI_RTU_HOSTS))
+    user = str(rng.choice(USERS))
+    ts = base_ts
+    rows = []
+
+    rows.append(_row(ts, 4624, SOURCES[0], user, host, EVENT_DESCRIPTIONS[4624], 1, sid))
+    ts = _jitter(rng, ts, 5, 30)
+
+    # Slow recon: 8-14 accesses at 2-9s (overlaps benign 1.5-8s upper range)
+    n_access = int(rng.integers(8, 15))
+    for _ in range(n_access):
+        obj = str(rng.choice(SCADA_OBJECTS))
+        rows.append(_row(ts, 4663, SOURCES[0], user, host, f"Accessed: {obj}", 1, sid))
+        ts += timedelta(seconds=float(rng.uniform(2.0, 9.0)))
+
+    ts = _cover_traffic(rng, ts, user, host, sid, rows, 1)
+    if rng.random() < 0.50:
+        rows.append(_row(ts, 4634, SOURCES[0], user, host, EVENT_DESCRIPTIONS[4634], 1, sid))
+    return rows
+
+
 ATTACK_GENERATORS = [
     generate_lateral_movement,
     generate_persistence,
     generate_privilege_escalation,
     generate_reconnaissance,
+    generate_evasive_lateral_movement,
+    generate_evasive_reconnaissance,
 ]
 
 
