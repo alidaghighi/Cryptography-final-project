@@ -1,0 +1,23 @@
+\label{sec:conc}
+
+This paper presented a complete, open-source framework for AI-driven malware detection in
+smart grid ICS environments using Windows Event Log engineering. The framework fills a
+documented gap: host-level audit log analysis in the OT/IT convergence zone has been absent
+from the ICS security literature despite regulatory mandates for event logging in NERC CIP
+and IEC~62351.
+
+Key contributions include a synthetic event log generator modelling four MITRE ATT\&CK
+ICS-aligned attack categories, a 24-dimensional session-level feature engineering pipeline,
+and a Random Forest classifier achieving perfect discrimination on synthetic benchmarks
+(F1~=~1.00, ROC-AUC~=~1.00). The ablation study established that temporal features
+(time-delta statistics, sequence entropy) carry the highest discriminative value, consistent
+with the burst-timing signatures of reconnaissance and lateral movement.
+
+Deployment considerations—class imbalance, concept drift, GDPR data retention—were
+discussed with concrete mitigation strategies. The sub-millisecond per-session inference
+latency confirms operational feasibility alongside existing SIEM pipelines.
+
+Future directions: (i)~evaluation on real ICS event logs using controlled red-team exercise
+data; (ii)~extension to multi-class attack attribution using MITRE ATT\&CK technique labels;
+(iii)~integration with online learning to counter concept drift; and (iv)~adversarial
+robustness evaluation against log-throttling and log-poisoning evasion strategies.

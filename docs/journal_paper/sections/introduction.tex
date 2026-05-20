@@ -1,0 +1,56 @@
+\label{sec:intro}
+
+The convergence of operational technology (OT) and information technology (IT) in modern
+smart grids has produced a paradox: the same network connectivity that enables optimised
+energy management also exposes mission-critical field devices—programmable logic controllers
+(PLCs), remote terminal units (RTUs), and SCADA human-machine interfaces (HMIs)—to
+adversaries with nation-state resources. The Stuxnet incident demonstrated that
+Windows-based hosts embedded in the OT layer are credible attack vectors
+\cite{langner2011stuxnet}. More recent campaigns, including the 2021 Oldsmar water
+treatment plant intrusion and the BlackEnergy attacks on Ukrainian grid operators,
+underscore the persistence and evolution of this threat.
+
+Host-based audit logs—specifically Windows Event Logs—represent a mandated, ubiquitous
+telemetry source: NERC CIP-007 requires event logging and review for all applicable
+systems, and IEC~62351-8 specifies role-based access control audit trails for power systems
+communications. Despite this regulatory mandate, Windows Event Logs at the ICS layer have
+received comparatively little attention from the intrusion-detection research community,
+which has concentrated on network-level signatures \cite{goldenberg2013modbus,carcano2011scada}
+and process-measurement anomalies \cite{goh2016swat}.
+
+The research gap motivating this work is twofold. First, no published study specifically
+models Windows Event Log sequences within the smart grid Purdue hierarchy and derives
+ICS-specific features for host-level attack detection. Second, the absence of labelled
+operational datasets—due to privacy, liability, and classified-information constraints—has
+blocked supervised learning approaches; existing ICS datasets such as SWaT
+\cite{goh2016swat} capture network or sensor measurements, not Windows host audit trails.
+
+This paper addresses both gaps with the following contributions:
+
+\begin{enumerate}
+  \item A \textbf{synthetic Windows Event Log generator} that models realistic smart grid
+        host populations and four attack-category sequences grounded in the MITRE ATT\&CK
+        for ICS framework \cite{mitre2020attack}.
+
+  \item A \textbf{session-level feature engineering pipeline} that distils raw event
+        streams into compact, interpretable 24-dimensional vectors.
+
+  \item A \textbf{detection model} based on Random Forest with class-imbalance compensation
+        and 5-fold stratified cross-validation, achieving perfect classification on synthetic
+        benchmarks.
+
+  \item A \textbf{systematic ablation study} quantifying the contribution of each feature
+        group, providing guidance for deployment with limited feature coverage.
+
+  \item A \textbf{deployment discussion} addressing class imbalance, concept drift, and
+        GDPR data retention constraints relevant to production ICS environments.
+\end{enumerate}
+
+The remainder of this paper is structured as follows.
+Section~\ref{sec:related} reviews related work.
+Section~\ref{sec:threat} formalises the threat model.
+Section~\ref{sec:data} describes the synthetic data and feature engineering.
+Section~\ref{sec:method} presents the machine learning methodology.
+Section~\ref{sec:exp} reports experiments and ablation results.
+Section~\ref{sec:disc} discusses deployment considerations.
+Section~\ref{sec:conc} concludes.

@@ -1,0 +1,16 @@
+Smart grid Industrial Control Systems are high-value targets for sophisticated adversaries
+capable of traversing the IT/OT boundary through Windows hosts at Purdue model Levels~1--3.
+While network-level anomaly detection for ICS protocols is well studied, host-level Windows
+Event Log analysis remains underexplored in this domain. This paper presents a complete,
+open-source framework for AI-driven malware detection in smart grid environments via Windows
+Event Log engineering. The framework comprises: (i)~a synthetic event log generator that
+faithfully reproduces four ICS-relevant attack patterns—lateral movement, persistence,
+privilege escalation, and reconnaissance; (ii)~a session-level feature engineering pipeline
+capturing event frequencies, temporal dynamics, host cardinality, rare-event indicators, and
+sequence entropy; and (iii)~a class-imbalance-robust Random Forest classifier tuned by
+5-fold stratified cross-validation. On a synthetic benchmark of 6{,}000 labelled sessions,
+the framework achieves perfect discrimination (F1 = 1.00, ROC-AUC = 1.00). Ablation
+experiments demonstrate that temporal features (time-delta statistics) and sequence entropy
+contribute most to separability. We discuss class imbalance, concept drift, and GDPR
+compliance constraints that govern deployment in operational environments, and position the
+framework as a reproducible baseline for the ICS security research community.

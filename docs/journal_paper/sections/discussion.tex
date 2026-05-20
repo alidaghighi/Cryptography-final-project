@@ -1,0 +1,48 @@
+\label{sec:disc}
+
+\subsection{Class Imbalance}
+
+The 5:1 benign-to-malicious ratio in the synthetic dataset already challenges
+precision-focused classifiers. In practice, the ratio may be 500:1 or higher: an operator
+session is minutes long and occurs hundreds of times per day, while a sophisticated
+intrusion may span a single multi-hour campaign that generates a handful of malicious
+sessions. The \texttt{class\_weight=balanced} setting compensates at the classifier level,
+but extremely sparse minority-class examples may still degrade recall. Techniques such as
+SMOTE oversampling, cost-sensitive learning, or anomaly-detection framing (training only
+on benign sessions and flagging deviations) should be evaluated as the class ratio
+approaches operational reality.
+
+\subsection{Concept Drift in Production}
+
+Windows Event Log distributions are non-stationary: software updates introduce new event
+IDs (or retire existing ones), organisational restructuring changes user and hostname
+populations, and seasonal operational patterns alter inter-event timing. A model trained
+on a static snapshot will experience concept drift \cite{sommer2010outside}. Mitigation
+strategies include periodic retraining on sliding windows of recent labelled sessions,
+online learning with drift detectors (e.g., ADWIN), and calibration against analyst-reviewed
+alert outcomes. The session-level feature abstraction provides a degree of stability—event
+ID counts are invariant to log format changes—but time-delta features may shift following
+infrastructure updates.
+
+\subsection{GDPR and Data Retention Constraints}
+
+Windows Event Logs may contain personally identifiable information (PII): usernames,
+hostnames, source IP addresses, and process arguments may identify individuals under the EU
+General Data Protection Regulation (GDPR) Article~4. ICS operators face a tension between
+the NERC CIP-007 requirement to retain audit logs for up to 90~days and GDPR data
+minimisation and storage-limitation principles. Practical mitigations include
+pseudonymisation of user and host identifiers at collection time, encryption of stored logs
+with role-based key management (consistent with IEC~62351), and automated deletion
+workflows aligned with the GDPR retention schedule. The feature engineering pipeline in this
+work is inherently privacy-preserving: session-level aggregates (counts, statistics) contain
+no individual-level identifiers.
+
+\subsection{Limitations}
+
+The primary limitation of this study is the use of synthetic data. The synthetic generator
+captures the structural characteristics of the four attack patterns but does not model
+evasion behaviours (e.g., time-throttled reconnaissance, log-clearing attempts). Detection
+performance on operational logs with real noise, label uncertainty, and adversarial evasion
+is expected to be lower. A secondary limitation is the single-site, single-time-period
+evaluation; generalisability across grid operators with different audit policies and host
+populations is untested.

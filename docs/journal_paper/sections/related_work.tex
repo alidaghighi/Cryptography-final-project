@@ -1,0 +1,52 @@
+\label{sec:related}
+
+\subsection{Windows Event Log and System Log Analysis}
+
+Drain \cite{he2017drain} introduced a fixed-depth parse tree for online log template
+extraction, enabling scalable clustering of heterogeneous log messages—directly applicable
+to the rich natural-language descriptions in Windows Event Log entries. DeepLog
+\cite{du2017deeplog} modelled log key sequences with LSTM networks, framing anomaly
+detection as next-key prediction; deviations from the learned model triggered alerts. Brown
+\textit{et al.}\ \cite{brown2018rnn} added attention mechanisms to recurrent networks for
+interpretable anomaly localisation in system logs. LogAnomaly \cite{zhao2019loganomaly}
+unified sequential and quantitative log anomaly detection via semantic word vectors, reducing
+the dependence on fixed log templates. A unifying theme across these works is the
+exploitation of the \emph{sequential structure} of log streams; our session-level feature
+engineering captures the same structure through Shannon entropy and time-delta statistics
+without requiring deep model training, yielding lower inference latency.
+
+\subsection{ICS/SCADA Intrusion Detection}
+
+Carcano \textit{et al.}\ \cite{carcano2011scada} proposed multidimensional critical-state
+analysis for SCADA, encoding safe system states as polytopes in the joint
+(measurement, command) space and flagging deviations as intrusions. Goldenberg and Wool
+\cite{goldenberg2013modbus} constructed deterministic Modbus/TCP models from
+specification documents, detecting protocol violations with zero false positives.
+Goh \textit{et al.}\ \cite{goh2016swat} released the SWaT public dataset of physical and
+network measurements from a water treatment testbed; it remains the most widely used ICS
+security benchmark. Linda \textit{et al.}\ \cite{linda2009neural} applied neural networks
+to power system disturbance classification, demonstrating feasibility of ML in the
+critical-infrastructure domain. Mitchell and Chen \cite{mitchell2014survey} surveyed CPS
+intrusion detection, noting that \emph{host-level} methods are rare compared to
+network and process-level approaches—the gap this paper addresses. Conti \textit{et al.}\
+\cite{conti2021survey} catalogued ICS testbeds and datasets, confirming the absence of
+Windows Event Log datasets for smart grid environments.
+
+\subsection{Machine Learning for Intrusion Detection}
+
+Breiman's Random Forest \cite{breiman2001} consistently outperforms single classifiers on
+tabular security features due to variance reduction via bagging and the random feature
+subspace \cite{liao2013ids}. Chen and Guestrin's XGBoost \cite{chen2016xgboost} extends
+gradient-boosted trees with column subsampling and regularisation, achieving state-of-the-art
+performance on the KDD~Cup~1999 benchmark after duplicate-removal preprocessing
+\cite{tavallaee2009kdd}. Hink \textit{et al.}\ \cite{hink2014machine} applied Random
+Forest to power system disturbance and cyber-attack discrimination, demonstrating
+application relevance to the smart grid domain. Sommer and Paxson
+\cite{sommer2010outside} argued that the open-world nature of operational environments
+undermines closed-world ML assumptions; their critique motivates our use of synthetic data
+with controlled class-ratio variation and our discussion of concept drift in
+Section~\ref{sec:disc}. Garcia-Teodoro \textit{et al.}\ \cite{garcia2009anomaly} surveyed
+anomaly-based IDS approaches, establishing the statistical, knowledge-based, and ML
+taxonomy that this paper follows. The NIST SP~800-82 \cite{stouffer2015nist} control
+baseline defines the performance and deployment constraints for ICS security tools against
+which we position our framework.

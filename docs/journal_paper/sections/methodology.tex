@@ -1,0 +1,48 @@
+\label{sec:method}
+
+\subsection{Model Selection}
+
+We select Random Forest \cite{breiman2001} as the primary classifier on the following
+grounds:
+
+\begin{enumerate}
+  \item \textbf{Heterogeneous feature handling}: the 24-dimensional feature vector combines
+        integer counts, continuous statistics, and binary flags. Random Forest requires no
+        feature normalisation and is invariant to monotonic feature transformations.
+
+  \item \textbf{Class imbalance robustness}: the \texttt{class\_weight=balanced} setting
+        assigns per-sample weights inversely proportional to class frequencies, effectively
+        oversampling the malicious minority without synthetic data augmentation.
+
+  \item \textbf{Interpretability}: feature importance scores are derived directly from
+        mean decrease in Gini impurity across all trees, providing an inherently
+        interpretable ranking aligned with the ablation study in Section~\ref{sec:exp}.
+
+  \item \textbf{Low latency}: prediction requires $O(D \cdot T)$ operations for $D$
+        feature dimensions and $T$ trees, yielding sub-millisecond per-session inference on
+        a single CPU core.
+\end{enumerate}
+
+\subsection{Training Protocol}
+
+Hyperparameters are selected via \texttt{RandomizedSearchCV} (20 random configurations,
+evaluation metric: macro F1) over the following grids:
+
+\begin{itemize}
+  \item \texttt{n\_estimators}: $\{50, 100, 200\}$
+  \item \texttt{max\_depth}: $\{5, 10, \text{None}\}$
+  \item \texttt{min\_samples\_split}: $\{2, 5, 10\}$
+  \item \texttt{max\_features}: $\{\text{sqrt}, \text{log2}\}$
+\end{itemize}
+
+Inner cross-validation uses 5-fold stratified k-fold splitting on the training partition,
+preserving the 5:1 class ratio in each fold. The best configuration is refitted on the
+combined train+validation set, and final metrics are reported on the held-out test
+partition.
+
+\subsection{Evaluation Metrics}
+
+We report accuracy, precision, recall, macro F1, per-class F1, and ROC-AUC. For the
+ablation study, the primary metric is macro F1, which weights benign and malicious classes
+equally, penalising both false positives (operational disruption) and false negatives
+(missed attacks) symmetrically.

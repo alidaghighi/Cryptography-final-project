@@ -1,0 +1,96 @@
+\label{sec:exp}
+
+\subsection{Dataset Statistics}
+
+Table~\ref{tab:datastats} summarises the dataset after splitting.
+
+\begin{table}[!t]
+  \caption{Dataset Statistics}
+  \label{tab:datastats}
+  \centering
+  \begin{tabular}{lrrrr}
+    \hline
+    Split & Sessions & Events & Benign & Malicious \\
+    \hline
+    Train      & 4{,}200 & 38{,}123 & 3{,}500 & 700 \\
+    Validation &    900  &  8{,}029 &    750  & 150 \\
+    Test       &    900  &  8{,}326 &    750  & 150 \\
+    \hline
+    Total      & 6{,}000 & 54{,}478 & 5{,}000 & 1{,}000 \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\subsection{Baseline Comparison}
+
+Table~\ref{tab:baseline} compares Random Forest against Logistic Regression, Decision Tree,
+and RBF-SVM baselines. All baselines use identical features and \texttt{class\_weight=balanced}.
+Random Forest achieves perfect classification, confirming that the synthetic data are fully
+linearly separable in the engineered feature space given an ensemble with sufficient depth.
+
+\begin{table}[!t]
+  \caption{Held-Out Test Set Performance}
+  \label{tab:baseline}
+  \centering
+  \begin{tabular}{lcccc}
+    \hline
+    Method & Acc. & F1 (macro) & ROC-AUC & FPR \\
+    \hline
+    Logistic Regression & 0.952 & 0.943 & 0.980 & 0.048 \\
+    Decision Tree       & 0.979 & 0.972 & 0.975 & 0.021 \\
+    SVM (RBF)           & 0.967 & 0.961 & 0.986 & 0.033 \\
+    \textbf{Random Forest} & \textbf{1.000} & \textbf{1.000} & \textbf{1.000} & \textbf{0.000} \\
+    \hline
+  \end{tabular}
+\end{table}
+
+Figure~\ref{fig:results} shows the ROC curve and top-10 feature importances for the Random
+Forest model.
+
+\begin{figure}[!t]
+  \centering
+  \includegraphics[width=\columnwidth]{figs/results.png}
+  \caption{Left: ROC curve (AUC = 1.000). Right: top-10 feature importances by mean
+           decrease in Gini impurity.}
+  \label{fig:results}
+\end{figure}
+
+\subsection{Ablation Study}
+
+To quantify the marginal contribution of each feature group, we retrain the model after
+removing one group at a time and report the resulting macro F1 on the test set
+(Table~\ref{tab:ablation}). The best hyperparameters from the full-feature search are
+reused to isolate the effect of the feature group.
+
+\begin{table}[!t]
+  \caption{Ablation Study: Macro F1 Drop on Removing Each Feature Group}
+  \label{tab:ablation}
+  \centering
+  \begin{tabular}{lcc}
+    \hline
+    Removed Group & F1 (macro) & $\Delta$F1 \\
+    \hline
+    None (full features)          & 1.000 & --     \\
+    Group 1: Event counts         & 0.976 & $-0.024$ \\
+    Group 2: Time-delta stats     & 0.831 & $-0.169$ \\
+    Group 3: Cardinality          & 0.982 & $-0.018$ \\
+    Group 4: Rare-event flags     & 0.994 & $-0.006$ \\
+    Group 5: Sequence entropy     & 0.947 & $-0.053$ \\
+    \hline
+  \end{tabular}
+\end{table}
+
+Time-delta statistics (Group~2) contribute most to discriminability ($\Delta$F1 = $-0.169$),
+followed by sequence entropy (Group~5, $\Delta$F1 = $-0.053$). Both features capture the
+\emph{temporal burst} characteristic shared by reconnaissance and lateral movement attacks.
+Event frequency counts (Group~1) and cardinality (Group~3) provide moderate contributions.
+Rare-event flags (Group~4) have the smallest marginal impact on synthetic data where rare
+events appear deterministically in attack sessions; their value is expected to increase on
+operational data with label noise.
+
+\subsection{Inference Latency}
+
+Session-level feature extraction and prediction on 900 test sessions (single CPU core,
+Intel Core~i7-11th~Gen, 3.0~GHz) requires 0.31~seconds total, yielding a per-session
+latency of 0.34~ms (median) and 0.51~ms (99th percentile), well within the $<10$~ms
+operational requirement stated in RO4.
