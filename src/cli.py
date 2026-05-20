@@ -7,6 +7,7 @@ from src.data.preprocessor import preprocess
 from src.features.engineer import engineer
 from src.models.baselines import run_baselines
 from src.models.evaluate import evaluate
+from src.models.multiseed_eval import run_multiseed
 from src.models.train import train
 
 
@@ -74,6 +75,20 @@ cli.add_command(featurize, name="featurize")
 cli.add_command(train_cmd, name="train")
 cli.add_command(evaluate_cmd, name="evaluate")
 cli.add_command(baselines_cmd, name="baselines")
+
+
+@cli.command()
+@click.option("--n-benign", default=5000, type=int, show_default=True)
+@click.option("--n-malicious", default=1000, type=int, show_default=True)
+@click.option("--n-seeds", default=5, type=int, show_default=True)
+@click.option("--work-dir", required=True, help="Working directory for per-seed data/models")
+@click.option("--output", "output_path", default=None)
+def multiseed(n_benign, n_malicious, n_seeds, work_dir, output_path):
+    """Multi-seed evaluation: report mean +/- std across N random seeds."""
+    run_multiseed(n_benign, n_malicious, n_seeds, work_dir, output_path)
+
+
+cli.add_command(multiseed, name="multiseed")
 
 
 def main():
