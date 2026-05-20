@@ -122,7 +122,7 @@ in Smart Grid Control Systems}
     \begin{column}{0.5\textwidth}
       \begin{itemize}
         \item 6{,}000 sessions: 5{,}000 benign + 1{,}000 malicious (5:1 ratio)
-        \item 54{,}478 total events
+        \item 89{,}288 total events
         \item 13 Windows Event IDs (4624, 4625, 4663, 7045, \ldots)
         \item Smart grid hosts: \texttt{SCADA-HMI-01}, \texttt{RTU-CTRL-03}, \ldots
       \end{itemize}
@@ -183,18 +183,25 @@ in Smart Grid Control Systems}
 \begin{frame}{Classification Results}
   \begin{table}
     \centering
+    \small
     \begin{tabular}{lcccc}
       \toprule
-      Method & Accuracy & F1 (macro) & ROC-AUC & FPR \\
+      Method & Prec. & Recall & F1 (macro) & ROC-AUC \\
       \midrule
-      Logistic Regression & 0.952 & 0.943 & 0.980 & 0.048 \\
-      Decision Tree       & 0.979 & 0.972 & 0.975 & 0.021 \\
-      SVM (RBF)           & 0.967 & 0.961 & 0.986 & 0.033 \\
-      \textbf{Random Forest} & \textbf{1.000} & \textbf{1.000} & \textbf{1.000} & \textbf{0.000} \\
+      IF (unsupervised)      & 0.611 & 0.594 & 0.601 & 0.735 \\
+      LR                     & 0.917 & 0.974 & 0.942 & 0.994 \\
+      SVM (RBF)              & 0.818 & 0.881 & 0.844 & 0.951 \\
+      Decision Tree          & 0.982 & 0.987 & 0.984 & 0.988 \\
+      XGBoost                & 0.997 & 0.999 & 0.998 & 1.000 \\
+      \textbf{RF (proposed)} & \textbf{1.000} & \textbf{1.000} & \textbf{0.999} & \textbf{1.000} \\
       \bottomrule
     \end{tabular}
   \end{table}
-  \note{Random Forest achieves perfect classification on the synthetic benchmark.}
+  \begin{center}
+    \small RF: mean $\pm$ std across 5 seeds = $0.999 \pm 0.001$
+  \end{center}
+  \note{Six baselines including XGBoost and unsupervised Isolation Forest. RF achieves top F1
+        and AUC, confirmed stable across 5 random seeds.}
 \end{frame}
 
 % Slide 11 — ROC and Feature Importances
@@ -211,21 +218,22 @@ in Smart Grid Control Systems}
       \toprule
       Removed Feature Group & F1 (macro) & $\Delta$F1 \\
       \midrule
-      None (full)           & 1.000 & ---       \\
-      Group 2: Time-delta stats & 0.831 & $-0.169$ \\
-      Group 5: Sequence entropy & 0.947 & $-0.053$ \\
-      Group 1: Event counts     & 0.976 & $-0.024$ \\
-      Group 3: Cardinality      & 0.982 & $-0.018$ \\
-      Group 4: Rare-event flags & 0.994 & $-0.006$ \\
+      None (full)               & 1.000 & ---       \\
+      Group 1: Event counts     & 0.944 & $-0.056$ \\
+      Group 2: Time-delta stats & 0.972 & $-0.028$ \\
+      Group 3: Cardinality      & 1.000 & $0.000$  \\
+      Group 4: Rare-event flags & 1.000 & $0.000$  \\
+      Group 5: Sequence entropy & 1.000 & $0.000$  \\
       \bottomrule
     \end{tabular}
   \end{table}
   \pause
   \begin{center}
-    \textbf{Time-delta and entropy features are the most critical.}
+    \textbf{Event counts + timing sufficient; Groups 3--5 redundant (not useless).}
   \end{center}
-  \note{Removing temporal features causes the largest performance drop, confirming burst-timing
-        is the key discriminant.}
+  \note{Real computed ablation: Groups 1 and 2 carry the discriminative load.
+        Groups 3-5 show zero delta because event counts and timing already separate the data.
+        Single-feature analysis confirms entropy (F1=0.77 alone) has real signal.}
 \end{frame}
 
 \section{Discussion}
@@ -242,7 +250,7 @@ in Smart Grid Control Systems}
     \item \textbf{GDPR}: pseudonymise usernames/hostnames at collection; align retention
           with NERC CIP 90-day requirement
     \pause
-    \item \textbf{Latency}: 0.34~ms median per session on commodity hardware —
+    \item \textbf{Latency}: $<$0.5~s per 900-session batch on single CPU core —
           SIEM-compatible
   \end{itemize}
   \note{These are the key production concerns; the framework design already addresses GDPR
@@ -257,14 +265,15 @@ in Smart Grid Control Systems}
     \item First open-source framework for Windows Event Log-based malware detection in
           smart grid ICS
     \item 24-feature session pipeline; Random Forest with class-imbalance compensation
-    \item Perfect synthetic benchmark: F1~=~1.00, ROC-AUC~=~1.00
-    \item Temporal features most discriminative (ablation $\Delta$F1 = $-0.169$)
+    \item F1~=~0.999~$\pm$~0.001 (5-seed), ROC-AUC~=~1.000; XGBoost competitive (0.998)
+    \item Event counts most discriminative (ablation $\Delta$F1 = $-0.056$); evasive attacks
+          reduce single-feature separability from F1~=~1.0 to 0.86
     \item Framework enables reproducible ICS security research without operational data
   \end{itemize}
   \pause
   \begin{block}{Future Work}
     Real ICS logs $\cdot$ Multi-class ATT\&CK attribution $\cdot$ Online learning $\cdot$
-    Adversarial robustness
+    Adversarial robustness against evasive attackers on real logs
   \end{block}
   \note{We have delivered a complete, reproducible, open-source baseline for the community.}
 \end{frame}
