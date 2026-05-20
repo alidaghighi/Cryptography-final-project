@@ -175,6 +175,7 @@ INPUT .\sections\introduction.tex
 INPUT .\sections\introduction.tex
 INPUT .\sections\introduction.tex
 INPUT sections\introduction.tex
+OUTPUT E:\Work\Biruni University\Masters\2\Crypto\Final-Project\docs\preliminary_study\_latexmk\preliminary_study.xdv
 INPUT C:\Users\Ali\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT C:\Users\Ali\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT C:\Users\Ali\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\umsa.fd
@@ -189,7 +190,6 @@ INPUT C:\Users\Ali\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\umsb.fd
 INPUT C:\Users\Ali\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\Ali\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
 INPUT C:\Users\Ali\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
-OUTPUT E:\Work\Biruni University\Masters\2\Crypto\Final-Project\docs\preliminary_study\_latexmk\preliminary_study.xdv
 INPUT .\sections\literature_review.tex
 INPUT .\sections\literature_review.tex
 INPUT .\sections\literature_review.tex

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.10.14)  20 MAY 2026 22:57
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.10.14)  20 MAY 2026 23:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -79,7 +79,9 @@ LaTeX Font Warning: Font shape `TU/ptm/bx/it' undefined
 \IEEEPARstartletwidth=\dimen171
 \c@IEEEbiography=\count285
 \@IEEEtranrubishbin=\box54
-) (C:\Users\Ali\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+)
+** ATTENTION: Overriding command lockouts (line 2).
+(C:\Users\Ali\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
 Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
 
 (C:\Users\Ali\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
@@ -596,7 +598,7 @@ Package: xparse 2024-08-16 L3 Experimental document command parser
 )
 Package: blx-case-expl3 2025/07/10 v3.21 expl3 case changing code for biblatex
 ))
-Package hyperref Info: Option `colorlinks' set `true' on input line 17.
+Package hyperref Info: Option `colorlinks' set `true' on input line 18.
 \@quotelevel=\count445
 \@quotereset=\count446
 
@@ -604,108 +606,108 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 17.
 atexmk\journal_paper.aux)
 \openout1 = `journal_paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
 
 
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
-(Font)              using `TU/ptm/bx/n' instead on input line 25.
+(Font)              using `TU/ptm/bx/n' instead on input line 43.
 
 
 LaTeX Font Warning: Font shape `TU/ptm/b/it' undefined
-(Font)              using `TU/ptm/bx/it' instead on input line 25.
+(Font)              using `TU/ptm/bx/it' instead on input line 43.
 
 
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
-(Font)              using `TU/ptm/bx/n' instead on input line 25.
+(Font)              using `TU/ptm/bx/n' instead on input line 43.
 
 
 LaTeX Font Warning: Font shape `TU/ptm/b/it' undefined
-(Font)              using `TU/ptm/bx/it' instead on input line 25.
+(Font)              using `TU/ptm/bx/it' instead on input line 43.
 
 
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
-(Font)              using `TU/ptm/bx/n' instead on input line 25.
+(Font)              using `TU/ptm/bx/n' instead on input line 43.
 
 
 LaTeX Font Warning: Font shape `TU/ptm/b/it' undefined
-(Font)              using `TU/ptm/bx/it' instead on input line 25.
+(Font)              using `TU/ptm/bx/it' instead on input line 43.
 
 
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
-(Font)              using `TU/ptm/bx/n' instead on input line 25.
+(Font)              using `TU/ptm/bx/n' instead on input line 43.
 
 
 LaTeX Font Warning: Font shape `TU/ptm/b/it' undefined
-(Font)              using `TU/ptm/bx/it' instead on input line 25.
+(Font)              using `TU/ptm/bx/it' instead on input line 43.
 
 
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
-(Font)              using `TU/ptm/bx/n' instead on input line 25.
+(Font)              using `TU/ptm/bx/n' instead on input line 43.
 
 
 LaTeX Font Warning: Font shape `TU/ptm/b/it' undefined
-(Font)              using `TU/ptm/bx/it' instead on input line 25.
+(Font)              using `TU/ptm/bx/it' instead on input line 43.
 
 
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
-(Font)              using `TU/ptm/bx/n' instead on input line 25.
+(Font)              using `TU/ptm/bx/n' instead on input line 43.
 
 
 LaTeX Font Warning: Font shape `TU/ptm/b/it' undefined
-(Font)              using `TU/ptm/bx/it' instead on input line 25.
+(Font)              using `TU/ptm/bx/it' instead on input line 43.
 
 
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
-(Font)              using `TU/ptm/bx/n' instead on input line 25.
+(Font)              using `TU/ptm/bx/n' instead on input line 43.
 
 
 LaTeX Font Warning: Font shape `TU/ptm/b/it' undefined
-(Font)              using `TU/ptm/bx/it' instead on input line 25.
+(Font)              using `TU/ptm/bx/it' instead on input line 43.
 
 
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
-(Font)              using `TU/ptm/bx/n' instead on input line 25.
+(Font)              using `TU/ptm/bx/n' instead on input line 43.
 
 
 LaTeX Font Warning: Font shape `TU/ptm/b/it' undefined
-(Font)              using `TU/ptm/bx/it' instead on input line 25.
+(Font)              using `TU/ptm/bx/it' instead on input line 43.
 
 
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
-(Font)              using `TU/ptm/bx/n' instead on input line 25.
+(Font)              using `TU/ptm/bx/n' instead on input line 43.
 
 
 LaTeX Font Warning: Font shape `TU/ptm/b/it' undefined
-(Font)              using `TU/ptm/bx/it' instead on input line 25.
+(Font)              using `TU/ptm/bx/it' instead on input line 43.
 
 
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
-(Font)              using `TU/ptm/bx/n' instead on input line 25.
+(Font)              using `TU/ptm/bx/n' instead on input line 43.
 
 
 LaTeX Font Warning: Font shape `TU/ptm/b/it' undefined
-(Font)              using `TU/ptm/bx/it' instead on input line 25.
+(Font)              using `TU/ptm/bx/it' instead on input line 43.
 
--- Lines per column: 58 (exact).
+-- Lines per column: 56 (exact).
 (C:\Users\Ali\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
 Package: color 2025/01/14 v1.3e Standard LaTeX Color (DPC)
 
@@ -715,7 +717,7 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 Package color Info: Driver file: xetex.def on input line 149.
 
 (C:\Users\Ali\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx))
-Package hyperref Info: Link coloring ON on input line 25.
+Package hyperref Info: Link coloring ON on input line 43.
 
 (E:\Work\Biruni University\Masters\2\Crypto\Final-Project\docs\journal_paper\_l
 atexmk\journal_paper.out)
@@ -741,21 +743,21 @@ Package biblatex Info: ... file 'journal_paper.bbl' found.
 
 (E:\Work\Biruni University\Masters\2\Crypto\Final-Project\docs\journal_paper\_l
 atexmk\journal_paper.bbl)
-Package biblatex Info: Reference section=0 on input line 25.
-Package biblatex Info: Reference segment=0 on input line 25.
+Package biblatex Info: Reference section=0 on input line 43.
+Package biblatex Info: Reference segment=0 on input line 43.
 
 
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
-(Font)              using `TU/ptm/bx/n' instead on input line 29.
+(Font)              using `TU/ptm/bx/n' instead on input line 47.
 
 (sections/abstract.tex)
 
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
-(Font)              using `TU/ptm/bx/n' instead on input line 33.
+(Font)              using `TU/ptm/bx/n' instead on input line 51.
 
 
 LaTeX Font Warning: Font shape `TU/ptm/m/sc' undefined
-(Font)              using `TU/ptm/m/n' instead on input line 38.
+(Font)              using `TU/ptm/m/n' instead on input line 56.
 
 (sections/introduction.tex
 
@@ -803,6 +805,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 [2]
 
+
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
 (Font)              using `TU/ptm/bx/n' instead on input line 131.
 
@@ -812,9 +815,9 @@ Overfull \hbox (25.16011pt too wide) in paragraph at lines 118--134
  []
 
 ) (sections/threat_model.tex
-
 File: figs/system_overview.png Graphic file (type bmp)
 <figs/system_overview.png>
+
 
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
 (Font)              using `TU/ptm/bx/n' instead on input line 24.
@@ -842,6 +845,9 @@ Underfull \hbox (badness 4779) in paragraph at lines 47--50
  []
 
 
+
+[3]
+
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
 (Font)              using `TU/ptm/bx/n' instead on input line 51.
 
@@ -860,25 +866,27 @@ LaTeX Font Warning: Font shape `TU/pcr/m/n' undefined
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
 (Font)              using `TU/ptm/bx/n' instead on input line 59.
 
-
-
-[3]) (sections/data_and_features.tex
+) (sections/data_and_features.tex
 
 File: figs/feature_pipeline.png Graphic file (type bmp)
 <figs/feature_pipeline.png>
 
-Underfull \hbox (badness 5217) in paragraph at lines 61--65
+
+[4]
+
+
+Underfull \hbox (badness 5217) in paragraph at lines 82--86
 \TU/pcr/m/n/10 be event timestamps sorted ascending. We com-
  []
 
 
-Underfull \hbox (badness 4013) in paragraph at lines 61--65
+Underfull \hbox (badness 4013) in paragraph at lines 82--86
 \TU/pcr/m/n/10 pute $\OT1/cmr/m/n/10 ^^A[] = \OML/cmm/m/it/10 t[] \OMS/cmsy/m/n
 /10 ^^@ \OML/cmm/m/it/10 t[]$ \TU/pcr/m/n/10 (in seconds) and extract
  []
 
 
-Underfull \hbox (badness 3503) in paragraph at lines 61--65
+Underfull \hbox (badness 3503) in paragraph at lines 82--86
 \TU/pcr/m/n/10 lateral-movement attacks exhibit anomalously small
  []
 
@@ -889,7 +897,7 @@ LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
 
 
 
-[4]
+[5]
 
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
 (Font)              using `TU/ptm/bx/n' instead on input line 13.
@@ -903,11 +911,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 13--16
 Underfull \hbox (badness 2326) in paragraph at lines 13--16
 \TU/pcr/m/n/10 effectively oversampling the malicious minority
  []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 
 
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
@@ -924,7 +927,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--30
 
 ) (sections/experiments.tex
 
-[5]
 
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
 (Font)              using `TU/ptm/bx/n' instead on input line 46.
@@ -954,27 +956,36 @@ File: figs/results.png Graphic file (type bmp)
 <figs/results.png>
 
 
-) (sections/discussion.tex
+[6]) (sections/discussion.tex
 
-[6]) (sections/conclusion.tex
+) (sections/conclusion.tex
 
-)
+[7])
 
-[7]
-Underfull \hbox (badness 2261) in paragraph at lines 63--63
+
+Underfull \hbox (badness 2261) in paragraph at lines 81--81
 []\TU/pcr/m/n/10 MITRE Corporation, “ATT&CK for ICS,” in
  []
 
 
 
-
-Underfull \hbox (badness 1354) in paragraph at lines 63--63
+[8]
+Underfull \hbox (badness 1354) in paragraph at lines 81--81
 []\TU/pcr/m/n/10 P. Garcia-Teodoro, J. Diaz-Verdejo, G. Macia-
  []
 
 
+** Conference Paper **
+Before submitting the final camera ready copy, remember to:
 
-[8]
+ 1. Manually equalize the lengths of two columns on the last page
+ of your paper;
+
+ 2. Ensure that any PostScript and/or PDF output post-processing
+ uses only Type 1 fonts and that every step in the generation
+ process uses the appropriate paper size.
+
+
 
 
 
@@ -992,19 +1003,19 @@ L3 programming layer <2025-09-02>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `journal_paper.out' has not changed.
-(rerunfilecheck)             Checksum: 7E7DF305F411AB1EF22FDAD7EE8EBD37;6849.
+(rerunfilecheck)             Checksum: B1118AFFB05E9C9A7431E72C4C7FCD32;7247.
 Package logreq Info: Writing requests to 'journal_paper.run.xml'.
 \openout1 = `journal_paper.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 17712 strings out of 403196
- 311376 string characters out of 5456329
- 1193051 words of memory out of 5000000
- 46028 multiletter control sequences out of 15000+600000
+ 17719 strings out of 403196
+ 311540 string characters out of 5456329
+ 1186893 words of memory out of 5000000
+ 46035 multiletter control sequences out of 15000+600000
  632960 words of font info for 71 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 72i,9n,79p,704b,4953s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,9n,79p,704b,4947s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on E:\Work\Biruni University\Masters\2\Crypto\Final-Project\docs
-\journal_paper\_latexmk\journal_paper.xdv (9 pages, 423344 bytes).
+\journal_paper\_latexmk\journal_paper.xdv (9 pages, 440768 bytes).
