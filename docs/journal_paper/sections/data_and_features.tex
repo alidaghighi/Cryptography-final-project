@@ -2,6 +2,27 @@
 
 \subsection{Synthetic Data Generation}
 
+\subsubsection{Rationale for Synthetic Generation}
+A fundamental obstacle in ICS security research is the absence of publicly available,
+labelled Windows Event Log datasets from operational smart grid environments.
+Conti et al.\ \cite{conti2021survey} surveyed ICS testbeds and datasets and confirmed
+that no host-level Windows audit log corpus covering smart grid SCADA or RTU hosts exists
+in the public domain. Nafees et al.\ \cite{nafees2023} attribute this gap to the
+sensitivity of operational data, liability constraints, and the unwillingness of energy
+operators to disclose network topology through released logs.
+
+Synthetic generation is the established response to this barrier. Goh et al.\
+\cite{goh2016swat} constructed the Secure Water Treatment (SWaT) testbed and generated
+controlled attack scenarios precisely because real ICS attack traces were unavailable;
+the SWaT dataset is now a standard ICS security benchmark. Chen et al.\ \cite{chen2022}
+synthesised APT-style Windows audit sequences using threat-emulation frameworks when
+building their machine learning threat-hunting system, explicitly citing the absence of
+labelled operational data as motivation. Our generator follows this precedent, encoding
+MITRE ATT\&CK for ICS attack patterns \cite{mitre2020attack} into realistic Windows Event
+Log sessions, enabling reproducible evaluation without access to restricted operational
+infrastructure.
+
+\subsubsection{Generator Design}
 The generator produces structured CSV records covering 13 Windows Event IDs relevant to
 the ICS threat model (Table~\ref{tab:eventids}). Benign sessions simulate authentic
 operator workflows: a logon burst, interleaved object-access and process-creation events
@@ -35,7 +56,7 @@ $\text{Uniform}(5, 300)$~seconds, reflecting operator think-time.
   \end{tabular}
 \end{table}
 
-The dataset comprises 5{,}000 benign and 1{,}000 malicious sessions, totalling 54{,}478
+The dataset comprises 5{,}000 benign and 1{,}000 malicious sessions, totalling 89{,}288
 events. The 5:1 class ratio reflects a realistic operational environment in which malicious
 sessions are rare. Smart grid hostnames follow SCADA~HMI, RTU~CTRL, \texttt{eng\_station},
 and \texttt{historian} naming conventions. All sessions carry a \texttt{session\_id} UUID
