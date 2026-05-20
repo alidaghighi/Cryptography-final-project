@@ -1,52 +1,134 @@
 \label{sec:related}
 
-\subsection{Windows Event Log and System Log Analysis}
+\subsection{Windows Event Log and Sysmon-Based Malware Detection}
 
-Drain \cite{he2017drain} introduced a fixed-depth parse tree for online log template
-extraction, enabling scalable clustering of heterogeneous log messages—directly applicable
-to the rich natural-language descriptions in Windows Event Log entries. DeepLog
-\cite{du2017deeplog} modelled log key sequences with LSTM networks, framing anomaly
-detection as next-key prediction; deviations from the learned model triggered alerts. Brown
-\textit{et al.}\ \cite{brown2018rnn} added attention mechanisms to recurrent networks for
-interpretable anomaly localisation in system logs. LogAnomaly \cite{zhao2019loganomaly}
-unified sequential and quantitative log anomaly detection via semantic word vectors, reducing
-the dependence on fixed log templates. A unifying theme across these works is the
-exploitation of the \emph{sequential structure} of log streams; our session-level feature
-engineering captures the same structure through Shannon entropy and time-delta statistics
-without requiring deep model training, yielding lower inference latency.
+Windows Event Logs have emerged as a primary data source for host-based malware detection
+in IT environments. Achmad~\textit{et al.}\ \cite{achmad2025} leveraged Sysmon-enriched
+Windows logs—capturing process creation, registry changes, and network connections—with
+both supervised classifiers (Random Forest: F1~=~0.88) and unsupervised anomaly detection
+(Local Outlier Factor: F1~=~0.99), demonstrating the complementarity of the two paradigms.
+\"{O}nal and G\"{u}ven \cite{onal2025} conducted a systematic study of novel Windows
+event types and their discriminative power for dynamic malware analysis, achieving
+ROC-AUC of $0.962 \pm 0.009$; their feature taxonomy informs our event-ID selection.
+Maniriho~\textit{et al.}\ \cite{maniriho2024} provided a comprehensive literature review
+of Windows malware detection, identifying feature representation and class imbalance as
+the two dominant open challenges—both addressed by this work. At the log-parsing level,
+Drain \cite{he2017drain} enables scalable template extraction; DeepLog \cite{du2017deeplog}
+frames anomaly detection as LSTM next-key prediction; LogAnomaly \cite{zhao2019loganomaly}
+unifies sequential and quantitative anomaly signals. Our session-level feature engineering
+captures the same sequential structure via Shannon entropy and time-delta statistics
+without requiring deep model training, yielding substantially lower inference latency.
+Brown~\textit{et al.}\ \cite{brown2018rnn} added attention mechanisms to recurrent networks
+for interpretable anomaly localisation.
+
+\subsection{Graph-Based and Provenance-Aware Detection}
+
+A parallel line of research treats system events as vertices in a provenance graph rather
+than independent feature vectors. Zhen~\textit{et al.}\ \cite{zhen2025} construct
+heterogeneous graphs from audit logs and apply Graph Neural Networks (GNNs) to learn
+structural dependencies among processes, files, and network endpoints. Han~\textit{et al.}\
+\cite{han2020} proposed Unicorn, using online sketch-based provenance-graph summarisation
+for runtime detection of Advanced Persistent Threats with low memory overhead. The spatial
+awareness of these methods enables identification of complex attack chains invisible to
+bag-of-features approaches. However, graph construction and traversal introduce significant
+computational overhead; continuous graph updating in high-event-rate OT environments creates
+latency incompatible with real-time detection requirements, motivating our choice of
+lightweight session-level aggregation.
+
+\subsection{Hybrid Static-Dynamic Analysis}
+
+Ayub~\textit{et al.}\ \cite{ayub2023} proposed RWArmor, feeding static ML model outputs
+into a dynamic behavioural analysis pipeline for early ransomware detection; accuracy
+reaches 86--97\% within 30--120 second observation windows. Anderson and Roth
+\cite{anderson2018} released EMBER, an open dataset for training static PE malware
+classifiers, enabling reproducible feature-engineering studies. These hybrid approaches
+improve detection fidelity for time-critical threats but depend on sandbox infrastructure
+unavailable in operational OT environments where systems cannot be interrupted or diverted.
+
+\subsection{AI-Driven Threat Hunting and Behavioural Analytics}
+
+Beyond reactive classification, Chen~\textit{et al.}\ \cite{chen2022} combined ML, NLP,
+and graph analytics for proactive threat hunting over large-scale event streams, framing
+detection as discovery of anomalous behavioural narratives. Their system addressed the
+``weak signal'' problem—where no single event is sufficient for classification, but a
+sequence of events constitutes a detectable story. This narrative framing directly motivates
+our session abstraction, which aggregates individual event signals into discriminative
+session-level features. Their reliance on APT emulation frameworks for training data and the
+high computational cost of combined NLP+graph processing remain open deployment challenges.
 
 \subsection{ICS/SCADA Intrusion Detection}
 
-Carcano \textit{et al.}\ \cite{carcano2011scada} proposed multidimensional critical-state
-analysis for SCADA, encoding safe system states as polytopes in the joint
-(measurement, command) space and flagging deviations as intrusions. Goldenberg and Wool
-\cite{goldenberg2013modbus} constructed deterministic Modbus/TCP models from
-specification documents, detecting protocol violations with zero false positives.
-Goh \textit{et al.}\ \cite{goh2016swat} released the SWaT public dataset of physical and
-network measurements from a water treatment testbed; it remains the most widely used ICS
-security benchmark. Linda \textit{et al.}\ \cite{linda2009neural} applied neural networks
-to power system disturbance classification, demonstrating feasibility of ML in the
-critical-infrastructure domain. Mitchell and Chen \cite{mitchell2014survey} surveyed CPS
-intrusion detection, noting that \emph{host-level} methods are rare compared to
-network and process-level approaches—the gap this paper addresses. Conti \textit{et al.}\
-\cite{conti2021survey} catalogued ICS testbeds and datasets, confirming the absence of
-Windows Event Log datasets for smart grid environments.
+Nafees~\textit{et al.}\ \cite{nafees2023} surveyed cyber-physical situational awareness
+in smart grids, establishing the defining constraints of OT security: strict temporal
+bounds ($<10$~ms decision latency in some scenarios), safety-critical operations that
+cannot be interrupted, and tight coupling between cyber and physical processes. Carcano
+\textit{et al.}\ \cite{carcano2011scada} proposed multidimensional critical-state
+analysis for SCADA, encoding safe states as polytopes in the joint (measurement, command)
+space. Goldenberg and Wool \cite{goldenberg2013modbus} built deterministic Modbus/TCP
+models with zero false positives from protocol specifications. Goh~\textit{et al.}\
+\cite{goh2016swat} released the SWaT dataset, still the most widely used ICS security
+benchmark—capturing physical sensor and network measurements, not Windows host audit
+trails. Linda~\textit{et al.}\ \cite{linda2009neural} demonstrated ML feasibility in
+critical infrastructure. Mitchell and Chen \cite{mitchell2014survey} confirmed that
+\emph{host-level} IDS methods are rare relative to network and process-level approaches.
+Conti~\textit{et al.}\ \cite{conti2021survey} catalogued ICS testbeds and found no
+publicly available Windows Event Log dataset for smart grid environments—the primary
+data gap this work addresses.
 
 \subsection{Machine Learning for Intrusion Detection}
 
 Breiman's Random Forest \cite{breiman2001} consistently outperforms single classifiers on
-tabular security features due to variance reduction via bagging and the random feature
-subspace \cite{liao2013ids}. Chen and Guestrin's XGBoost \cite{chen2016xgboost} extends
-gradient-boosted trees with column subsampling and regularisation, achieving state-of-the-art
-performance on the KDD~Cup~1999 benchmark after duplicate-removal preprocessing
-\cite{tavallaee2009kdd}. Hink \textit{et al.}\ \cite{hink2014machine} applied Random
-Forest to power system disturbance and cyber-attack discrimination, demonstrating
-application relevance to the smart grid domain. Sommer and Paxson
-\cite{sommer2010outside} argued that the open-world nature of operational environments
-undermines closed-world ML assumptions; their critique motivates our use of synthetic data
-with controlled class-ratio variation and our discussion of concept drift in
-Section~\ref{sec:disc}. Garcia-Teodoro \textit{et al.}\ \cite{garcia2009anomaly} surveyed
-anomaly-based IDS approaches, establishing the statistical, knowledge-based, and ML
-taxonomy that this paper follows. The NIST SP~800-82 \cite{stouffer2015nist} control
-baseline defines the performance and deployment constraints for ICS security tools against
-which we position our framework.
+tabular security features \cite{liao2013ids}. XGBoost \cite{chen2016xgboost} extends
+gradient-boosted trees with column subsampling, achieving state-of-the-art results on
+the KDD~Cup~1999 benchmark after duplicate removal \cite{tavallaee2009kdd}. Hink
+\textit{et al.}\ \cite{hink2014machine} applied Random Forest to smart grid disturbance
+and attack discrimination. Garcia-Teodoro~\textit{et al.}\ \cite{garcia2009anomaly}
+surveyed anomaly-based IDS, establishing the statistical, knowledge-based, and ML
+taxonomy this paper follows. Sommer and Paxson \cite{sommer2010outside} argued that
+open-world operational environments undermine closed-world ML assumptions—their critique
+motivates our multi-seed stability evaluation and concept drift discussion in
+Section~\ref{sec:disc}. NIST SP~800-82 \cite{stouffer2015nist} defines the ICS security
+control baseline against which we position detection and latency requirements.
+
+\subsection{Research Gap and Positioning}
+
+Table~\ref{tab:related} summarises the representative works reviewed above. A consistent
+pattern emerges. Feature-based log methods \cite{achmad2025,onal2025} offer operational
+efficiency but treat events as independent signals, missing multi-event attack narratives.
+Graph-based models \cite{zhen2025,han2020} capture relational structure but incur latency
+and preprocessing costs incompatible with OT real-time constraints. Hybrid pipelines
+\cite{ayub2023,anderson2018} improve detection fidelity but require sandboxes. Threat
+hunting systems \cite{chen2022} address context but impose high computational and data
+requirements. All existing solutions are fundamentally \emph{IT-centric}: they assume
+latency is negotiable, resources are abundant, and offline or sandbox-assisted analysis
+is acceptable \cite{nafees2023}.
+
+Smart grid control systems operate under a different reality. Decisions must be made
+instantly; systems cannot be paused, replicated, or sandboxed; detection must function
+within tight computational and temporal budgets. The result is a mismatch between
+methodological sophistication and operational feasibility that no prior work resolves.
+This paper addresses the gap by proposing a lightweight, session-level feature engineering
+pipeline on Windows Event Logs, explicitly designed for latency-sensitive OT environments.
+
+\begin{table*}[!t]
+  \caption{Comparison of Representative Related Works}
+  \label{tab:related}
+  \centering
+  \footnotesize
+  \begin{tabular}{llllll}
+    \hline
+    Reference & Method & Strength & Key Limitation & Data Source & Env. \\
+    \hline
+    Achmad et al.\ \cite{achmad2025}        & Sysmon + ML             & Practical, low overhead         & No OT/ICS context     & Sysmon logs        & IT \\
+    \"{O}nal \& G\"{u}ven \cite{onal2025}   & Windows events + ML     & Rich feature taxonomy           & Sandbox dependency    & Windows logs       & IT \\
+    Zhen et al.\ \cite{zhen2025}            & GNN on audit logs       & Relational attack modeling      & High latency          & Audit logs         & IT \\
+    Han et al.\ \cite{han2020}              & Provenance graph (APT)  & Online, memory-efficient        & Scalability limits    & System calls       & IT \\
+    Ayub et al.\ \cite{ayub2023}            & RWArmor hybrid          & Early ransomware detection      & Sandbox bottleneck    & Behavioral logs    & IT \\
+    Anderson \& Roth \cite{anderson2018}    & Static PE features      & Open reproducible dataset       & Static only           & PE binaries        & IT \\
+    Chen et al.\ \cite{chen2022}            & ML+NLP+Graph hunting    & Narrative-level context         & High compute cost     & Event streams      & IT \\
+    Nafees et al.\ \cite{nafees2023}        & Smart grid survey       & Domain-specific OT constraints  & No implementation     & OT systems         & OT \\
+    \hline
+    \textbf{This work}                      & RF on WEL sessions      & Lightweight, OT-deployable      & Synthetic data only   & Windows Event Logs & OT \\
+    \hline
+  \end{tabular}
+\end{table*}

@@ -34,10 +34,17 @@ F1-score $\geq 0.95$ under realistic class imbalance ($5:1$ benign-to-malicious 
 
 \subsection{Novelty and Scope}
 
-The proposed work is novel in three respects. First, it targets Windows Event Logs at the
-\emph{host level} within the OT/IT convergence zone—a layer absent from existing ICS IDS
-literature. Second, the session abstraction bridges the gap between raw event streams and
-the sequence-level reasoning required for attack pattern recognition. Third, the open-source
-synthetic generator enables community replication without access to sensitive operational
-data. The scope is bounded to binary (benign/malicious) session classification; multi-class
-attack-type attribution is left for future work.
+The proposed work is novel in four respects. First, it targets Windows Event Logs at the
+\emph{host level} within the OT/IT convergence zone—a layer confirmed absent from existing
+ICS IDS literature \cite{mitchell2014survey,conti2021survey}. Second, the session
+abstraction bridges the gap between raw event streams and sequence-level attack pattern
+recognition, capturing temporal burst structure through entropy and time-delta statistics
+without the inference-latency cost of deep sequence models \cite{du2017deeplog}. Third, the
+open-source synthetic generator—including adversarially-timed evasive attack variants—enables
+community replication without access to sensitive operational data, addressing the data
+availability barrier identified by \cite{nafees2023}. Fourth, the systematic ablation study
+provides deployment guidance: practitioners with constrained feature coverage (e.g.,
+no timestamp resolution) can prioritise event-count features based on quantified delta-F1.
+The scope is bounded to binary (benign/malicious) session classification; multi-class
+attack-type attribution per MITRE ATT\&CK for ICS \cite{mitre2020attack} is left for
+future work.

@@ -4,23 +4,43 @@ IP-connected SCADA and Human-Machine Interface (HMI) systems has enabled
 unprecedented operational efficiency but has simultaneously expanded the cyber attack
 surface. High-profile incidents—most notably the Stuxnet worm \cite{langner2011stuxnet}
 and the Ukrainian power grid attacks of 2015 and 2016—demonstrate that adversaries are
-willing and able to traverse the IT/OT boundary and compromise energy infrastructure.
+willing and able to traverse the IT/OT boundary and compromise energy infrastructure
+\cite{nafees2023}.
 
-Regulatory frameworks respond to this threat. The North American Electric Reliability
-Corporation Critical Infrastructure Protection (NERC CIP) standards mandate event logging,
-monitoring, and incident response for Bulk Electric Systems. IEC~62351 specifies security
-for power systems communications, including requirements for audit trail generation.
-Together they establish Windows Event Logs—produced natively by every Windows host in a
-smart grid operations centre—as a mandated, machine-readable record of system behaviour.
+Among the specific threats targeting these environments, malware remains one of the most
+pervasive and damaging attack vectors. Malware encompasses a wide spectrum of malicious
+software—from early viruses to modern ransomware-as-a-service (RaaS) platforms and
+polymorphic code—designed to disrupt operations, exfiltrate data, or establish persistent
+footholds across IT/OT boundaries \cite{maniriho2024}. Traditional detection is
+broadly split into \emph{static analysis}, which inspects binary artefacts for signatures
+and control-flow structures without execution, and \emph{dynamic analysis}, which
+observes runtime behaviour in controlled sandboxes \cite{ayub2023}. Static approaches
+are undermined by obfuscation and packing; dynamic approaches impose sandboxing overhead
+incompatible with continuous OT operations. Machine learning bridges this gap by learning
+behavioural patterns directly from operational telemetry, without requiring signature
+updates or execution isolation \cite{onal2025}.
+
+Windows Event Logs have emerged as a particularly valuable ML data source: they record
+process creation, privilege assignment, service installation, object access, and logon
+events with millisecond timestamps, providing a fine-grained behavioural footprint across
+every Windows host in a smart grid operations centre \cite{achmad2025}. Regulatory
+frameworks reinforce this choice: NERC CIP-007 mandates event logging and review for
+all applicable Bulk Electric System assets, and IEC~62351 specifies audit trail
+generation for power systems communications, making Windows Event Log collection a
+compliance requirement rather than an optional deployment decision.
 
 Despite this regulatory mandate, Windows Event Logs have received comparatively little
-attention as a detection surface for ICS-specific attacks. The research community has focused
-on network-level anomalies (e.g., Modbus/TCP deviations \cite{goldenberg2013modbus}) or
-dedicated ICS protocols, leaving host-based event logs underexplored. Meanwhile, general
-system-log anomaly detection has advanced significantly through deep learning approaches
-such as DeepLog \cite{du2017deeplog} and LogAnomaly \cite{zhao2019loganomaly}, and
-through log-parsing methods like Drain \cite{he2017drain}. These techniques have not been
-applied in the ICS/SCADA context.
+attention as a detection surface for ICS-specific attacks. The research community has
+focused on network-level anomalies (e.g., Modbus/TCP deviations \cite{goldenberg2013modbus})
+or dedicated ICS protocols, leaving host-based event logs underexplored. Meanwhile,
+general system-log anomaly detection has advanced significantly through deep learning
+approaches such as DeepLog \cite{du2017deeplog} and LogAnomaly \cite{zhao2019loganomaly},
+and through log-parsing methods like Drain \cite{he2017drain}. Graph-based approaches
+\cite{zhen2025} and provenance-graph detectors \cite{han2020} have demonstrated that
+capturing the \emph{relational structure} of events improves detection of multi-stage
+attacks, but impose computational overhead incompatible with real-time OT constraints.
+None of these techniques have been systematically applied to Windows Event Logs within the
+ICS/SCADA context.
 
 This paper makes the following contributions:
 \begin{itemize}
