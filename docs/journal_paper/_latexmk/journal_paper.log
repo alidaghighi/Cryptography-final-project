@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.10.14)  20 MAY 2026 22:07
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.10.14)  20 MAY 2026 22:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -760,36 +760,61 @@ LaTeX Font Warning: Font shape `TU/ptm/m/sc' undefined
 (sections/introduction.tex
 
 
-LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
-(Font)              using `TU/ptm/bx/n' instead on input line 31.
-
-
-LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
-(Font)              using `TU/ptm/bx/n' instead on input line 35.
-
-
-LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
-(Font)              using `TU/ptm/bx/n' instead on input line 38.
-
-
-LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
-(Font)              using `TU/ptm/bx/n' instead on input line 42.
-
-
-LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
-(Font)              using `TU/ptm/bx/n' instead on input line 45.
-
-) (sections/related_work.tex
 
 [1
 
 
-])
+]
 
-(sections/threat_model.tex
+LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
+(Font)              using `TU/ptm/bx/n' instead on input line 57.
+
+
+LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
+(Font)              using `TU/ptm/bx/n' instead on input line 61.
+
+
+LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
+(Font)              using `TU/ptm/bx/n' instead on input line 64.
+
+
+LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
+(Font)              using `TU/ptm/bx/n' instead on input line 68.
+
+
+LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
+(Font)              using `TU/ptm/bx/n' instead on input line 71.
+
+) (sections/related_work.tex
+LaTeX Font Info:    Trying to load font information for U+msa on input line 12.
+
+
+(C:\Users\Ali\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 12.
+
+
+(C:\Users\Ali\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+
+
+
+[2]
+
+LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
+(Font)              using `TU/ptm/bx/n' instead on input line 131.
+
+
+Overfull \hbox (25.16011pt too wide) in paragraph at lines 118--134
+ [][] 
+ []
+
+) (sections/threat_model.tex
+
 File: figs/system_overview.png Graphic file (type bmp)
 <figs/system_overview.png>
-
 
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
 (Font)              using `TU/ptm/bx/n' instead on input line 24.
@@ -835,24 +860,10 @@ LaTeX Font Warning: Font shape `TU/pcr/m/n' undefined
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
 (Font)              using `TU/ptm/bx/n' instead on input line 59.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 61.
-
-(C:\Users\Ali\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 61.
 
 
-(C:\Users\Ali\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
+[3]) (sections/data_and_features.tex
 
-[2])
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-(sections/data_and_features.tex
 File: figs/feature_pipeline.png Graphic file (type bmp)
 <figs/feature_pipeline.png>
 
@@ -871,13 +882,14 @@ Underfull \hbox (badness 3503) in paragraph at lines 61--65
 \TU/pcr/m/n/10 lateral-movement attacks exhibit anomalously small
  []
 
-
-
-[3]) (sections/methodology.tex
+) (sections/methodology.tex
 
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
 (Font)              using `TU/ptm/bx/n' instead on input line 9.
 
+
+
+[4]
 
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
 (Font)              using `TU/ptm/bx/n' instead on input line 13.
@@ -893,10 +905,13 @@ Underfull \hbox (badness 2326) in paragraph at lines 13--16
  []
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
 (Font)              using `TU/ptm/bx/n' instead on input line 17.
-
-
 
 
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
@@ -908,6 +923,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--30
  []
 
 ) (sections/experiments.tex
+
+[5]
 
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
 (Font)              using `TU/ptm/bx/n' instead on input line 46.
@@ -933,34 +950,37 @@ Overfull \hbox (55.73294pt too wide) in paragraph at lines 37--52
  [][] 
  []
 
-
-
-[4]
 File: figs/results.png Graphic file (type bmp)
 <figs/results.png>
 
 
 ) (sections/discussion.tex
 
-[5]) (sections/conclusion.tex
+[6]) (sections/conclusion.tex
 
 )
+
+[7]
 Underfull \hbox (badness 2261) in paragraph at lines 63--63
 []\TU/pcr/m/n/10 MITRE Corporation, “ATT&CK for ICS,” in
  []
 
 
 
-[6]
+
 Underfull \hbox (badness 1354) in paragraph at lines 63--63
 []\TU/pcr/m/n/10 P. Garcia-Teodoro, J. Diaz-Verdejo, G. Macia-
  []
 
 
 
+[8]
 
 
-[7]
+
+[9
+
+]
 (E:\Work\Biruni University\Masters\2\Crypto\Final-Project\docs\journal_paper\_l
 atexmk\journal_paper.aux)
  ***********
@@ -972,19 +992,19 @@ L3 programming layer <2025-09-02>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `journal_paper.out' has not changed.
-(rerunfilecheck)             Checksum: 5C1BC6F103AAE82F8A89B20198262894;5773.
+(rerunfilecheck)             Checksum: 7E7DF305F411AB1EF22FDAD7EE8EBD37;6849.
 Package logreq Info: Writing requests to 'journal_paper.run.xml'.
 \openout1 = `journal_paper.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 17682 strings out of 403196
- 310113 string characters out of 5456329
- 1183368 words of memory out of 5000000
- 45998 multiletter control sequences out of 15000+600000
+ 17712 strings out of 403196
+ 311376 string characters out of 5456329
+ 1193051 words of memory out of 5000000
+ 46028 multiletter control sequences out of 15000+600000
  632960 words of font info for 71 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 72i,9n,79p,704b,4949s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,9n,79p,704b,4953s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on E:\Work\Biruni University\Masters\2\Crypto\Final-Project\docs
-\journal_paper\_latexmk\journal_paper.xdv (7 pages, 324620 bytes).
+\journal_paper\_latexmk\journal_paper.xdv (9 pages, 423344 bytes).

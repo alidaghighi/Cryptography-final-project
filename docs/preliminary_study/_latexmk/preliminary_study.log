@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.10.14)  20 MAY 2026 22:06
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.10.14)  20 MAY 2026 22:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -759,25 +759,36 @@ LaTeX Font Warning: Font shape `TU/ptm/m/sc' undefined
 
 (sections/introduction.tex
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 27.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 47.
 
 (C:\Users\Ali\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 27.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 47.
 
 
 (C:\Users\Ali\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-))
-(sections/literature_review.tex
+)
 
 [1
 
 
-])
+]) (sections/literature_review.tex
 
-(sections/proposed_work.tex
+
+
+[2]
+
+LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
+(Font)              using `TU/ptm/bx/n' instead on input line 104.
+
+
+Overfull \hbox (43.72008pt too wide) in paragraph at lines 92--107
+ [][] 
+ []
+
+) (sections/proposed_work.tex
 
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
 (Font)              using `TU/ptm/bx/n' instead on input line 13.
@@ -794,9 +805,9 @@ LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
 (Font)              using `TU/ptm/bx/n' instead on input line 29.
 
-) (sections/methodology.tex
+)
 
-[2]
+(sections/methodology.tex
 File: figs/architecture.png Graphic file (type bmp)
 <figs/architecture.png>
 LaTeX Font Info:    Trying to load font information for TU+pcr on input line 21
@@ -823,11 +834,17 @@ LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
 (Font)              using `TU/ptm/bx/n' instead on input line 36.
 
+
+
+[3]
 File: figs/pipeline.png Graphic file (type bmp)
 <figs/pipeline.png>
 
+
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
 (Font)              using `TU/ptm/bx/n' instead on input line 54.
+
+
 
 
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
@@ -850,8 +867,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 63--66
 []\TU/pcr/m/n/10 Sequence entropy: Shannon entropy
  []
 
-
-
 )
 Underfull \hbox (badness 1888) in paragraph at lines 70--50
 \TU/pcr/m/n/10 ratio without oversampling, and feature importance
@@ -862,9 +877,7 @@ Underfull \hbox (badness 1881) in paragraph at lines 70--50
 \TU/pcr/m/n/10 eters (n_estimators, max_depth, min_samples_split,
  []
 
-
-
-[3] (sections/results.tex
+(sections/results.tex
 
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
 (Font)              using `TU/ptm/bx/n' instead on input line 54.
@@ -892,14 +905,16 @@ Overfull \hbox (13.22409pt too wide) in paragraph at lines 45--57
 
 )
 
-(sections/conclusion.tex)
+[4] (sections/conclusion.tex)
 
-[4]
-Underfull \hbox (badness 1354) in paragraph at lines 58--58
-[]\TU/pcr/m/n/10 P. Garcia-Teodoro, J. Diaz-Verdejo, G. Macia-
+
+
+[5]
+
+
+Underfull \hbox (badness 2261) in paragraph at lines 58--58
+[]\TU/pcr/m/n/10 MITRE Corporation, “ATT&CK for ICS,” in
  []
-
-
 
 
 ** Conference Paper **
@@ -914,7 +929,7 @@ Before submitting the final camera ready copy, remember to:
 
 
 
-[5]
+[6]
 (E:\Work\Biruni University\Masters\2\Crypto\Final-Project\docs\preliminary_stud
 y\_latexmk\preliminary_study.aux)
  ***********
@@ -926,19 +941,19 @@ L3 programming layer <2025-09-02>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `preliminary_study.out' has not changed.
-(rerunfilecheck)             Checksum: 8A0AB555AA744A2CD676A81284D764AF;3063.
+(rerunfilecheck)             Checksum: FFC8B5B3A3A0048C0F8B76C78304BF3B;3723.
 Package logreq Info: Writing requests to 'preliminary_study.run.xml'.
 \openout1 = `preliminary_study.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 17642 strings out of 403196
- 308929 string characters out of 5456329
- 1177511 words of memory out of 5000000
- 45965 multiletter control sequences out of 15000+600000
+ 17670 strings out of 403196
+ 310127 string characters out of 5456329
+ 1181759 words of memory out of 5000000
+ 45993 multiletter control sequences out of 15000+600000
  632960 words of font info for 71 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 72i,8n,79p,708b,4953s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,8n,79p,708b,4944s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on E:\Work\Biruni University\Masters\2\Crypto\Final-Project\docs
-\preliminary_study\_latexmk\preliminary_study.xdv (5 pages, 219452 bytes).
+\preliminary_study\_latexmk\preliminary_study.xdv (6 pages, 287500 bytes).

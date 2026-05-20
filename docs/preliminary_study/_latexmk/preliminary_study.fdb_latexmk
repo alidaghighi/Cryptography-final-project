@@ -1,17 +1,17 @@
 # Fdb version 4
-["biber _latexmk/preliminary_study"] 1779298985.37909 "_latexmk/preliminary_study.bcf" "_latexmk/preliminary_study.bbl" "_latexmk/preliminary_study" 1779304022.47247 0
-  "_latexmk/preliminary_study.bcf" 1779304021.03577 109349 ac34cd2d82491204f7359a90ccd53c14 "xelatex"
-  "references.bib" 1779298706.49078 6024 51898d41708fdd286af750c1599c882d ""
+["biber _latexmk/preliminary_study"] 1779306992.26947 "_latexmk/preliminary_study.bcf" "_latexmk/preliminary_study.bbl" "_latexmk/preliminary_study" 1779307003.48464 0
+  "_latexmk/preliminary_study.bcf" 1779307002.04683 110980 f53784d3b04fb48dce9a1e394a443632 "xelatex"
+  "references.bib" 1779306872.69091 9838 e845779b95814a02229ae444f4e55bd4 ""
   (generated)
   "_latexmk/preliminary_study.bbl"
   "_latexmk/preliminary_study.blg"
   (rewritten before read)
-["xdvipdfmx"] 1779304021.26321 "_latexmk/preliminary_study.xdv" "preliminary_study.pdf" "preliminary_study" 1779304022.48547 0
-  "_latexmk/preliminary_study.xdv" 1779304021.03869 219452 45dd229e1617af53ab43820226ec7884 "xelatex"
+["xdvipdfmx"] 1779307002.276 "_latexmk/preliminary_study.xdv" "preliminary_study.pdf" "preliminary_study" 1779307003.49706 0
+  "_latexmk/preliminary_study.xdv" 1779307002.04879 287500 337324fc0ae8007187be0e38a9483231 "xelatex"
   (generated)
   "preliminary_study.pdf"
   (rewritten before read)
-["xelatex"] 1779304019.13033 "preliminary_study.tex" "_latexmk/preliminary_study.xdv" "preliminary_study" 1779304022.47331 0
+["xelatex"] 1779306999.81366 "preliminary_study.tex" "_latexmk/preliminary_study.xdv" "preliminary_study" 1779307003.48551 0
   "C:/Users/Ali/AppData/Local/MiKTeX/miktex/data/le/xetex/xelatex.fmt" 1760462429.92507 27156626 8bcbbe1ffc9418223ec2fb6c02d63ba4 ""
   "C:/Users/Ali/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136761454 1528 f853c4d1b4e0550255e02831fdc8496f ""
   "C:/Users/Ali/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
@@ -93,22 +93,22 @@
   "C:/Users/Ali/AppData/Local/Programs/MiKTeX/tex/latex/refcount/refcount.sty" 1576433952 9878 9e94e8fa600d95f9c7731bb21dfb67a4 ""
   "C:/Users/Ali/AppData/Local/Programs/MiKTeX/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1751104012 9684 a33a14b82ce60d6e77cb9be689d79ee6 ""
   "C:/Users/Ali/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "E:/Work/Biruni University/Masters/2/Crypto/Final-Project/docs/preliminary_study/_latexmk/preliminary_study.aux" 1779304021.03089 7101 fffa9687dace9380f4a9b28ac694505a ""
-  "E:/Work/Biruni University/Masters/2/Crypto/Final-Project/docs/preliminary_study/_latexmk/preliminary_study.bbl" 1779299027.38504 29972 cbd7d771561d3287a4f515ed0e7470ae ""
-  "E:/Work/Biruni University/Masters/2/Crypto/Final-Project/docs/preliminary_study/_latexmk/preliminary_study.out" 1779304021.03381 3063 8a0ab555aa744a2cd676a81284d764af ""
-  "_latexmk/preliminary_study.aux" 1779304021.03089 7101 fffa9687dace9380f4a9b28ac694505a "xelatex"
-  "_latexmk/preliminary_study.bbl" 1779299027.38504 29972 cbd7d771561d3287a4f515ed0e7470ae "biber _latexmk/preliminary_study"
-  "_latexmk/preliminary_study.out" 1779304021.03381 3063 8a0ab555aa744a2cd676a81284d764af "xelatex"
-  "_latexmk/preliminary_study.run.xml" 1779304021.03869 2528 4c0c9e3f7755b9997300a33ecd93e49d "xelatex"
+  "E:/Work/Biruni University/Masters/2/Crypto/Final-Project/docs/preliminary_study/_latexmk/preliminary_study.aux" 1779307002.03513 9950 3a8eef59f9ebe2b368976b242a8d0c40 ""
+  "E:/Work/Biruni University/Masters/2/Crypto/Final-Project/docs/preliminary_study/_latexmk/preliminary_study.bbl" 1779306994.77866 43676 d1eeb4c654aaa90dbdccc92715e8e434 ""
+  "E:/Work/Biruni University/Masters/2/Crypto/Final-Project/docs/preliminary_study/_latexmk/preliminary_study.out" 1779307002.04391 3723 ffc8b5b3a3a0048c0f8b76c78304bf3b ""
+  "_latexmk/preliminary_study.aux" 1779307002.03513 9950 3a8eef59f9ebe2b368976b242a8d0c40 "xelatex"
+  "_latexmk/preliminary_study.bbl" 1779306994.77866 43676 d1eeb4c654aaa90dbdccc92715e8e434 "biber _latexmk/preliminary_study"
+  "_latexmk/preliminary_study.out" 1779307002.04391 3723 ffc8b5b3a3a0048c0f8b76c78304bf3b "xelatex"
+  "_latexmk/preliminary_study.run.xml" 1779307002.04879 2528 4c0c9e3f7755b9997300a33ecd93e49d "xelatex"
   "figs/architecture.png" 1779298671.16013 144563 0a0e6b06af6c4c7207c9e33ce6ef1ad6 ""
   "figs/pipeline.png" 1779298671.74051 162245 292dcba4455a62c7bffabf5be8979ea7 ""
   "preliminary_study.tex" 1779298943.87628 1189 ed405469911ec3c38f2825bc4a90629f ""
   "sections/abstract.tex" 1779298720.86333 1140 c901e490420b6ea0d7eaa073db86b218 ""
   "sections/conclusion.tex" 1779298819.42059 1189 054309a3037c56d4ce49ba19429f9218 ""
-  "sections/introduction.tex" 1779298734.74731 2664 247b43dd8ced9f7ed60119e4195af6eb ""
-  "sections/literature_review.tex" 1779298755.53981 3899 ac17324062f4ff8a5edbe9ca9a5d964c ""
+  "sections/introduction.tex" 1779306700.86549 4144 96f495aee1446f2676f7f736f3b73691 ""
+  "sections/literature_review.tex" 1779306783.43309 6691 c617456a1e709b5de55a46e03e98fbbf ""
   "sections/methodology.tex" 1779298799.12301 4066 c2774336cc50d2665010f8bdc0233330 ""
-  "sections/proposed_work.tex" 1779298777.61664 2432 5167bfed045a148549f04237dcfd532a ""
+  "sections/proposed_work.tex" 1779306863.7884 3009 92c817cdef82d70458b69f4768770dd8 ""
   "sections/results.tex" 1779304009.41026 2973 7bc0ed47af216b2e1399ceea0b61e6dc ""
   (generated)
   "_latexmk/preliminary_study.aux"

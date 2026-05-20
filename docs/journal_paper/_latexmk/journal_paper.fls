@@ -175,20 +175,12 @@ INPUT .\sections\introduction.tex
 INPUT .\sections\introduction.tex
 INPUT .\sections\introduction.tex
 INPUT sections\introduction.tex
+OUTPUT E:\Work\Biruni University\Masters\2\Crypto\Final-Project\docs\journal_paper\_latexmk\journal_paper.xdv
 INPUT .\sections\related_work.tex
 INPUT .\sections\related_work.tex
 INPUT .\sections\related_work.tex
 INPUT .\sections\related_work.tex
 INPUT sections\related_work.tex
-OUTPUT E:\Work\Biruni University\Masters\2\Crypto\Final-Project\docs\journal_paper\_latexmk\journal_paper.xdv
-INPUT .\sections\threat_model.tex
-INPUT .\sections\threat_model.tex
-INPUT .\sections\threat_model.tex
-INPUT .\sections\threat_model.tex
-INPUT sections\threat_model.tex
-INPUT .\figs\system_overview.png
-INPUT .\figs\system_overview.png
-INPUT .\figs\system_overview.png
 INPUT C:\Users\Ali\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT C:\Users\Ali\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT C:\Users\Ali\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\umsa.fd
@@ -203,11 +195,6 @@ INPUT C:\Users\Ali\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\umsb.fd
 INPUT C:\Users\Ali\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\Ali\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
 INPUT C:\Users\Ali\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
-INPUT .\sections\data_and_features.tex
-INPUT .\sections\data_and_features.tex
-INPUT .\sections\data_and_features.tex
-INPUT .\sections\data_and_features.tex
-INPUT sections\data_and_features.tex
 INPUT C:\Users\Ali\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr8.tfm
 INPUT C:\Users\Ali\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr6.tfm
 INPUT C:\Users\Ali\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi8.tfm
@@ -220,6 +207,19 @@ INPUT C:\Users\Ali\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbo
 INPUT C:\Users\Ali\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam7.tfm
 INPUT C:\Users\Ali\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\Ali\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
+INPUT .\sections\threat_model.tex
+INPUT .\sections\threat_model.tex
+INPUT .\sections\threat_model.tex
+INPUT .\sections\threat_model.tex
+INPUT sections\threat_model.tex
+INPUT .\figs\system_overview.png
+INPUT .\figs\system_overview.png
+INPUT .\figs\system_overview.png
+INPUT .\sections\data_and_features.tex
+INPUT .\sections\data_and_features.tex
+INPUT .\sections\data_and_features.tex
+INPUT .\sections\data_and_features.tex
+INPUT sections\data_and_features.tex
 INPUT .\figs\feature_pipeline.png
 INPUT .\figs\feature_pipeline.png
 INPUT .\figs\feature_pipeline.png

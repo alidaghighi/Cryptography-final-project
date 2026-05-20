@@ -1,0 +1,219 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{dblfloatfix}
+\usepackage{placeins}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\begin{document}
+
+\title{Artificial Intelligence-Driven Malware Detection via Windows Event Log Engineering in Smart Grid Control Systems}
+
+\author{\IEEEauthorblockN{Ali Daghighi}
+\IEEEauthorblockA{\textit{Department of Computer Engineering} \\
+\textit{Biruni University}\\
+Istanbul, Turkey \\
+adaghighi@biruni.edu.tr}
+\and
+\IEEEauthorblockN{Maya Altell}
+\IEEEauthorblockA{\textit{Department of Computer Engineering} \\
+\textit{Biruni University}\\
+Istanbul, Turkey \\
+maltell@biruni.edu.tr}
+\and
+\IEEEauthorblockN{Mhd Raja Abou Harb}
+\IEEEauthorblockA{\textit{Department of Computer Engineering} \\
+\textit{Biruni University}\\
+Istanbul, Turkey \\
+mharb@biruni.edu.tr}
+}
+
+\maketitle
+
+
+\section{Introduction}
+
+The increasing digitization of critical infrastructures has significantly expanded the attack surface for cyber threats, particularly in smart grid control systems, which integrate Information Technology (IT) and Operational Technology (OT) to enable real-time monitoring and control of power systems. These cyber-physical environments are highly attractive targets for adversaries due to their societal and economic importance, as demonstrated by incidents such as coordinated attacks on power grids and advanced persistent threats (APTs) targeting industrial control systems \cite{nafees2023}. Consequently, ensuring robust and intelligent cybersecurity mechanisms in such environments has become a critical research priority.
+
+Among the various cyber threats, malware remains one of the most pervasive and damaging attack vectors. Malware encompasses a wide range of malicious software designed to disrupt operations, exfiltrate sensitive data, or gain unauthorized access to systems \cite{maniriho2024}. In recent years, malware has evolved into increasingly sophisticated forms, including polymorphic malware and ransomware-as-a-service (RaaS), which can evade traditional detection mechanisms and cause severe financial and operational damage. The growing complexity and volume of malware, particularly targeting Windows-based systems, demand more adaptive and intelligent detection techniques \cite{achmad2025}.
+
+Traditional malware detection approaches are broadly categorized into static analysis and dynamic analysis. Static analysis examines executable files without execution, focusing on structural features such as byte sequences, opcodes, and control flow graphs. While efficient, static techniques are highly susceptible to evasion through obfuscation, encryption, and packing \cite{zhen2025}. In contrast, dynamic analysis observes program behavior during execution in controlled environments, enabling the detection of runtime activities such as file modifications, process creation, and network communication. This behavioral perspective provides deeper insight into malicious intent and is more resilient against code obfuscation techniques \cite{onal2025}.
+
+With the advancement of Artificial Intelligence (AI) and Machine Learning (ML), malware detection has transitioned toward data-driven approaches capable of learning complex behavioral patterns. ML-based techniques can analyze large volumes of system activity data, identify hidden relationships, and generalize to previously unseen malware variants \cite{onal2025}. In particular, Windows Event Logs, including enhanced logging tools such as Sysmon, have emerged as valuable data sources for capturing fine-grained system activities. These logs record detailed events such as process creation, registry modifications, file operations, and network connections, providing a rich behavioral footprint for malware detection \cite{achmad2025}.
+
+Recent research has explored leveraging event logs and audit logs as primary data sources for AI-driven malware detection. Log-based approaches offer several advantages, including low deployment overhead, resistance to evasion, and compatibility with real-world systems. Advanced methods further enhance detection capabilities by modeling relationships between events using graph-based techniques, such as Graph Neural Networks (GNNs), which capture both structural and semantic dependencies among system activities \cite{zhen2025}. Additionally, hybrid approaches combining static and dynamic features have been proposed to improve early detection of threats such as ransomware, enabling detection within seconds of execution \cite{ayub2023}.
+
+Despite these advancements, several challenges remain. Malware detection systems often struggle with high-dimensional and noisy log data, imbalanced datasets, and the difficulty of capturing meaningful context from isolated events \cite{chen2022}. Furthermore, most existing solutions are designed for traditional IT environments and do not adequately address the unique requirements of smart grid control systems, where real-time constraints, safety-critical operations, and cyber-physical dependencies introduce additional complexity.
+
+To address these challenges, this research focuses on Artificial Intelligence-driven malware detection via Windows event log engineering in smart grid control systems. By leveraging advanced feature engineering techniques on Windows event logs and integrating AI-based models, this work aims to develop a robust and scalable detection framework tailored to cyber-physical environments. The proposed approach seeks to bridge the gap between traditional malware detection techniques and the emerging needs of smart grid security by emphasizing behavioral analysis, contextual event modeling, and intelligent feature representation. 
+
+\section{Related Work}
+
+\subsection{Feature-Based Log-Centric Detection Approaches}
+
+A substantial body of research approaches malware detection through the lens of feature extraction from Windows event logs, treating system activity as a structured but largely independent set of signals. Works such as Achmad \textit{et al.} \cite{achmad2025} and Önal and Güven \cite{onal2025} exemplify this direction by leveraging Sysmon and extended Windows logging to construct feature vectors representing process creation, registry interactions, and network activity. These features are subsequently fed into classical machine learning classifiers, including Random Forests and Support Vector Machines.
+
+What makes these approaches effective is their operational simplicity. They align well with existing logging infrastructures and impose relatively low computational overhead, making them attractive for deployment in production systems. However, their fundamental limitation lies in how they interpret system behavior, as isolated observations rather than interconnected sequences. A single process execution event, for instance, carries limited semantic meaning unless contextualized within a broader execution chain. This ``weak signal'' problem, highlighted by Chen \textit{et al.} \cite{chen2022}, often leads to brittle models that perform well on curated datasets but struggle when confronted with sophisticated, multi-stage attacks.
+
+The issue becomes more pronounced in latency-sensitive environments such as smart grid control systems. Here, the volume and velocity of logs are significantly higher, and decisions must be made within strict temporal bounds. Feature-based methods, while efficient, lack the contextual awareness needed to distinguish benign anomalies from coordinated attack patterns, raising concerns about both false positives and missed detections.
+
+\subsection{Graph-Based and Context-Aware Modeling}
+
+In response to the limitations of isolated feature representations, a parallel line of research has shifted toward graph-based modeling, where system events are treated as interconnected entities rather than standalone records. Zhen \textit{et al.} \cite{zhen2025} propose a Graph Neural Network (GNN)-based framework that transforms audit logs into graphs capturing relationships between processes, files, and network endpoints. Similarly, provenance graph approaches model system execution as directed graphs to reconstruct attack chains.
+
+The strength of these methods lies in their ability to capture \textit{spatial dependencies}—that is, the structural relationships between system components. By learning over these relationships, graph-based models can identify complex attack patterns that would otherwise remain invisible to traditional classifiers. This makes them particularly effective against advanced persistent threats and multi-stage malware.
+
+Yet, this spatial awareness comes at a cost. Graph construction and traversal introduce significant computational overhead, and more importantly, temporal inefficiencies. Building and updating graphs in real time is non-trivial, especially in environments where event streams are continuous and high-frequency. In latency-sensitive OT systems, such as smart grids, this creates a fundamental mismatch: the model requires time to build context, but the system cannot afford delays in decision-making.
+
+Moreover, these approaches often assume clean, well-structured input data and substantial preprocessing, conditions rarely met in real-world cyber-physical systems. As a result, while graph-based models excel in analytical depth, their practical deployment in operational environments remains limited.
+
+\begin{table*}[!tb]
+\caption{Comparison of Malware Detection Approaches}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.1}
+\begin{tabularx}{\textwidth}{|L{2.2cm}|L{2.0cm}|Y|Y|L{1.4cm}|Y|L{0.8cm}|}
+\hline
+\textbf{Reference} & \textbf{Methodology} & \textbf{Strengths} & \textbf{Limitations} & \textbf{Data Source} & \textbf{Performance Metrics} & \textbf{Env.} \\
+\hline
+
+Achmad et al. (2025)
+& Sysmon + ML (supervised + unsupervised)
+& Practical, low overhead
+& Weak contextual linkage
+& Sysmon logs
+& F1: 0.9873 (LOF), 0.8799 (RF)
+& IT \\
+
+\hline
+
+Onal \& Guven (2025)
+& Enhanced Windows logs + ML
+& Rich feature representation
+& Sandbox dependency
+& Windows logs
+& Accuracy: 91.2\%, ROC-AUC: 0.962 $\pm$ 0.009
+& IT \\
+
+\hline
+
+Zhen et al. (2025)
+& Graph Neural Network (GNN)
+& Strong relational modeling
+& High computational cost
+& Audit logs
+& High detection performance (exact values not reported)
+& IT \\
+
+\hline
+
+Ayub et al. (2023)
+& Hybrid (RWArmor)
+& Early detection capability
+& Sandbox bottleneck
+& Behavioral logs (IRP)
+& Accuracy: 97.67\% (120s), 92.38\% (60s), 86.42\% (30s)
+& IT \\
+
+\hline
+
+Chen et al. (2022)
+& ML + NLP + Graph (Threat Hunting)
+& Handles weak signals
+& Synthetic data reliance
+& System event streams
+& TPR $>$ 80\%, TNR $>$ 80\%, F3 $>$ 60\%
+& IT \\
+
+\hline
+
+Han et al. (2020)
+& Provenance Graphs
+& Strong contextual modeling
+& Scalability issues
+& System calls
+& Reported high detection performance (no exact values)
+& IT \\
+
+\hline
+
+Anderson et al. (2018)
+& Deep Learning Hybrid
+& Robust feature learning
+& High computational cost
+& Binary + logs
+& Reported high accuracy (no exact values)
+& IT \\
+
+\hline
+
+Nafees et al. (2023)
+& Smart Grid Security Review
+& Domain-specific insights
+& No implementation
+& OT systems
+& Qualitative analysis only
+& OT \\
+
+\hline
+
+\end{tabularx}
+\end{table*}
+
+\subsection{Hybrid Static-Dynamic Analysis}
+
+Another branch of research attempts to reconcile the trade-offs between static and dynamic analysis through hybrid frameworks. RWArmor, proposed by Ayub \textit{et al.} \cite{ayub2023}, exemplifies this approach by incorporating outputs from static machine learning models into dynamic behavioral analysis. The idea is straightforward: use static features to provide an early estimate of maliciousness, then refine the decision using runtime behavior.
+
+This hybridization improves early detection capabilities, particularly for ransomware, where timing is critical. Detecting malicious behavior within the first few seconds of execution can prevent irreversible damage such as file encryption. Empirical results from RWArmor demonstrate high accuracy within short observation windows.
+
+However, the practicality of such approaches is constrained by their reliance on sandbox environments. Dynamic analysis typically requires executing malware samples in controlled settings to observe behavior safely. This introduces a bottleneck that is incompatible with real-world deployment in operational systems. Smart grid environments, for instance, cannot afford the overhead of sandboxing or delayed analysis pipelines. Decisions must be made inline, without interrupting system operations.
+
+In essence, hybrid approaches improve detection quality but struggle with deployment realism. They are well-suited for offline analysis and forensic investigation, yet fall short in scenarios demanding continuous, real-time monitoring.
+
+\subsection{AI-Driven Threat Hunting and Behavioral Analytics}
+
+Beyond detection, some studies frame the problem as proactive threat hunting, where the objective is not merely to classify events but to uncover hidden attack narratives. Chen \textit{et al.} \cite{chen2022} propose a system combining machine learning, natural language processing, and graph analytics to identify anomalous behavior patterns across large-scale event streams.
+
+This shift toward narrative-driven analysis addresses a key limitation of earlier methods: the absence of temporal and semantic coherence. By linking events into sequences and interpreting them as evolving stories, these systems provide richer insights into attack progression.
+
+Still, these approaches rely heavily on simulated environments and synthetic data generation, such as APT emulation frameworks. While useful for training, such data may not accurately reflect the nuances of real-world operational systems. Additionally, the computational demands of combining NLP, graph processing, and machine learning further complicate their deployment in resource-constrained environments.
+
+\subsection{Malware Detection in Smart Grid and OT Systems}
+
+When narrowing the focus to smart grids and cyber-physical systems, the gap becomes immediately apparent. Surveys such as Nafees \textit{et al.} \cite{nafees2023} highlight the unique security challenges in these environments, including strict temporal bounds, operational sensitivity, and the tight coupling between cyber and physical processes.
+
+Most existing malware detection techniques, however, are designed with traditional IT environments in mind. They assume abundant computational resources, flexible latency requirements, and the availability of labeled datasets. These assumptions do not hold in OT settings, where systems must operate continuously and safely under constrained conditions.
+
+The result is a disconnect: highly sophisticated detection models exist, yet they remain largely absent from smart grid deployments. The issue is not a lack of capability, but a lack of alignment between methodological design and environmental requirements.
+
+
+
+\subsection{Research Gap and Motivation}
+
+Taken together, these works paint a clear picture of progress—and its limits. Feature-based methods offer efficiency but lack contextual depth. Graph-based models provide rich relational understanding but struggle under strict temporal constraints. Hybrid approaches improve detection fidelity yet depend on sandboxed environments that do not translate to operational systems. Table~I summarizes these trade-offs and highlights the persistent mismatch between model sophistication and operational feasibility.
+
+The common thread is that these solutions are fundamentally IT-centric. They are designed for environments where latency is negotiable, resources are abundant, and offline analysis is acceptable.
+
+Smart grid control systems operate under a different reality. Decisions must be made instantly. Systems cannot be paused, replicated, or sandboxed. Any detection mechanism must function within tight computational and temporal budgets while maintaining high reliability.
+
+\textbf{Therefore}, despite the maturity of AI-driven malware detection techniques, there remains a critical gap in adapting these methods to cyber-physical environments. Existing approaches either lack the contextual intelligence required to detect sophisticated attacks or impose computational demands incompatible with operational constraints.
+
+This research addresses this gap by proposing a lightweight, context-aware malware detection framework based on Windows event log engineering, explicitly designed for latency-sensitive smart grid environments.
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+
+
+\end{document}

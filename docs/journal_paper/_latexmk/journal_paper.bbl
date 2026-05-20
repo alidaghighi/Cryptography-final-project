@@ -19,6 +19,57 @@
 
 \refsection{0}
   \datalist[entry]{none/global//global/global/global}
+    \entry{nafees2023}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=9f135523a8d36efe08a617a872c3cce7}{%
+           family={Nafees},
+           familyi={N\bibinitperiod},
+           given={M.\bibnamedelimi Nawaz},
+           giveni={M\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=75a97695eedcd84c2ab02dbe27f55558}{%
+           family={Saxena},
+           familyi={S\bibinitperiod},
+           given={Neetesh},
+           giveni={N\bibinitperiod}}}%
+        {{hash=fa707b735a519d492d2ce1276f8e1336}{%
+           family={Cardenas},
+           familyi={C\bibinitperiod},
+           given={Alvaro\bibnamedelima A.},
+           giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=3a319786aa71dd2c9cc05e36d032349b}{%
+           family={Grijalva},
+           familyi={G\bibinitperiod},
+           given={Santiago},
+           giveni={S\bibinitperiod}}}%
+        {{hash=d1142057fe902b876b5e909887a388c6}{%
+           family={Burnap},
+           familyi={B\bibinitperiod},
+           given={Pete},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{71c59e925f565596d43e1bd554d4085b}
+      \strng{fullhash}{22dc5ae04934c511a1b35560d15784fc}
+      \strng{fullhashraw}{22dc5ae04934c511a1b35560d15784fc}
+      \strng{bibnamehash}{22dc5ae04934c511a1b35560d15784fc}
+      \strng{authorbibnamehash}{22dc5ae04934c511a1b35560d15784fc}
+      \strng{authornamehash}{71c59e925f565596d43e1bd554d4085b}
+      \strng{authorfullhash}{22dc5ae04934c511a1b35560d15784fc}
+      \strng{authorfullhashraw}{22dc5ae04934c511a1b35560d15784fc}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{ACM Computing Surveys}
+      \field{number}{10}
+      \field{title}{Smart Grid Cyber-Physical Situational Awareness of Complex Operational Technology Attacks: A Review}
+      \field{volume}{55}
+      \field{year}{2023}
+      \field{pages}{1\bibrangedash 36}
+      \range{pages}{36}
+      \verb{doi}
+      \verb 10.1145/3565570
+      \endverb
+    \endentry
     \entry{langner2011stuxnet}{article}{}{}
       \name{author}{1}{}{%
         {{hash=7ca499a4d5c019347cd6e4d486be5f36}{%
@@ -35,8 +86,8 @@
       \strng{authornamehash}{7ca499a4d5c019347cd6e4d486be5f36}
       \strng{authorfullhash}{7ca499a4d5c019347cd6e4d486be5f36}
       \strng{authorfullhashraw}{7ca499a4d5c019347cd6e4d486be5f36}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Security \& Privacy}
@@ -48,6 +99,268 @@
       \range{pages}{3}
       \verb{doi}
       \verb 10.1109/MSP.2011.67
+      \endverb
+    \endentry
+    \entry{maniriho2024}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=4ab474828554026156ece22eac0e4a23}{%
+           family={Maniriho},
+           familyi={M\bibinitperiod},
+           given={Pascal},
+           giveni={P\bibinitperiod}}}%
+        {{hash=79c3752772e9248f7d4a4e9e419300b8}{%
+           family={Mahmood},
+           familyi={M\bibinitperiod},
+           given={Abdun\bibnamedelima Naser},
+           giveni={A\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=296b59ae70ca9f43305d771faed510c1}{%
+           family={Chowdhury},
+           familyi={C\bibinitperiod},
+           given={Mohammad\bibnamedelimb Jahed\bibnamedelima Morshed},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \strng{namehash}{c0684eeb11d56d2e2c774cd51486408e}
+      \strng{fullhash}{0c5c229cdcb82ee2fc9473437e878de6}
+      \strng{fullhashraw}{0c5c229cdcb82ee2fc9473437e878de6}
+      \strng{bibnamehash}{0c5c229cdcb82ee2fc9473437e878de6}
+      \strng{authorbibnamehash}{0c5c229cdcb82ee2fc9473437e878de6}
+      \strng{authornamehash}{c0684eeb11d56d2e2c774cd51486408e}
+      \strng{authorfullhash}{0c5c229cdcb82ee2fc9473437e878de6}
+      \strng{authorfullhashraw}{0c5c229cdcb82ee2fc9473437e878de6}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Systems and Software}
+      \field{title}{A systematic literature review on Windows malware detection: Taxonomy, assessment and future directions}
+      \field{volume}{208}
+      \field{year}{2024}
+      \field{pages}{111921}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.jss.2023.111921
+      \endverb
+    \endentry
+    \entry{ayub2023}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=065e2df94c905529f4d67094be7f8919}{%
+           family={Ayub},
+           familyi={A\bibinitperiod},
+           given={Muhammad\bibnamedelima Ajmal},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=cd3cfc182bb5ed1de25c6068401feb18}{%
+           family={Continella},
+           familyi={C\bibinitperiod},
+           given={Andrea},
+           giveni={A\bibinitperiod}}}%
+        {{hash=6971de63019d2a22a244a16d3dc64d3d}{%
+           family={Siraj},
+           familyi={S\bibinitperiod},
+           given={Ambareen},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{a2403c6e57a0a2d31850f788bec8ad27}
+      \strng{fullhash}{13d0abdf33918eb106ab9775da699dfb}
+      \strng{fullhashraw}{13d0abdf33918eb106ab9775da699dfb}
+      \strng{bibnamehash}{13d0abdf33918eb106ab9775da699dfb}
+      \strng{authorbibnamehash}{13d0abdf33918eb106ab9775da699dfb}
+      \strng{authornamehash}{a2403c6e57a0a2d31850f788bec8ad27}
+      \strng{authorfullhash}{13d0abdf33918eb106ab9775da699dfb}
+      \strng{authorfullhashraw}{13d0abdf33918eb106ab9775da699dfb}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Information Security}
+      \field{number}{2}
+      \field{title}{{RWArmor}: A Static-Informed Dynamic Analysis Approach for Early Detection of Cryptographic Windows Ransomware}
+      \field{volume}{22}
+      \field{year}{2023}
+      \field{pages}{373\bibrangedash 390}
+      \range{pages}{18}
+      \verb{doi}
+      \verb 10.1007/s10207-022-00622-4
+      \endverb
+    \endentry
+    \entry{onal2025}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=05e47c32da155465375646ab93336f5a}{%
+           family={Önal},
+           familyi={Ö\bibinitperiod},
+           given={Gökhan},
+           giveni={G\bibinitperiod}}}%
+        {{hash=6b1ab59b511fece9a825bb7f438fd778}{%
+           family={Güven},
+           familyi={G\bibinitperiod},
+           given={Mehmet},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{7262aa9d9fd3ce15c74125ec34eda35a}
+      \strng{fullhash}{7262aa9d9fd3ce15c74125ec34eda35a}
+      \strng{fullhashraw}{7262aa9d9fd3ce15c74125ec34eda35a}
+      \strng{bibnamehash}{7262aa9d9fd3ce15c74125ec34eda35a}
+      \strng{authorbibnamehash}{7262aa9d9fd3ce15c74125ec34eda35a}
+      \strng{authornamehash}{7262aa9d9fd3ce15c74125ec34eda35a}
+      \strng{authorfullhash}{7262aa9d9fd3ce15c74125ec34eda35a}
+      \strng{authorfullhashraw}{7262aa9d9fd3ce15c74125ec34eda35a}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Access}
+      \field{title}{Enhancing Dynamic Malware Behavior Analysis Through Novel Windows Events With Machine Learning}
+      \field{volume}{13}
+      \field{year}{2025}
+      \field{pages}{1\bibrangedash 15}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1109/ACCESS.2025.3526943
+      \endverb
+    \endentry
+    \entry{achmad2025}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{hash=0ab39dc76fc5194e023b607583018ff0}{%
+           family={Achmad},
+           familyi={A\bibinitperiod},
+           given={Rizka\bibnamedelima Maulidya},
+           giveni={R\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \strng{namehash}{af1e0b557b5c4958d5c56327ed4cac6e}
+      \strng{fullhash}{af1e0b557b5c4958d5c56327ed4cac6e}
+      \strng{fullhashraw}{af1e0b557b5c4958d5c56327ed4cac6e}
+      \strng{bibnamehash}{af1e0b557b5c4958d5c56327ed4cac6e}
+      \strng{authorbibnamehash}{af1e0b557b5c4958d5c56327ed4cac6e}
+      \strng{authornamehash}{af1e0b557b5c4958d5c56327ed4cac6e}
+      \strng{authorfullhash}{af1e0b557b5c4958d5c56327ed4cac6e}
+      \strng{authorfullhashraw}{af1e0b557b5c4958d5c56327ed4cac6e}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Cyber Security and Applications}
+      \field{title}{Sysmon Event Logs for Machine Learning-Based Malware Detection}
+      \field{volume}{3}
+      \field{year}{2025}
+      \field{pages}{100073}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.csa.2024.100073
+      \endverb
+    \endentry
+    \entry{zhen2025}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{hash=1a45a400efa6ac6e9131cf9b74c368ba}{%
+           family={Zhen},
+           familyi={Z\bibinitperiod},
+           given={Yang},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{7516eeee697cd4062659dd8716694bf6}
+      \strng{fullhash}{7516eeee697cd4062659dd8716694bf6}
+      \strng{fullhashraw}{7516eeee697cd4062659dd8716694bf6}
+      \strng{bibnamehash}{7516eeee697cd4062659dd8716694bf6}
+      \strng{authorbibnamehash}{7516eeee697cd4062659dd8716694bf6}
+      \strng{authornamehash}{7516eeee697cd4062659dd8716694bf6}
+      \strng{authorfullhash}{7516eeee697cd4062659dd8716694bf6}
+      \strng{authorfullhashraw}{7516eeee697cd4062659dd8716694bf6}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Engineering Applications of Artificial Intelligence}
+      \field{title}{A Novel Malware Detection Method Based on Audit Logs and Graph Neural Network}
+      \field{volume}{139}
+      \field{year}{2025}
+      \field{pages}{109532}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.engappai.2024.109532
+      \endverb
+    \endentry
+    \entry{han2020}{inproceedings}{}{}
+      \name{author}{5}{}{%
+        {{hash=49f374e86a54e0b641afa4ccdeb34150}{%
+           family={Han},
+           familyi={H\bibinitperiod},
+           given={Xueyuan},
+           giveni={X\bibinitperiod}}}%
+        {{hash=fa7da21e31513399f404a3723aa37c5b}{%
+           family={Pasquier},
+           familyi={P\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+        {{hash=d036433b717d49c0a2eb775b557b8239}{%
+           family={Bates},
+           familyi={B\bibinitperiod},
+           given={Adam},
+           giveni={A\bibinitperiod}}}%
+        {{hash=fa4d85910e42efadddbb88651cdaf4b1}{%
+           family={Mickens},
+           familyi={M\bibinitperiod},
+           given={James},
+           giveni={J\bibinitperiod}}}%
+        {{hash=97ae0012fef2e4f07351b0dbfce000a1}{%
+           family={Seltzer},
+           familyi={S\bibinitperiod},
+           given={Margo},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{888b5df7ac37c48d8a4f5722d144c449}
+      \strng{fullhash}{3be1b1bf41290c937793fec5dc2df78b}
+      \strng{fullhashraw}{3be1b1bf41290c937793fec5dc2df78b}
+      \strng{bibnamehash}{3be1b1bf41290c937793fec5dc2df78b}
+      \strng{authorbibnamehash}{3be1b1bf41290c937793fec5dc2df78b}
+      \strng{authornamehash}{888b5df7ac37c48d8a4f5722d144c449}
+      \strng{authorfullhash}{3be1b1bf41290c937793fec5dc2df78b}
+      \strng{authorfullhashraw}{3be1b1bf41290c937793fec5dc2df78b}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the Network and Distributed System Security Symposium (NDSS)}
+      \field{title}{{Unicorn}: Runtime Provenance-Based Detector for Advanced Persistent Threats}
+      \field{year}{2020}
+      \verb{doi}
+      \verb 10.14722/ndss.2020.24339
+      \endverb
+    \endentry
+    \entry{anderson2018}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=b7ce5783d4e4b5b33d7541a3245e3b11}{%
+           family={Anderson},
+           familyi={A\bibinitperiod},
+           given={Hyrum\bibnamedelima S.},
+           giveni={H\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=19ff65b8ed8ab95652a6588a676032ab}{%
+           family={Roth},
+           familyi={R\bibinitperiod},
+           given={Phil},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{f3ee9f3f0fa92877bc26de51526cd5e3}
+      \strng{fullhash}{f3ee9f3f0fa92877bc26de51526cd5e3}
+      \strng{fullhashraw}{f3ee9f3f0fa92877bc26de51526cd5e3}
+      \strng{bibnamehash}{f3ee9f3f0fa92877bc26de51526cd5e3}
+      \strng{authorbibnamehash}{f3ee9f3f0fa92877bc26de51526cd5e3}
+      \strng{authornamehash}{f3ee9f3f0fa92877bc26de51526cd5e3}
+      \strng{authorfullhash}{f3ee9f3f0fa92877bc26de51526cd5e3}
+      \strng{authorfullhashraw}{f3ee9f3f0fa92877bc26de51526cd5e3}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:1804.04637}
+      \field{title}{{EMBER}: An Open Dataset for Training Static {PE} Malware Machine Learning Models}
+      \field{year}{2018}
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/1804.04637
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/1804.04637
       \endverb
     \endentry
     \entry{goldenberg2013modbus}{article}{}{}
@@ -71,8 +384,8 @@
       \strng{authornamehash}{803a250973a608e37de5e2f835adfcde}
       \strng{authorfullhash}{803a250973a608e37de5e2f835adfcde}
       \strng{authorfullhashraw}{803a250973a608e37de5e2f835adfcde}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{International Journal of Critical Infrastructure Protection}
@@ -127,8 +440,8 @@
       \strng{authornamehash}{0d89cfefb7719f19664fd26ef08af8ae}
       \strng{authorfullhash}{13458bab3efb19036ba593151e410390}
       \strng{authorfullhashraw}{13458bab3efb19036ba593151e410390}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Transactions on Industrial Informatics}
@@ -173,8 +486,8 @@
       \strng{authornamehash}{628297f593f4b9d2d872ad79c038c306}
       \strng{authorfullhash}{103fe031e422bdf48bad26fb62600072}
       \strng{authorfullhashraw}{103fe031e422bdf48bad26fb62600072}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Critical Infrastructure Protection X}
@@ -200,8 +513,8 @@
       \strng{authornamehash}{74ba159b7a793d67eb4e566a38793238}
       \strng{authorfullhash}{74ba159b7a793d67eb4e566a38793238}
       \strng{authorfullhashraw}{74ba159b7a793d67eb4e566a38793238}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{MITRE ATT\&CK Knowledge Base}
@@ -245,8 +558,8 @@
       \strng{authornamehash}{2114520c258cd871b6d57e1af260bd8e}
       \strng{authorfullhash}{d2eb43d672c0a403ae2093e9e55d495f}
       \strng{authorfullhashraw}{d2eb43d672c0a403ae2093e9e55d495f}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{2017 IEEE International Conference on Web Services (ICWS)}
@@ -289,8 +602,8 @@
       \strng{authornamehash}{9c332f1edf158a734f1c6bb7e4700d17}
       \strng{authorfullhash}{760efbdb5f6ee764f720cfc67b65c0c3}
       \strng{authorfullhashraw}{760efbdb5f6ee764f720cfc67b65c0c3}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Proceedings of the 2017 ACM SIGSAC Conference on Computer and Communications Security}
@@ -300,50 +613,6 @@
       \range{pages}{14}
       \verb{doi}
       \verb 10.1145/3133956.3134015
-      \endverb
-    \endentry
-    \entry{brown2018rnn}{inproceedings}{}{}
-      \name{author}{4}{}{%
-        {{hash=a484eba253669bf860fdf92cdfc1c14c}{%
-           family={Brown},
-           familyi={B\bibinitperiod},
-           given={Andy},
-           giveni={A\bibinitperiod}}}%
-        {{hash=76d3af8b0519f637be5a42436b1938f5}{%
-           family={Tuor},
-           familyi={T\bibinitperiod},
-           given={Aaron},
-           giveni={A\bibinitperiod}}}%
-        {{hash=e64dc4aed7850253078e3d03618e6e52}{%
-           family={Hutchinson},
-           familyi={H\bibinitperiod},
-           given={Brian},
-           giveni={B\bibinitperiod}}}%
-        {{hash=33f4ca413a99c66ee4add305b7cabbc1}{%
-           family={Nichols},
-           familyi={N\bibinitperiod},
-           given={Nicole},
-           giveni={N\bibinitperiod}}}%
-      }
-      \strng{namehash}{5135ba44879aa49d208369b03170cdc1}
-      \strng{fullhash}{0ed2cd246728717c253304e3112a56cb}
-      \strng{fullhashraw}{0ed2cd246728717c253304e3112a56cb}
-      \strng{bibnamehash}{0ed2cd246728717c253304e3112a56cb}
-      \strng{authorbibnamehash}{0ed2cd246728717c253304e3112a56cb}
-      \strng{authornamehash}{5135ba44879aa49d208369b03170cdc1}
-      \strng{authorfullhash}{0ed2cd246728717c253304e3112a56cb}
-      \strng{authorfullhashraw}{0ed2cd246728717c253304e3112a56cb}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{Proceedings of the First Workshop on Machine Learning for Computing Systems (MLHat)}
-      \field{title}{Recurrent Neural Network Attention Mechanisms for Interpretable System Log Anomaly Detection}
-      \field{year}{2018}
-      \field{pages}{1\bibrangedash 8}
-      \range{pages}{8}
-      \verb{doi}
-      \verb 10.1145/3217871.3217872
       \endverb
     \endentry
     \entry{zhao2019loganomaly}{inproceedings}{}{}
@@ -409,8 +678,8 @@
       \strng{authornamehash}{39a33edd490348c5cdb6c34e7a659c32}
       \strng{authorfullhash}{b3148d1e9f05dee3102247d851e31d5f}
       \strng{authorfullhashraw}{b3148d1e9f05dee3102247d851e31d5f}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Proceedings of the 28th International Joint Conference on Artificial Intelligence (IJCAI)}
@@ -420,6 +689,83 @@
       \range{pages}{7}
       \verb{doi}
       \verb 10.24963/ijcai.2019/658
+      \endverb
+    \endentry
+    \entry{brown2018rnn}{inproceedings}{}{}
+      \name{author}{4}{}{%
+        {{hash=a484eba253669bf860fdf92cdfc1c14c}{%
+           family={Brown},
+           familyi={B\bibinitperiod},
+           given={Andy},
+           giveni={A\bibinitperiod}}}%
+        {{hash=76d3af8b0519f637be5a42436b1938f5}{%
+           family={Tuor},
+           familyi={T\bibinitperiod},
+           given={Aaron},
+           giveni={A\bibinitperiod}}}%
+        {{hash=e64dc4aed7850253078e3d03618e6e52}{%
+           family={Hutchinson},
+           familyi={H\bibinitperiod},
+           given={Brian},
+           giveni={B\bibinitperiod}}}%
+        {{hash=33f4ca413a99c66ee4add305b7cabbc1}{%
+           family={Nichols},
+           familyi={N\bibinitperiod},
+           given={Nicole},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{5135ba44879aa49d208369b03170cdc1}
+      \strng{fullhash}{0ed2cd246728717c253304e3112a56cb}
+      \strng{fullhashraw}{0ed2cd246728717c253304e3112a56cb}
+      \strng{bibnamehash}{0ed2cd246728717c253304e3112a56cb}
+      \strng{authorbibnamehash}{0ed2cd246728717c253304e3112a56cb}
+      \strng{authornamehash}{5135ba44879aa49d208369b03170cdc1}
+      \strng{authorfullhash}{0ed2cd246728717c253304e3112a56cb}
+      \strng{authorfullhashraw}{0ed2cd246728717c253304e3112a56cb}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the First Workshop on Machine Learning for Computing Systems (MLHat)}
+      \field{title}{Recurrent Neural Network Attention Mechanisms for Interpretable System Log Anomaly Detection}
+      \field{year}{2018}
+      \field{pages}{1\bibrangedash 8}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1145/3217871.3217872
+      \endverb
+    \endentry
+    \entry{chen2022}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{hash=734737dcbd0ed5b16d1de7d35d1ef17d}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Ching-Kuo},
+           giveni={C\bibinithyphendelim K\bibinitperiod}}}%
+      }
+      \strng{namehash}{c50d2b5803ea7e98f58fc771ef03b620}
+      \strng{fullhash}{c50d2b5803ea7e98f58fc771ef03b620}
+      \strng{fullhashraw}{c50d2b5803ea7e98f58fc771ef03b620}
+      \strng{bibnamehash}{c50d2b5803ea7e98f58fc771ef03b620}
+      \strng{authorbibnamehash}{c50d2b5803ea7e98f58fc771ef03b620}
+      \strng{authornamehash}{c50d2b5803ea7e98f58fc771ef03b620}
+      \strng{authorfullhash}{c50d2b5803ea7e98f58fc771ef03b620}
+      \strng{authorfullhashraw}{c50d2b5803ea7e98f58fc771ef03b620}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Digital Threats: Research and Practice}
+      \field{number}{4}
+      \field{title}{Building Machine Learning-Based Threat Hunting System from Scratch}
+      \field{volume}{3}
+      \field{year}{2022}
+      \field{pages}{1\bibrangedash 22}
+      \range{pages}{22}
+      \verb{doi}
+      \verb 10.1145/3559764
       \endverb
     \endentry
     \entry{linda2009neural}{article}{}{}
@@ -448,8 +794,8 @@
       \strng{authornamehash}{451374e9df4277f96fe372901a79e2ba}
       \strng{authorfullhash}{10622904b49843f9bbf0598f2969e842}
       \strng{authorfullhashraw}{10622904b49843f9bbf0598f2969e842}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{2009 International Joint Conference on Neural Networks}
@@ -482,8 +828,8 @@
       \strng{authornamehash}{e45a4111fa43ab3c3e31f6d8e35274ad}
       \strng{authorfullhash}{e45a4111fa43ab3c3e31f6d8e35274ad}
       \strng{authorfullhashraw}{e45a4111fa43ab3c3e31f6d8e35274ad}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{ACM Computing Surveys}
@@ -523,8 +869,8 @@
       \strng{authornamehash}{f76c922563f5a06d305f93bb414e1320}
       \strng{authorfullhash}{82d957695daf321d757d1b4a409b8afa}
       \strng{authorfullhashraw}{82d957695daf321d757d1b4a409b8afa}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Communications Surveys \& Tutorials}
@@ -554,8 +900,8 @@
       \strng{authornamehash}{132b7100417675d55d5d4d8b244f7a34}
       \strng{authorfullhash}{132b7100417675d55d5d4d8b244f7a34}
       \strng{authorfullhashraw}{132b7100417675d55d5d4d8b244f7a34}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Machine Learning}
@@ -600,8 +946,8 @@
       \strng{authornamehash}{a978bec826fc85cb9ab7b8bf824d8a6d}
       \strng{authorfullhash}{5479d89d20eef725cc72def2d32c8c8d}
       \strng{authorfullhashraw}{5479d89d20eef725cc72def2d32c8c8d}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Journal of Network and Computer Applications}
@@ -636,8 +982,8 @@
       \strng{authornamehash}{f79ceb030bcf791e5521f87ac6ada03b}
       \strng{authorfullhash}{f79ceb030bcf791e5521f87ac6ada03b}
       \strng{authorfullhashraw}{f79ceb030bcf791e5521f87ac6ada03b}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Proceedings of the 22nd ACM SIGKDD International Conference on Knowledge Discovery and Data Mining}
@@ -680,8 +1026,8 @@
       \strng{authornamehash}{eb8c938cc8808bcff687da9115dc59e7}
       \strng{authorfullhash}{87b7401bb765c6dc4a31e678ca66353a}
       \strng{authorfullhashraw}{87b7401bb765c6dc4a31e678ca66353a}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{2009 IEEE Symposium on Computational Intelligence for Security and Defense Applications}
@@ -734,8 +1080,8 @@
       \strng{authornamehash}{8167b8e4b71fb6a0adcf75b28294d9cc}
       \strng{authorfullhash}{c2b172d1b781cac6122813987675c31a}
       \strng{authorfullhashraw}{c2b172d1b781cac6122813987675c31a}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{7th International Symposium on Resilient Control Systems}
@@ -745,40 +1091,6 @@
       \range{pages}{8}
       \verb{doi}
       \verb 10.1109/ISRCS.2014.6900095
-      \endverb
-    \endentry
-    \entry{sommer2010outside}{inproceedings}{}{}
-      \name{author}{2}{}{%
-        {{hash=89e69b54791d2b34a5291052b4238fae}{%
-           family={Sommer},
-           familyi={S\bibinitperiod},
-           given={Robin},
-           giveni={R\bibinitperiod}}}%
-        {{hash=64469f291d02ccaef81afd5cc785044f}{%
-           family={Paxson},
-           familyi={P\bibinitperiod},
-           given={Vern},
-           giveni={V\bibinitperiod}}}%
-      }
-      \strng{namehash}{4255d6d891315933a23b863ea22481b1}
-      \strng{fullhash}{4255d6d891315933a23b863ea22481b1}
-      \strng{fullhashraw}{4255d6d891315933a23b863ea22481b1}
-      \strng{bibnamehash}{4255d6d891315933a23b863ea22481b1}
-      \strng{authorbibnamehash}{4255d6d891315933a23b863ea22481b1}
-      \strng{authornamehash}{4255d6d891315933a23b863ea22481b1}
-      \strng{authorfullhash}{4255d6d891315933a23b863ea22481b1}
-      \strng{authorfullhashraw}{4255d6d891315933a23b863ea22481b1}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{2010 IEEE Symposium on Security and Privacy}
-      \field{title}{Outside the Closed World: On Using Machine Learning for Network Intrusion Detection}
-      \field{year}{2010}
-      \field{pages}{305\bibrangedash 316}
-      \range{pages}{12}
-      \verb{doi}
-      \verb 10.1109/SP.2010.25
       \endverb
     \endentry
     \entry{garcia2009anomaly}{article}{}{}
@@ -812,8 +1124,8 @@
       \strng{authornamehash}{9bbc1b124f60805b2a6072ac2b0de79d}
       \strng{authorfullhash}{3f7ef4fa556c601b5f47c6c45dbb212e}
       \strng{authorfullhashraw}{3f7ef4fa556c601b5f47c6c45dbb212e}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Computers \& Security}
@@ -825,6 +1137,40 @@
       \range{pages}{11}
       \verb{doi}
       \verb 10.1016/j.cose.2008.08.003
+      \endverb
+    \endentry
+    \entry{sommer2010outside}{inproceedings}{}{}
+      \name{author}{2}{}{%
+        {{hash=89e69b54791d2b34a5291052b4238fae}{%
+           family={Sommer},
+           familyi={S\bibinitperiod},
+           given={Robin},
+           giveni={R\bibinitperiod}}}%
+        {{hash=64469f291d02ccaef81afd5cc785044f}{%
+           family={Paxson},
+           familyi={P\bibinitperiod},
+           given={Vern},
+           giveni={V\bibinitperiod}}}%
+      }
+      \strng{namehash}{4255d6d891315933a23b863ea22481b1}
+      \strng{fullhash}{4255d6d891315933a23b863ea22481b1}
+      \strng{fullhashraw}{4255d6d891315933a23b863ea22481b1}
+      \strng{bibnamehash}{4255d6d891315933a23b863ea22481b1}
+      \strng{authorbibnamehash}{4255d6d891315933a23b863ea22481b1}
+      \strng{authornamehash}{4255d6d891315933a23b863ea22481b1}
+      \strng{authorfullhash}{4255d6d891315933a23b863ea22481b1}
+      \strng{authorfullhashraw}{4255d6d891315933a23b863ea22481b1}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2010 IEEE Symposium on Security and Privacy}
+      \field{title}{Outside the Closed World: On Using Machine Learning for Network Intrusion Detection}
+      \field{year}{2010}
+      \field{pages}{305\bibrangedash 316}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1109/SP.2010.25
       \endverb
     \endentry
     \entry{stouffer2015nist}{article}{}{}
@@ -863,8 +1209,8 @@
       \strng{authornamehash}{cd4652041c6e5cecda302d6a5d0dc79f}
       \strng{authorfullhash}{a92f9b93f6c85011a12c51f51d836370}
       \strng{authorfullhashraw}{a92f9b93f6c85011a12c51f51d836370}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{National Institute of Standards and Technology}
