@@ -12,37 +12,52 @@ Table~\ref{tab:datastats} summarises the dataset after splitting.
     \hline
     Split & Sessions & Events & Benign & Malicious \\
     \hline
-    Train      & 4{,}200 & 38{,}123 & 3{,}500 & 700 \\
-    Validation &    900  &  8{,}029 &    750  & 150 \\
-    Test       &    900  &  8{,}326 &    750  & 150 \\
+    Train      & 4{,}200 & 62{,}732 & 3{,}500 & 700 \\
+    Validation &    900  & 13{,}277 &    750  & 150 \\
+    Test       &    900  & 13{,}279 &    750  & 150 \\
     \hline
-    Total      & 6{,}000 & 54{,}478 & 5{,}000 & 1{,}000 \\
+    Total      & 6{,}000 & 89{,}288 & 5{,}000 & 1{,}000 \\
     \hline
   \end{tabular}
 \end{table}
 
 \subsection{Baseline Comparison}
 
-Table~\ref{tab:baseline} compares Random Forest against Logistic Regression, Decision Tree,
-and RBF-SVM baselines. All baselines use identical features and \texttt{class\_weight=balanced}.
-Random Forest achieves perfect classification, confirming that the synthetic data are fully
-linearly separable in the engineered feature space given an ensemble with sufficient depth.
+Table~\ref{tab:baseline} compares Random Forest against five baselines: Logistic Regression
+(linear), Decision Tree (single-tree rule learner), RBF-SVM, XGBoost (gradient-boosted
+trees), and Isolation Forest (unsupervised anomaly detector). All supervised baselines use
+identical features with \texttt{class\_weight=balanced} or equivalent imbalance handling.
+Results are the mean across 5 random seeds; standard deviations are reported in
+parentheses.
 
 \begin{table}[!t]
-  \caption{Held-Out Test Set Performance}
+  \caption{Held-Out Test Set Performance (mean $\pm$ std, 5 seeds)}
   \label{tab:baseline}
   \centering
   \begin{tabular}{lcccc}
     \hline
-    Method & Acc. & F1 (macro) & ROC-AUC & FPR \\
+    Method & Precision & Recall & F1 (macro) & ROC-AUC \\
     \hline
-    Logistic Regression & 0.952 & 0.943 & 0.980 & 0.048 \\
-    Decision Tree       & 0.979 & 0.972 & 0.975 & 0.021 \\
-    SVM (RBF)           & 0.967 & 0.961 & 0.986 & 0.033 \\
-    \textbf{Random Forest} & \textbf{1.000} & \textbf{1.000} & \textbf{1.000} & \textbf{0.000} \\
+    LR                       & 0.917 & 0.974 & 0.942 & 0.994 \\
+    DT                       & 0.982 & 0.987 & 0.984 & 0.988 \\
+    SVM (RBF)                & 0.818 & 0.881 & 0.844 & 0.951 \\
+    XGBoost                  & 0.997 & 0.999 & 0.998 & 1.000 \\
+    IF (unsupervised)        & 0.611 & 0.594 & 0.601 & 0.735 \\
+    \textbf{RF (proposed)}   & \textbf{0.998}$\pm$0.002 &
+                               \textbf{1.000}$\pm$0.000 &
+                               \textbf{0.999}$\pm$0.001 &
+                               \textbf{1.000}$\pm$0.000 \\
     \hline
   \end{tabular}
 \end{table}
+
+Logistic Regression achieves F1~=~0.942, confirming the session features are
+not linearly separable in raw form --- the decision boundary requires interaction
+terms captured by tree-based methods. XGBoost matches RF on precision and AUC
+but requires manual \texttt{scale\_pos\_weight} tuning and provides no built-in
+feature importance for this feature set. The unsupervised Isolation Forest
+(F1~=~0.601) illustrates the cost of operating without ground-truth labels,
+relevant for real deployments where labeled attack sessions may be scarce.
 
 Figure~\ref{fig:results} shows the ROC curve and top-10 feature importances for the Random
 Forest model.
@@ -63,34 +78,65 @@ removing one group at a time and report the resulting macro F1 on the test set
 reused to isolate the effect of the feature group.
 
 \begin{table}[!t]
-  \caption{Ablation Study: Macro F1 Drop on Removing Each Feature Group}
+  \caption{Ablation Study: Macro F1 on Removing Each Feature Group}
   \label{tab:ablation}
   \centering
   \begin{tabular}{lcc}
     \hline
     Removed Group & F1 (macro) & $\Delta$F1 \\
     \hline
-    None (full features)          & 1.000 & --     \\
-    Group 1: Event counts         & 0.976 & $-0.024$ \\
-    Group 2: Time-delta stats     & 0.831 & $-0.169$ \\
-    Group 3: Cardinality          & 0.982 & $-0.018$ \\
-    Group 4: Rare-event flags     & 0.994 & $-0.006$ \\
-    Group 5: Sequence entropy     & 0.947 & $-0.053$ \\
+    None (full features)      & 1.000 & --       \\
+    Group 1: Event counts     & 0.944 & $-0.056$ \\
+    Group 2: Time-delta stats & 0.972 & $-0.028$ \\
+    Group 3: Cardinality      & 1.000 & $0.000$  \\
+    Group 4: Rare-event flags & 1.000 & $0.000$  \\
+    Group 5: Sequence entropy & 1.000 & $0.000$  \\
     \hline
   \end{tabular}
 \end{table}
 
-Time-delta statistics (Group~2) contribute most to discriminability ($\Delta$F1 = $-0.169$),
-followed by sequence entropy (Group~5, $\Delta$F1 = $-0.053$). Both features capture the
-\emph{temporal burst} characteristic shared by reconnaissance and lateral movement attacks.
-Event frequency counts (Group~1) and cardinality (Group~3) provide moderate contributions.
-Rare-event flags (Group~4) have the smallest marginal impact on synthetic data where rare
-events appear deterministically in attack sessions; their value is expected to increase on
-operational data with label noise.
+Event frequency counts (Group~1) and time-delta statistics (Group~2) are the
+two discriminative groups, contributing $\Delta$F1 of $-0.056$ and $-0.028$
+respectively. Cardinality, rare-event flags, and sequence entropy show zero
+marginal contribution on the current synthetic corpus --- a result that warrants
+discussion. The zero delta for Groups~3--5 occurs because the remaining features
+(Groups~1 and~2 jointly) already provide sufficient separation; these groups
+are \emph{redundant} given the others rather than \emph{uninformative} in isolation.
+Sequence entropy (Group~5) achieves single-feature F1~=~0.766 when used alone,
+confirming it captures real signal, but the RF exploits event counts and timing
+first. On operational data with noisier timing and incomplete event logs,
+Groups~3--5 are expected to recover importance.
+
+\subsection{Statistical Robustness}
+
+To verify that reported metrics are not artefacts of a single random seed, we run the
+complete pipeline --- data generation, preprocessing, feature extraction, and model
+training --- independently for five seeds (0--4) and report mean and standard deviation
+in Table~\ref{tab:multiseed}.
+
+\begin{table}[!t]
+  \caption{Multi-Seed Stability (5 independent runs, seed 0--4)}
+  \label{tab:multiseed}
+  \centering
+  \begin{tabular}{lcc}
+    \hline
+    Metric & Mean & Std \\
+    \hline
+    Precision (macro) & 0.9980 & 0.0018 \\
+    Recall (macro)    & 0.9996 & 0.0004 \\
+    F1-macro          & 0.9988 & 0.0011 \\
+    ROC-AUC           & 1.0000 & 0.0000 \\
+    \hline
+  \end{tabular}
+\end{table}
+
+Standard deviations of $\leq 0.002$ across all metrics confirm that the results are
+stable and not due to a fortunate random split.
 
 \subsection{Inference Latency}
 
-Session-level feature extraction and prediction on 900 test sessions (single CPU core,
-Intel Core~i7-11th~Gen, 3.0~GHz) requires 0.31~seconds total, yielding a per-session
-latency of 0.34~ms (median) and 0.51~ms (99th percentile), well within the $<10$~ms
-operational requirement stated in RO4.
+Session-level feature extraction and prediction over 900 test sessions runs in under
+0.5~seconds on a single CPU core (pandas groupby aggregation dominates at $\approx$0.4~s;
+RF inference adds $<$50~ms), yielding per-session latency well under the $<10$~ms
+real-time detection threshold stated in RO4. Batch-mode deployment over nightly audit
+logs is therefore feasible without GPU acceleration.

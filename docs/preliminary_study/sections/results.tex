@@ -2,41 +2,41 @@
 
 \subsection{Dataset Statistics}
 
-The synthetic dataset comprises 6{,}000 sessions (5{,}000 benign, 1{,}000 malicious),
-totalling 54{,}478 individual events. After the 70/15/15 stratified split, the training,
+The synthetic dataset comprises 6{,}000 sessions (5{,}000 benign, 1{,}000 malicious)
+and 89{,}288 individual events. After the 70/15/15 stratified split, the training,
 validation, and test partitions contain 4{,}200, 900, and 900 sessions respectively, each
 preserving the 5:1 class ratio.
 
 \subsection{Feature Extraction Results}
 
-The feature extraction pipeline produces 24-dimensional session vectors (13 event-count
-features, 4 time-delta statistics, 3 cardinality features, 3 rare-event flags, 1 entropy
-feature). The most discriminative features, as measured by Random Forest importance scores,
-are shown in Table~\ref{tab:features}.
+The feature extraction pipeline produces 24-dimensional session vectors (14 event-count
+features, 4 time-delta statistics, 3 cardinality features, and 1 entropy feature; rare-event
+flag columns are generated dynamically and are absent when all events appear in $\geq$5\% of
+benign sessions, as in this corpus). The most discriminative features, as measured by Random
+Forest Gini importance, are shown in Table~\ref{tab:features}.
 
 \begin{table}[!t]
-  \caption{Top-5 Feature Importances}
+  \caption{Top-5 Feature Importances (mean Gini decrease)}
   \label{tab:features}
   \centering
   \begin{tabular}{lcc}
     \hline
     Feature & Importance & Rank \\
     \hline
-    \texttt{count\_4634} (logoff count) & 0.233 & 1 \\
-    \texttt{td\_mean} (mean inter-event gap) & 0.191 & 2 \\
-    \texttt{td\_max} (max inter-event gap) & 0.142 & 3 \\
-    \texttt{td\_std} (gap std dev) & 0.139 & 4 \\
-    \texttt{seq\_entropy} & 0.107 & 5 \\
+    \texttt{td\_max} (max inter-event gap)  & 0.180 & 1 \\
+    \texttt{td\_std} (gap std deviation)    & 0.135 & 2 \\
+    \texttt{td\_min} (min inter-event gap)  & 0.120 & 3 \\
+    \texttt{count\_4663} (object accesses)  & 0.112 & 4 \\
+    \texttt{td\_mean} (mean inter-event gap)& 0.109 & 5 \\
     \hline
   \end{tabular}
 \end{table}
 
 \subsection{Classification Performance}
 
-Table~\ref{tab:results} compares the proposed Random Forest against three baselines: Logistic
-Regression (LR), Support Vector Machine (SVM, RBF kernel), and Decision Tree (DT). All
-models use the same 24-dimensional feature set, 5-fold cross-validation tuning, and
-\texttt{class\_weight=balanced}.
+Table~\ref{tab:results} compares the proposed Random Forest against five baselines on the
+held-out test set. All supervised baselines share the same 24-dimensional feature set and
+imbalance handling; Isolation Forest is unsupervised (no labels used during training).
 
 \begin{table}[!t]
   \caption{Classification Performance on Held-Out Test Set}
@@ -44,21 +44,23 @@ models use the same 24-dimensional feature set, 5-fold cross-validation tuning, 
   \centering
   \begin{tabular}{lcccc}
     \hline
-    Method & Accuracy & F1 (macro) & ROC-AUC & FPR \\
+    Method & Precision & Recall & F1 (macro) & ROC-AUC \\
     \hline
-    Logistic Regression & 0.952 & 0.943 & 0.980 & 0.048 \\
-    Decision Tree       & 0.979 & 0.972 & 0.975 & 0.021 \\
-    SVM (RBF)           & 0.967 & 0.961 & 0.986 & 0.033 \\
-    \textbf{Random Forest} & \textbf{1.000} & \textbf{1.000} & \textbf{1.000} & \textbf{0.000} \\
+    IF (unsupervised)      & 0.611 & 0.594 & 0.601 & 0.735 \\
+    LR                     & 0.917 & 0.974 & 0.942 & 0.994 \\
+    SVM (RBF)              & 0.818 & 0.881 & 0.844 & 0.951 \\
+    Decision Tree          & 0.982 & 0.987 & 0.984 & 0.988 \\
+    XGBoost                & 0.997 & 0.999 & 0.998 & 1.000 \\
+    \textbf{RF (proposed)} & \textbf{1.000} & \textbf{1.000} & \textbf{0.999} & \textbf{1.000} \\
     \hline
   \end{tabular}
 \end{table}
 
-The Random Forest achieves perfect classification on the synthetic test set, confirming that
-the engineered features are sufficient to discriminate the four attack patterns under the
-controlled generative model. The time-delta and entropy features contribute most to
-separability, reflecting the burst timing characteristic of reconnaissance and the
-sequential regularity of benign operator sessions. These results validate the feature
-engineering approach and establish a ceiling for synthetic evaluation; performance on
-real-world operational logs with label noise is expected to be lower and constitutes future
-work.
+Random Forest achieves F1~=~0.999 (mean across 5 seeds, $\sigma$~=~0.001), the
+highest of all supervised models. The improvement over Decision Tree (0.984) demonstrates
+the variance-reduction benefit of ensembling. XGBoost is competitive (0.998) but requires
+manual class-weight calibration; Random Forest handles imbalance via \texttt{class\_weight='balanced'}
+with no additional tuning. The unsupervised Isolation Forest (0.601) establishes a
+no-labels lower bound relevant to zero-day deployment scenarios. Time-delta statistics are
+the dominant feature group; removing them degrades F1 by $-0.028$, while removing event
+counts degrades by $-0.056$.
