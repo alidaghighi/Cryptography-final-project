@@ -5,6 +5,7 @@ import click
 from src.data.generator import generate
 from src.data.preprocessor import preprocess
 from src.features.engineer import engineer
+from src.models.baselines import run_baselines
 from src.models.evaluate import evaluate
 from src.models.train import train
 
@@ -57,12 +58,22 @@ def evaluate_cmd(model_path, data_path, output_dir):
     evaluate(model_path, data_path, output_dir)
 
 
+@cli.command()
+@click.option("--model", "model_path", required=True, help="Path to best_model.pkl")
+@click.option("--data", "data_dir", required=True, help="Directory with *_features.csv files")
+@click.option("--output", "output_path", default=None, help="Optional CSV output for results")
+def baselines_cmd(model_path, data_dir, output_path):
+    """Compare RF against LR, DT, SVM, XGBoost, and Isolation Forest baselines."""
+    run_baselines(model_path, data_dir, output_path)
+
+
 # Expose canonical subcommand names matching CLAUDE.md spec
 cli.add_command(generate_cmd, name="generate")
 cli.add_command(preprocess_cmd, name="preprocess")
 cli.add_command(featurize, name="featurize")
 cli.add_command(train_cmd, name="train")
 cli.add_command(evaluate_cmd, name="evaluate")
+cli.add_command(baselines_cmd, name="baselines")
 
 
 def main():
