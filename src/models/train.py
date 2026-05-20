@@ -13,7 +13,6 @@ import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import RandomizedSearchCV, StratifiedKFold
 
-
 FEATURE_COLS_EXCLUDE = {"session_id", "label"}
 
 

@@ -35,7 +35,7 @@ def evaluate(model_path: str, data_path: str, output_dir: str = None):
     print(f"\n{'='*50}")
     print(f"Accuracy:  {acc:.4f}")
     print(f"ROC-AUC:   {roc:.4f}")
-    print(f"\nClassification Report:")
+    print("\nClassification Report:")
     print(classification_report(y, y_pred, target_names=["benign", "malicious"]))
 
     # Confusion matrix PNG
@@ -54,8 +54,14 @@ def evaluate(model_path: str, data_path: str, output_dir: str = None):
     )
     for i in range(2):
         for j in range(2):
-            ax.text(j, i, str(cm[i, j]), ha="center", va="center",
-                    color="white" if cm[i, j] > cm.max() / 2 else "black")
+            ax.text(
+                j,
+                i,
+                str(cm[i, j]),
+                ha="center",
+                va="center",
+                color="white" if cm[i, j] > cm.max() / 2 else "black",
+            )
     plt.tight_layout()
 
     if output_dir is None:

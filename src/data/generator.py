@@ -25,7 +25,11 @@ SCADA_HOSTS = ["SCADA-HMI-01", "SCADA-HMI-02", "RTU-CTRL-03", "RTU-CTRL-04"]
 HMI_RTU_HOSTS = ["SCADA-HMI-01", "SCADA-HMI-02", "RTU-CTRL-03", "RTU-CTRL-04"]
 
 USERS = ["operator1", "operator2", "eng_admin", "svc_historian", "svc_scada", "SYSTEM"]
-SOURCES = ["Microsoft-Windows-Security-Auditing", "Service Control Manager", "Microsoft-Windows-Kernel-Process"]
+SOURCES = [
+    "Microsoft-Windows-Security-Auditing",
+    "Service Control Manager",
+    "Microsoft-Windows-Kernel-Process",
+]
 
 EVENT_DESCRIPTIONS = {
     4624: "An account was successfully logged on.",
@@ -160,9 +164,11 @@ def generate_reconnaissance(rng, base_ts):
 
     # Burst of 8-20 object access events within <30s
     n_access = int(rng.integers(8, 21))
-    objects = ["\\Device\\HarddiskVolume2\\SCADA\\config.ini",
-               "\\Device\\HarddiskVolume2\\RTU\\setpoints.db",
-               "\\Device\\HarddiskVolume2\\historian\\archive.mdb"]
+    objects = [
+        "\\Device\\HarddiskVolume2\\SCADA\\config.ini",
+        "\\Device\\HarddiskVolume2\\RTU\\setpoints.db",
+        "\\Device\\HarddiskVolume2\\historian\\archive.mdb",
+    ]
     for _ in range(n_access):
         obj = rng.choice(objects)
         desc = f"An attempt was made to access an object: {obj}"
@@ -201,13 +207,24 @@ def generate(n_benign: int, n_malicious: int, output: str, seed: int = 42):
     out_path = Path(output)
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
-    fieldnames = ["timestamp", "event_id", "source", "user", "hostname", "description", "label", "session_id"]
+    fieldnames = [
+        "timestamp",
+        "event_id",
+        "source",
+        "user",
+        "hostname",
+        "description",
+        "label",
+        "session_id",
+    ]
     with open(out_path, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(all_rows)
 
-    print(f"Generated {len(all_rows)} events ({n_benign} benign + {n_malicious} malicious sessions) -> {output}")
+    n_ev = len(all_rows)
+    print(f"Generated {n_ev} events ({n_benign} benign + {n_malicious} malicious sessions)")
+    print(f"Output -> {output}")
 
 
 @click.command()

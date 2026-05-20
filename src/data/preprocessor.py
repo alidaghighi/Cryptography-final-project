@@ -3,7 +3,6 @@
 from pathlib import Path
 
 import click
-import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
@@ -36,7 +35,8 @@ def preprocess(input_path: str, output_dir: str):
         split_df.to_csv(path, index=False)
         n_mal = split_df.groupby("session_id")["label"].max().sum()
         n_total = split_df["session_id"].nunique()
-        print(f"{split_name}: {len(split_df)} events, {n_total} sessions ({int(n_mal)} malicious) -> {path}")
+        n_ev = len(split_df)
+        print(f"{split_name}: {n_ev} events, {n_total} sessions ({int(n_mal)} malicious) -> {path}")
 
 
 @click.command()

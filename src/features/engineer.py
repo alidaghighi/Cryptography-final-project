@@ -78,9 +78,7 @@ def identify_rare_events(train_df: pd.DataFrame) -> list[int]:
     if n_benign_sessions == 0:
         return []
 
-    event_session_counts = (
-        benign.groupby("event_id")["session_id"].nunique() / n_benign_sessions
-    )
+    event_session_counts = benign.groupby("event_id")["session_id"].nunique() / n_benign_sessions
     rare = event_session_counts[event_session_counts < RARE_THRESHOLD].index.tolist()
     return [int(e) for e in rare]
 
