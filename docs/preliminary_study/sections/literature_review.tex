@@ -1,0 +1,54 @@
+\label{sec:lit}
+
+\subsection{Windows Event Log Anomaly Detection}
+
+Windows Event Logs contain semantically rich, structured records of system activity.
+He~\textit{et al.}\ \cite{he2017drain} introduced Drain, an online log-parsing tree that
+maps raw log messages to templates in $O(\text{log}~n)$ time; their approach is directly
+applicable to tokenising Windows Event Log descriptions at scale. Du~\textit{et al.}\
+\cite{du2017deeplog} modelled log key sequences as a workflow using LSTM networks, detecting
+anomalies as deviations from learned sequential patterns. Their CCS~2017 evaluation
+demonstrated low false-positive rates on the HDFS log dataset. Zhao~\textit{et al.}\
+\cite{zhao2019loganomaly} extended this to LogAnomaly, capturing both sequential and
+quantitative anomalies via template-based semantic vectors. Garcia-Teodoro~\textit{et al.}\
+\cite{garcia2009anomaly} provided a foundational survey of anomaly-based network intrusion
+detection, whose classification taxonomy—statistical, knowledge-based, and
+machine-learning—applies equally to host-based log analysis. Collectively, these works
+demonstrate the viability of sequential log modelling but leave the ICS-specific
+event-identifier semantics unexploited.
+
+\subsection{ICS/SCADA Intrusion Detection}
+
+Industrial control system security demands domain-adapted detection strategies. Carcano
+\textit{et al.}\ \cite{carcano2011scada} proposed a multidimensional critical-state
+analysis that flags SCADA command sequences deviating from learned safe states, achieving
+100\% detection on a simulated water treatment testbed. Goldenberg and Wool
+\cite{goldenberg2013modbus} built deterministic finite automata from Modbus/TCP network
+traffic, detecting protocol violations with zero false positives in a power utility
+environment. Mitchell and Chen \cite{mitchell2014survey} surveyed IDS techniques for
+cyber-physical systems, categorising approaches by detection method (misuse vs.\ anomaly)
+and system layer (network, process, device). Goh~\textit{et al.}\ \cite{goh2016swat}
+released the Secure Water Treatment (SWaT) dataset, enabling reproducible evaluation of
+process-level anomaly detectors. Zhu~\textit{et al.}\ \cite{zhu2011scada} formalised a
+taxonomy of cyber attacks on SCADA systems across all Purdue model levels, which informs
+the attack patterns modelled in this work. A key gap identified across this body of work is
+the absence of Windows host-log analysis as a detection layer within the ICS hierarchy.
+
+\subsection{AI/ML Methods for Intrusion Detection}
+
+Machine learning for intrusion detection has a long history. Liao~\textit{et al.}\
+\cite{liao2013ids} reviewed supervised, unsupervised, and hybrid methods, noting that
+ensemble methods consistently outperform single classifiers on tabular security data.
+Breiman's Random Forest \cite{breiman2001}—a bagged ensemble of decision trees—remains a
+strong baseline due to its resistance to overfitting, built-in feature importance ranking,
+and native support for class imbalance through per-class sample weighting. Chen and
+Guestrin's XGBoost \cite{chen2016xgboost} extended gradient boosting to large-scale tabular
+problems, achieving state-of-the-art results on the KDD~Cup~1999 network intrusion
+dataset. Tavallaee~\textit{et al.}\ \cite{tavallaee2009kdd} revealed severe redundancy
+in the KDD~Cup~1999 benchmark, motivating the community towards domain-specific synthetic
+datasets. Sommer and Paxson \cite{sommer2010outside} argued that the closed-world
+assumption of supervised ML makes deployment in open operational environments inherently
+difficult, underscoring the need for realistic synthetic training data and rigorous
+evaluation protocols. NIST SP~800-82 \cite{stouffer2015nist} provides the governing
+reference for ICS security controls, including detection and response requirements that
+bound the target performance metrics for this work.

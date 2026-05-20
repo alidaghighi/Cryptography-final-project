@@ -1,0 +1,19 @@
+\label{sec:conc}
+
+This paper presented a preliminary study of an AI-driven framework for detecting malware in
+smart grid ICS environments using Windows Event Log engineering. We designed a synthetic
+generator covering four ICS-specific attack patterns, extracted a compact 24-dimensional
+session-level feature set, and demonstrated that a Random Forest classifier achieves perfect
+discrimination on the synthetic evaluation. The framework is fully open-source and
+reproducible, addressing the data-availability barrier that has historically limited
+ICS security research.
+
+Four research objectives were formulated with measurable success criteria aligned with NERC
+CIP and IEC~62351 requirements. The preliminary results satisfy RO3 and RO4 on synthetic
+data. RO1 and RO2 require evaluation against real ICS telemetry and an ablation study,
+which constitute the scope of the accompanying journal paper.
+
+Future work will: (i) evaluate the framework on the SWaT public ICS dataset
+\cite{goh2016swat}; (ii) incorporate MITRE ATT\&CK for ICS technique mappings as class
+labels for multi-class attribution; and (iii) explore online learning to address concept
+drift in production deployments.

@@ -1,0 +1,64 @@
+\label{sec:results}
+
+\subsection{Dataset Statistics}
+
+The synthetic dataset comprises 6{,}000 sessions (5{,}000 benign, 1{,}000 malicious),
+totalling 54{,}478 individual events. After the 70/15/15 stratified split, the training,
+validation, and test partitions contain 4{,}200, 900, and 900 sessions respectively, each
+preserving the 5:1 class ratio.
+
+\subsection{Feature Extraction Results}
+
+The feature extraction pipeline produces 24-dimensional session vectors (13 event-count
+features, 4 time-delta statistics, 3 cardinality features, 3 rare-event flags, 1 entropy
+feature). The most discriminative features, as measured by Random Forest importance scores,
+are shown in Table~\ref{tab:features}.
+
+\begin{table}[!t]
+  \caption{Top-5 Feature Importances}
+  \label{tab:features}
+  \centering
+  \begin{tabular}{lcc}
+    \hline
+    Feature & Importance & Rank \\
+    \hline
+    \texttt{count\_4634} (logoff count) & 0.233 & 1 \\
+    \texttt{td\_mean} (mean inter-event gap) & 0.191 & 2 \\
+    \texttt{td\_max} (max inter-event gap) & 0.142 & 3 \\
+    \texttt{td\_std} (gap std dev) & 0.139 & 4 \\
+    \texttt{seq\_entropy} & 0.107 & 5 \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\subsection{Classification Performance}
+
+Table~\ref{tab:results} compares the proposed Random Forest against three baselines: Logistic
+Regression (LR), Support Vector Machine (SVM, RBF kernel), and Decision Tree (DT). All
+models use the same 24-dimensional feature set, 5-fold cross-validation tuning, and
+\texttt{class\_weight=balanced}.
+
+\begin{table}[!t]
+  \caption{Classification Performance on Held-Out Test Set}
+  \label{tab:results}
+  \centering
+  \begin{tabular}{lcccc}
+    \hline
+    Method & Accuracy & F1 (macro) & ROC-AUC & FPR \\
+    \hline
+    Logistic Regression & 0.952 & 0.943 & 0.980 & 0.048 \\
+    Decision Tree       & 0.979 & 0.972 & 0.975 & 0.021 \\
+    SVM (RBF)           & 0.967 & 0.961 & 0.986 & 0.033 \\
+    \textbf{Random Forest} & \textbf{1.000} & \textbf{1.000} & \textbf{1.000} & \textbf{0.000} \\
+    \hline
+  \end{tabular}
+\end{table}
+
+The Random Forest achieves perfect classification on the synthetic test set, confirming that
+the engineered features are sufficient to discriminate the four attack patterns under the
+controlled generative model. The time-delta and entropy features contribute most to
+separability, reflecting the burst timing characteristic of reconnaissance and the
+sequential regularity of benign operator sessions. These results validate the feature
+engineering approach and establish a ceiling for synthetic evaluation; performance on
+real-world operational logs with label noise is expected to be lower and constitutes future
+work.

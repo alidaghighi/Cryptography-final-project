@@ -1,0 +1,39 @@
+The electric power grid has undergone a fundamental transformation over the last two
+decades. The integration of digital communications, programmable logic controllers, and
+IP-connected SCADA and Human-Machine Interface (HMI) systems has enabled
+unprecedented operational efficiency but has simultaneously expanded the cyber attack
+surface. High-profile incidents—most notably the Stuxnet worm \cite{langner2011stuxnet}
+and the Ukrainian power grid attacks of 2015 and 2016—demonstrate that adversaries are
+willing and able to traverse the IT/OT boundary and compromise energy infrastructure.
+
+Regulatory frameworks respond to this threat. The North American Electric Reliability
+Corporation Critical Infrastructure Protection (NERC CIP) standards mandate event logging,
+monitoring, and incident response for Bulk Electric Systems. IEC~62351 specifies security
+for power systems communications, including requirements for audit trail generation.
+Together they establish Windows Event Logs—produced natively by every Windows host in a
+smart grid operations centre—as a mandated, machine-readable record of system behaviour.
+
+Despite this regulatory mandate, Windows Event Logs have received comparatively little
+attention as a detection surface for ICS-specific attacks. The research community has focused
+on network-level anomalies (e.g., Modbus/TCP deviations \cite{goldenberg2013modbus}) or
+dedicated ICS protocols, leaving host-based event logs underexplored. Meanwhile, general
+system-log anomaly detection has advanced significantly through deep learning approaches
+such as DeepLog \cite{du2017deeplog} and LogAnomaly \cite{zhao2019loganomaly}, and
+through log-parsing methods like Drain \cite{he2017drain}. These techniques have not been
+applied in the ICS/SCADA context.
+
+This paper makes the following contributions:
+\begin{itemize}
+  \item A synthetic Windows Event Log generator that models four ICS-relevant attack
+        patterns within a realistic smart grid topology.
+  \item A session-level feature engineering pipeline tailored to the temporal structure of
+        Windows Event Logs.
+  \item A baseline evaluation of Random Forest classification under stratified
+        cross-validation, establishing measurable success criteria.
+  \item An open-source framework enabling reproducible ICS security research without
+        access to operational data.
+\end{itemize}
+
+Section~\ref{sec:lit} reviews related work. Section~\ref{sec:proposed} states the central
+hypothesis and research objectives. Section~\ref{sec:method} describes the methodology.
+Section~\ref{sec:results} reports preliminary results, and Section~\ref{sec:conc} concludes.

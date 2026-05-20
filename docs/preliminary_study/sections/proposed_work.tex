@@ -1,0 +1,43 @@
+\label{sec:proposed}
+
+\subsection{Central Hypothesis}
+
+We hypothesise that session-level feature vectors derived exclusively from Windows Event Log
+event identifiers, timestamps, and metadata fields contain sufficient discriminative
+information to classify smart grid host sessions as benign or malicious with macro
+F1-score $\geq 0.95$ under realistic class imbalance ($5:1$ benign-to-malicious ratio).
+
+\subsection{Research Objectives}
+
+\begin{enumerate}
+  \item \textbf{Synthetic Data Fidelity} (RO1): Design a generator that reproduces the
+        statistical distributions of event-ID sequences observed in published ICS incident
+        reports, covering at least four distinct attack categories. Success criterion:
+        generated sessions are indistinguishable from real logs by a domain expert
+        assessment on a 50-session blind review.
+
+  \item \textbf{Feature Informativeness} (RO2): Engineer session-level features that
+        individually achieve mutual information $> 0.01$ with the session label on the
+        training set. Success criterion: no feature group removal in the ablation study
+        reduces macro F1 by less than 2 percentage points.
+
+  \item \textbf{Detection Performance} (RO3): Achieve macro F1-score $\geq 0.95$ and
+        ROC-AUC $\geq 0.98$ on the held-out test partition under 5-fold stratified
+        cross-validation. Success criterion: metrics reported with 95\% bootstrap confidence
+        intervals.
+
+  \item \textbf{Operational Applicability} (RO4): Ensure inference latency per session is
+        $<10$~ms on commodity hardware (single CPU core), making real-time deployment
+        feasible alongside existing SIEM pipelines. Success criterion: latency measured over
+        1{,}000 sessions, median and 99th percentile reported.
+\end{enumerate}
+
+\subsection{Novelty and Scope}
+
+The proposed work is novel in three respects. First, it targets Windows Event Logs at the
+\emph{host level} within the OT/IT convergence zone—a layer absent from existing ICS IDS
+literature. Second, the session abstraction bridges the gap between raw event streams and
+the sequence-level reasoning required for attack pattern recognition. Third, the open-source
+synthetic generator enables community replication without access to sensitive operational
+data. The scope is bounded to binary (benign/malicious) session classification; multi-class
+attack-type attribution is left for future work.
