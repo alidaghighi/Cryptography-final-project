@@ -1,0 +1,16 @@
+\contentsline {section}{Slide 1 --- Title}{2}{}%
+\contentsline {section}{Slide 2 --- Agenda}{2}{}%
+\contentsline {section}{Slide 3 --- Smart Grid Cyber Threat Landscape}{2}{}%
+\contentsline {section}{Slide 4 --- Related Work: Log Anomaly Detection}{2}{}%
+\contentsline {section}{Slide 5 --- Related Work: ICS Intrusion Detection}{2}{}%
+\contentsline {section}{Slide 6 --- Threat Model}{3}{}%
+\contentsline {section}{Slide 7 --- Synthetic Event Log Generator}{3}{}%
+\contentsline {section}{Slide 8 --- Session-Level Feature Engineering}{3}{}%
+\contentsline {section}{Slide 9 --- Model: Random Forest}{4}{}%
+\contentsline {section}{Slide 10 --- Classification Results}{4}{}%
+\contentsline {section}{Slide 11 --- ROC Curve and Feature Importances}{4}{}%
+\contentsline {section}{Slide 12 --- Ablation Study}{4}{}%
+\contentsline {section}{Slide 13 --- Deployment Considerations}{5}{}%
+\contentsline {section}{Slide 14 --- Conclusion}{5}{}%
+\contentsline {section}{Slide 15 --- References}{5}{}%
+\contentsline {section}{Slide 16 --- Questions}{5}{}%

@@ -1,0 +1,392 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{langner2011stuxnet}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=7ca499a4d5c019347cd6e4d486be5f36}{%
+           family={Langner},
+           familyi={L\bibinitperiod},
+           given={Ralph},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{7ca499a4d5c019347cd6e4d486be5f36}
+      \strng{fullhash}{7ca499a4d5c019347cd6e4d486be5f36}
+      \strng{fullhashraw}{7ca499a4d5c019347cd6e4d486be5f36}
+      \strng{bibnamehash}{7ca499a4d5c019347cd6e4d486be5f36}
+      \strng{authorbibnamehash}{7ca499a4d5c019347cd6e4d486be5f36}
+      \strng{authornamehash}{7ca499a4d5c019347cd6e4d486be5f36}
+      \strng{authorfullhash}{7ca499a4d5c019347cd6e4d486be5f36}
+      \strng{authorfullhashraw}{7ca499a4d5c019347cd6e4d486be5f36}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Security \& Privacy}
+      \field{number}{3}
+      \field{title}{Stuxnet: Dissecting a Cyberwarfare Weapon}
+      \field{volume}{9}
+      \field{year}{2011}
+      \field{pages}{49\bibrangedash 51}
+      \range{pages}{3}
+      \verb{doi}
+      \verb 10.1109/MSP.2011.67
+      \endverb
+    \endentry
+    \entry{he2017drain}{inproceedings}{}{}
+      \name{author}{4}{}{%
+        {{hash=7a3899b05fe89d81bde7cd496b988c16}{%
+           family={He},
+           familyi={H\bibinitperiod},
+           given={Pinjia},
+           giveni={P\bibinitperiod}}}%
+        {{hash=fa3d04898970f061ddb4645c25b05fca}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Jieming},
+           giveni={J\bibinitperiod}}}%
+        {{hash=94aeb96f7bbdfa5f304dc958ab7f265c}{%
+           family={Zheng},
+           familyi={Z\bibinitperiod},
+           given={Zibin},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=89afa2af91c8dfa048fdcec740d6684e}{%
+           family={Lyu},
+           familyi={L\bibinitperiod},
+           given={Michael\bibnamedelima R.},
+           giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \strng{namehash}{2114520c258cd871b6d57e1af260bd8e}
+      \strng{fullhash}{d2eb43d672c0a403ae2093e9e55d495f}
+      \strng{fullhashraw}{d2eb43d672c0a403ae2093e9e55d495f}
+      \strng{bibnamehash}{d2eb43d672c0a403ae2093e9e55d495f}
+      \strng{authorbibnamehash}{d2eb43d672c0a403ae2093e9e55d495f}
+      \strng{authornamehash}{2114520c258cd871b6d57e1af260bd8e}
+      \strng{authorfullhash}{d2eb43d672c0a403ae2093e9e55d495f}
+      \strng{authorfullhashraw}{d2eb43d672c0a403ae2093e9e55d495f}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2017 IEEE International Conference on Web Services (ICWS)}
+      \field{title}{Drain: An Online Log Parsing Approach with Fixed Depth Tree}
+      \field{year}{2017}
+      \field{pages}{33\bibrangedash 40}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1109/ICWS.2017.13
+      \endverb
+    \endentry
+    \entry{du2017deeplog}{inproceedings}{}{}
+      \name{author}{4}{}{%
+        {{hash=6989be56341f6cbc885766e0dd067a4b}{%
+           family={Du},
+           familyi={D\bibinitperiod},
+           given={Min},
+           giveni={M\bibinitperiod}}}%
+        {{hash=65dc7c16174f4ebc47ccdc01e74939f2}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Feifei},
+           giveni={F\bibinitperiod}}}%
+        {{hash=5794422819f20abab5416b26ef567f74}{%
+           family={Zheng},
+           familyi={Z\bibinitperiod},
+           given={Guineng},
+           giveni={G\bibinitperiod}}}%
+        {{hash=d353c169cbdb6171b51ab4026427e690}{%
+           family={Srikumar},
+           familyi={S\bibinitperiod},
+           given={Vivek},
+           giveni={V\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c332f1edf158a734f1c6bb7e4700d17}
+      \strng{fullhash}{760efbdb5f6ee764f720cfc67b65c0c3}
+      \strng{fullhashraw}{760efbdb5f6ee764f720cfc67b65c0c3}
+      \strng{bibnamehash}{760efbdb5f6ee764f720cfc67b65c0c3}
+      \strng{authorbibnamehash}{760efbdb5f6ee764f720cfc67b65c0c3}
+      \strng{authornamehash}{9c332f1edf158a734f1c6bb7e4700d17}
+      \strng{authorfullhash}{760efbdb5f6ee764f720cfc67b65c0c3}
+      \strng{authorfullhashraw}{760efbdb5f6ee764f720cfc67b65c0c3}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 2017 ACM SIGSAC Conference on Computer and Communications Security}
+      \field{title}{{DeepLog}: Anomaly Detection and Diagnosis from System Logs through Deep Learning}
+      \field{year}{2017}
+      \field{pages}{1285\bibrangedash 1298}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1145/3133956.3134015
+      \endverb
+    \endentry
+    \entry{zhao2019loganomaly}{inproceedings}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{10}{}{%
+        {{hash=59dff177f4b08d707ff237c29075233d}{%
+           family={Zhao},
+           familyi={Z\bibinitperiod},
+           given={Shenglin},
+           giveni={S\bibinitperiod}}}%
+        {{hash=64023350716a7983b874c6e86ce31980}{%
+           family={Luan},
+           familyi={L\bibinitperiod},
+           given={Shaohan},
+           giveni={S\bibinitperiod}}}%
+        {{hash=aff1d4e533066284d27b1c2ef9d48ee2}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Liqun},
+           giveni={L\bibinitperiod}}}%
+        {{hash=5b32d3cb374ea13d5441b19af42aebb9}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Dan},
+           giveni={D\bibinitperiod}}}%
+        {{hash=dd23af5abc820225e160ef257ed38afd}{%
+           family={Jin},
+           familyi={J\bibinitperiod},
+           given={Ting},
+           giveni={T\bibinitperiod}}}%
+        {{hash=89273e2508087c0676490cf10f66d2c3}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Zhiyuan},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=e5ac4d385ca5f3725ceb7021e9f07f30}{%
+           family={Qu},
+           familyi={Q\bibinitperiod},
+           given={Xiao},
+           giveni={X\bibinitperiod}}}%
+        {{hash=a05dc7a1f3e3014cdec3f5972375fe23}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Fangfang},
+           giveni={F\bibinitperiod}}}%
+        {{hash=9c7d529cdd936aa84bdf54c78b970644}{%
+           family={Yin},
+           familyi={Y\bibinitperiod},
+           given={Zhi},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=754eb22c6d8a23f76c209d577bd6da36}{%
+           family={Shang},
+           familyi={S\bibinitperiod},
+           given={Mingxi},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{39a33edd490348c5cdb6c34e7a659c32}
+      \strng{fullhash}{b3148d1e9f05dee3102247d851e31d5f}
+      \strng{fullhashraw}{b3148d1e9f05dee3102247d851e31d5f}
+      \strng{bibnamehash}{39a33edd490348c5cdb6c34e7a659c32}
+      \strng{authorbibnamehash}{39a33edd490348c5cdb6c34e7a659c32}
+      \strng{authornamehash}{39a33edd490348c5cdb6c34e7a659c32}
+      \strng{authorfullhash}{b3148d1e9f05dee3102247d851e31d5f}
+      \strng{authorfullhashraw}{b3148d1e9f05dee3102247d851e31d5f}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 28th International Joint Conference on Artificial Intelligence (IJCAI)}
+      \field{title}{{LogAnomaly}: Unsupervised Detection of Sequential and Quantitative Anomalies in Unstructured Logs}
+      \field{year}{2019}
+      \field{pages}{4739\bibrangedash 4745}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.24963/ijcai.2019/658
+      \endverb
+    \endentry
+    \entry{carcano2011scada}{article}{}{}
+      \name{author}{6}{}{%
+        {{hash=9da448429646c2b4034b8481531473ee}{%
+           family={Carcano},
+           familyi={C\bibinitperiod},
+           given={Andrea},
+           giveni={A\bibinitperiod}}}%
+        {{hash=71e823cbd65350ed7b3f41b177460d13}{%
+           family={Coletta},
+           familyi={C\bibinitperiod},
+           given={Andrea},
+           giveni={A\bibinitperiod}}}%
+        {{hash=9a44359b3a4097f75f45bb2480b444f4}{%
+           family={Guglielmi},
+           familyi={G\bibinitperiod},
+           given={Marcello},
+           giveni={M\bibinitperiod}}}%
+        {{hash=ad1a25d66da838facf20c2054c31c5a8}{%
+           family={Masera},
+           familyi={M\bibinitperiod},
+           given={Marcelo},
+           giveni={M\bibinitperiod}}}%
+        {{hash=c26204d1a4198c08433afd11e2af8bfb}{%
+           family={Nai\bibnamedelima Fovino},
+           familyi={N\bibinitperiod\bibinitdelim F\bibinitperiod},
+           given={Igor},
+           giveni={I\bibinitperiod}}}%
+        {{hash=5e08022f8b2a4f7a16f1d94f859cf9df}{%
+           family={Trombetta},
+           familyi={T\bibinitperiod},
+           given={Alberto},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{0d89cfefb7719f19664fd26ef08af8ae}
+      \strng{fullhash}{13458bab3efb19036ba593151e410390}
+      \strng{fullhashraw}{13458bab3efb19036ba593151e410390}
+      \strng{bibnamehash}{13458bab3efb19036ba593151e410390}
+      \strng{authorbibnamehash}{13458bab3efb19036ba593151e410390}
+      \strng{authornamehash}{0d89cfefb7719f19664fd26ef08af8ae}
+      \strng{authorfullhash}{13458bab3efb19036ba593151e410390}
+      \strng{authorfullhashraw}{13458bab3efb19036ba593151e410390}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Industrial Informatics}
+      \field{number}{2}
+      \field{title}{A Multidimensional Critical State Analysis for Detecting Intrusions in {SCADA} Systems}
+      \field{volume}{7}
+      \field{year}{2011}
+      \field{pages}{179\bibrangedash 186}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1109/TII.2010.2100361
+      \endverb
+    \endentry
+    \entry{goldenberg2013modbus}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=56e705024cb8ad7938a49850470d2d81}{%
+           family={Goldenberg},
+           familyi={G\bibinitperiod},
+           given={Niv},
+           giveni={N\bibinitperiod}}}%
+        {{hash=c2c7d973d3d682747c1d34e1c9fe7642}{%
+           family={Wool},
+           familyi={W\bibinitperiod},
+           given={Avishai},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{803a250973a608e37de5e2f835adfcde}
+      \strng{fullhash}{803a250973a608e37de5e2f835adfcde}
+      \strng{fullhashraw}{803a250973a608e37de5e2f835adfcde}
+      \strng{bibnamehash}{803a250973a608e37de5e2f835adfcde}
+      \strng{authorbibnamehash}{803a250973a608e37de5e2f835adfcde}
+      \strng{authornamehash}{803a250973a608e37de5e2f835adfcde}
+      \strng{authorfullhash}{803a250973a608e37de5e2f835adfcde}
+      \strng{authorfullhashraw}{803a250973a608e37de5e2f835adfcde}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Critical Infrastructure Protection}
+      \field{number}{2}
+      \field{title}{Accurate modeling of {Modbus/TCP} for intrusion detection in {SCADA} systems}
+      \field{volume}{6}
+      \field{year}{2013}
+      \field{pages}{63\bibrangedash 75}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1016/j.ijcip.2013.05.001
+      \endverb
+    \endentry
+    \entry{goh2016swat}{inproceedings}{}{}
+      \name{author}{4}{}{%
+        {{hash=66580f0ffa3539dcc125f05e39cd7837}{%
+           family={Goh},
+           familyi={G\bibinitperiod},
+           given={Jonathan},
+           giveni={J\bibinitperiod}}}%
+        {{hash=9398c8f080cb4a880ec09ca45b90c9a7}{%
+           family={Adepu},
+           familyi={A\bibinitperiod},
+           given={Sridhar},
+           giveni={S\bibinitperiod}}}%
+        {{hash=10da19925dcffeb353901bbfef0bd3cf}{%
+           family={Junejo},
+           familyi={J\bibinitperiod},
+           given={Khurum\bibnamedelima Nazir},
+           giveni={K\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=fa9109627b97fc95d429cfcceae7ab1f}{%
+           family={Mathur},
+           familyi={M\bibinitperiod},
+           given={Aditya},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{628297f593f4b9d2d872ad79c038c306}
+      \strng{fullhash}{103fe031e422bdf48bad26fb62600072}
+      \strng{fullhashraw}{103fe031e422bdf48bad26fb62600072}
+      \strng{bibnamehash}{103fe031e422bdf48bad26fb62600072}
+      \strng{authorbibnamehash}{103fe031e422bdf48bad26fb62600072}
+      \strng{authornamehash}{628297f593f4b9d2d872ad79c038c306}
+      \strng{authorfullhash}{103fe031e422bdf48bad26fb62600072}
+      \strng{authorfullhashraw}{103fe031e422bdf48bad26fb62600072}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Critical Infrastructure Protection X}
+      \field{title}{A Dataset to Support Research in the Design of Secure Water Treatment Systems}
+      \field{year}{2016}
+      \field{pages}{88\bibrangedash 112}
+      \range{pages}{25}
+      \verb{doi}
+      \verb 10.1007/978-3-319-48737-3_5
+      \endverb
+    \endentry
+    \entry{mitchell2014survey}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=d45123522733b226ee00559772a127a0}{%
+           family={Mitchell},
+           familyi={M\bibinitperiod},
+           given={Robert},
+           giveni={R\bibinitperiod}}}%
+        {{hash=6d5cd4311a2b269e51d00fd756559a23}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Ing-Ray},
+           giveni={I\bibinithyphendelim R\bibinitperiod}}}%
+      }
+      \strng{namehash}{e45a4111fa43ab3c3e31f6d8e35274ad}
+      \strng{fullhash}{e45a4111fa43ab3c3e31f6d8e35274ad}
+      \strng{fullhashraw}{e45a4111fa43ab3c3e31f6d8e35274ad}
+      \strng{bibnamehash}{e45a4111fa43ab3c3e31f6d8e35274ad}
+      \strng{authorbibnamehash}{e45a4111fa43ab3c3e31f6d8e35274ad}
+      \strng{authornamehash}{e45a4111fa43ab3c3e31f6d8e35274ad}
+      \strng{authorfullhash}{e45a4111fa43ab3c3e31f6d8e35274ad}
+      \strng{authorfullhashraw}{e45a4111fa43ab3c3e31f6d8e35274ad}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{ACM Computing Surveys}
+      \field{number}{4}
+      \field{title}{A Survey of Intrusion Detection Techniques for Cyber-Physical Systems}
+      \field{volume}{46}
+      \field{year}{2014}
+      \field{pages}{1\bibrangedash 29}
+      \range{pages}{29}
+      \verb{doi}
+      \verb 10.1145/2542049
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
