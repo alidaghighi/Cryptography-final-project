@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.10.14)  20 MAY 2026 20:51
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.10.14)  20 MAY 2026 22:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -910,38 +910,44 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--30
 ) (sections/experiments.tex
 
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
-(Font)              using `TU/ptm/bx/n' instead on input line 42.
+(Font)              using `TU/ptm/bx/n' instead on input line 46.
 
 
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
-(Font)              using `TU/ptm/bx/n' instead on input line 42.
+(Font)              using `TU/ptm/bx/n' instead on input line 46.
 
 
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
-(Font)              using `TU/ptm/bx/n' instead on input line 42.
+(Font)              using `TU/ptm/bx/n' instead on input line 47.
 
 
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
-(Font)              using `TU/ptm/bx/n' instead on input line 42.
+(Font)              using `TU/ptm/bx/n' instead on input line 48.
 
 
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
-(Font)              using `TU/ptm/bx/n' instead on input line 42.
+(Font)              using `TU/ptm/bx/n' instead on input line 49.
 
+
+Overfull \hbox (55.73294pt too wide) in paragraph at lines 37--52
+ [][] 
+ []
+
+
+
+[4]
 File: figs/results.png Graphic file (type bmp)
 <figs/results.png>
 
 
-[4]) (sections/discussion.tex
+) (sections/discussion.tex
+
+[5]) (sections/conclusion.tex
 
 )
-
-[5] (sections/conclusion.tex)
 Underfull \hbox (badness 2261) in paragraph at lines 63--63
 []\TU/pcr/m/n/10 MITRE Corporation, “ATT&CK for ICS,” in
  []
-
-
 
 
 
@@ -954,9 +960,7 @@ Underfull \hbox (badness 1354) in paragraph at lines 63--63
 
 
 
-[7
-
-]
+[7]
 (E:\Work\Biruni University\Masters\2\Crypto\Final-Project\docs\journal_paper\_l
 atexmk\journal_paper.aux)
  ***********
@@ -968,19 +972,19 @@ L3 programming layer <2025-09-02>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `journal_paper.out' has not changed.
-(rerunfilecheck)             Checksum: 0B12A99E96BD6A076491A6AAF0899704;5602.
+(rerunfilecheck)             Checksum: 5C1BC6F103AAE82F8A89B20198262894;5773.
 Package logreq Info: Writing requests to 'journal_paper.run.xml'.
 \openout1 = `journal_paper.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 17681 strings out of 403196
- 310098 string characters out of 5456329
- 1185094 words of memory out of 5000000
- 45997 multiletter control sequences out of 15000+600000
+ 17682 strings out of 403196
+ 310113 string characters out of 5456329
+ 1183368 words of memory out of 5000000
+ 45998 multiletter control sequences out of 15000+600000
  632960 words of font info for 71 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  72i,9n,79p,704b,4949s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on E:\Work\Biruni University\Masters\2\Crypto\Final-Project\docs
-\journal_paper\_latexmk\journal_paper.xdv (7 pages, 307660 bytes).
+\journal_paper\_latexmk\journal_paper.xdv (7 pages, 324620 bytes).

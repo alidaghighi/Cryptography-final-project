@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.10.14)  20 MAY 2026 20:43
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.10.14)  20 MAY 2026 22:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -865,45 +865,42 @@ Underfull \hbox (badness 1881) in paragraph at lines 70--50
 
 
 [3] (sections/results.tex
-Underfull \hbox (badness 1845) in paragraph at lines 5--9
-\TU/pcr/m/n/10 benign, 1,000 malicious), totalling 54,478 individual
- []
+
+LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
+(Font)              using `TU/ptm/bx/n' instead on input line 54.
 
 
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
-(Font)              using `TU/ptm/bx/n' instead on input line 52.
+(Font)              using `TU/ptm/bx/n' instead on input line 54.
 
 
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
-(Font)              using `TU/ptm/bx/n' instead on input line 52.
+(Font)              using `TU/ptm/bx/n' instead on input line 54.
 
 
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
-(Font)              using `TU/ptm/bx/n' instead on input line 52.
+(Font)              using `TU/ptm/bx/n' instead on input line 54.
 
 
 LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
-(Font)              using `TU/ptm/bx/n' instead on input line 52.
+(Font)              using `TU/ptm/bx/n' instead on input line 54.
 
 
-LaTeX Font Warning: Font shape `TU/ptm/b/n' undefined
-(Font)              using `TU/ptm/bx/n' instead on input line 52.
-
-
-Overfull \hbox (15.2241pt too wide) in paragraph at lines 45--55
+Overfull \hbox (13.22409pt too wide) in paragraph at lines 45--57
  [][] 
  []
 
 )
 
 (sections/conclusion.tex)
+
+[4]
 Underfull \hbox (badness 1354) in paragraph at lines 58--58
 []\TU/pcr/m/n/10 P. Garcia-Teodoro, J. Diaz-Verdejo, G. Macia-
  []
 
 
 
-[4]
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -917,11 +914,7 @@ Before submitting the final camera ready copy, remember to:
 
 
 
-
-
-[5
-
-]
+[5]
 (E:\Work\Biruni University\Masters\2\Crypto\Final-Project\docs\preliminary_stud
 y\_latexmk\preliminary_study.aux)
  ***********
@@ -941,11 +934,11 @@ Package logreq Info: Writing requests to 'preliminary_study.run.xml'.
 Here is how much of TeX's memory you used:
  17642 strings out of 403196
  308929 string characters out of 5456329
- 1177490 words of memory out of 5000000
+ 1177511 words of memory out of 5000000
  45965 multiletter control sequences out of 15000+600000
  632960 words of font info for 71 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  72i,8n,79p,708b,4953s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on E:\Work\Biruni University\Masters\2\Crypto\Final-Project\docs
-\preliminary_study\_latexmk\preliminary_study.xdv (5 pages, 217364 bytes).
+\preliminary_study\_latexmk\preliminary_study.xdv (5 pages, 219452 bytes).

@@ -455,9 +455,6 @@ INPUT .\figs\architecture.png
 INPUT .\figs\pipeline.png
 INPUT .\figs\pipeline.png
 INPUT .\figs\pipeline.png
-INPUT .\figs\results.png
-INPUT .\figs\results.png
-INPUT .\figs\results.png
 INPUT C:\Users\Ali\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmss10.tfm
 INPUT C:\Users\Ali\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmss8.tfm
 INPUT C:\Users\Ali\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmss8.tfm
@@ -469,6 +466,9 @@ INPUT C:\Users\Ali\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbo
 INPUT C:\Users\Ali\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\Ali\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
 INPUT C:\Users\Ali\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
+INPUT .\figs\results.png
+INPUT .\figs\results.png
+INPUT .\figs\results.png
 OUTPUT E:\Work\Biruni University\Masters\2\Crypto\Final-Project\docs\presentation\_latexmk\presentation.nav
 OUTPUT E:\Work\Biruni University\Masters\2\Crypto\Final-Project\docs\presentation\_latexmk\presentation.toc
 OUTPUT E:\Work\Biruni University\Masters\2\Crypto\Final-Project\docs\presentation\_latexmk\presentation.snm

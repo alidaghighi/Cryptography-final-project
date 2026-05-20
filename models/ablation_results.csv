@@ -1,0 +1,7 @@
+removed,f1_macro,delta
+None (full features),1.0,0.0
+Group1_EventCounts,1.0,0.0
+Group2_TimeDelta,1.0,0.0
+Group3_Cardinality,1.0,0.0
+Group4_RareFlags,1.0,0.0
+Group5_Entropy,1.0,0.0

@@ -1,17 +1,17 @@
 # Fdb version 4
-["biber _latexmk/presentation"] 1779299723.55693 "_latexmk/presentation.bcf" "_latexmk/presentation.bbl" "_latexmk/presentation" 1779299781.21474 0
-  "_latexmk/presentation.bcf" 1779299779.23353 109087 50de063371563fbb45b5f2b5d31c62e6 "xelatex"
+["biber _latexmk/presentation"] 1779299723.55693 "_latexmk/presentation.bcf" "_latexmk/presentation.bbl" "_latexmk/presentation" 1779304174.21246 0
+  "_latexmk/presentation.bcf" 1779304172.24642 109087 50de063371563fbb45b5f2b5d31c62e6 "xelatex"
   "references.bib" 1779299495.40691 6024 51898d41708fdd286af750c1599c882d ""
   (generated)
   "_latexmk/presentation.bbl"
   "_latexmk/presentation.blg"
   (rewritten before read)
-["xdvipdfmx"] 1779299779.64485 "_latexmk/presentation.xdv" "presentation.pdf" "presentation" 1779299781.24147 0
-  "_latexmk/presentation.xdv" 1779299779.23646 259028 301885dc1ddd20bf87e0af63d541c98e "xelatex"
+["xdvipdfmx"] 1779304172.66406 "_latexmk/presentation.xdv" "presentation.pdf" "presentation" 1779304174.24016 0
+  "_latexmk/presentation.xdv" 1779304172.24935 263028 7fb3055e2bee1f9fd5ff583767d89968 "xelatex"
   (generated)
   "presentation.pdf"
   (rewritten before read)
-["xelatex"] 1779299761.82694 "presentation.tex" "_latexmk/presentation.xdv" "presentation" 1779299781.21592 0
+["xelatex"] 1779304154.8156 "presentation.tex" "_latexmk/presentation.xdv" "presentation" 1779304174.21324 0
   "C:/Users/Ali/AppData/Local/MiKTeX/miktex/data/le/xetex/xelatex.fmt" 1760462429.92507 27156626 8bcbbe1ffc9418223ec2fb6c02d63ba4 ""
   "C:/Users/Ali/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136761454 1528 f853c4d1b4e0550255e02831fdc8496f ""
   "C:/Users/Ali/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
@@ -230,21 +230,21 @@
   "C:/Users/Ali/AppData/Local/Programs/MiKTeX/tex/latex/translator/translator.sty" 1622471510 8765 56d370785f0143111ff9898b5adfe08e ""
   "C:/Users/Ali/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/Ali/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "E:/Work/Biruni University/Masters/2/Crypto/Final-Project/docs/presentation/_latexmk/presentation.aux" 1779299779.22182 8726 07a22127511aff1781f7dd3b75dc2009 ""
+  "E:/Work/Biruni University/Masters/2/Crypto/Final-Project/docs/presentation/_latexmk/presentation.aux" 1779304172.23275 8726 07a22127511aff1781f7dd3b75dc2009 ""
   "E:/Work/Biruni University/Masters/2/Crypto/Final-Project/docs/presentation/_latexmk/presentation.bbl" 1779299725.94674 16006 9d41d707a32c518c054d8dfb39af6894 ""
-  "E:/Work/Biruni University/Masters/2/Crypto/Final-Project/docs/presentation/_latexmk/presentation.nav" 1779299779.23646 3846 17f130baac1c8b5c07ec70f4de902d80 ""
-  "E:/Work/Biruni University/Masters/2/Crypto/Final-Project/docs/presentation/_latexmk/presentation.out" 1779299779.23158 771 e55d5e95d73988839cd43cd39f24f04b ""
-  "E:/Work/Biruni University/Masters/2/Crypto/Final-Project/docs/presentation/_latexmk/presentation.toc" 1779299779.23646 377 4f1bb3288be0ebeaddee9e774304dfa4 ""
-  "_latexmk/presentation.aux" 1779299779.22182 8726 07a22127511aff1781f7dd3b75dc2009 "xelatex"
+  "E:/Work/Biruni University/Masters/2/Crypto/Final-Project/docs/presentation/_latexmk/presentation.nav" 1779304172.24935 3846 17f130baac1c8b5c07ec70f4de902d80 ""
+  "E:/Work/Biruni University/Masters/2/Crypto/Final-Project/docs/presentation/_latexmk/presentation.out" 1779304172.24252 771 e55d5e95d73988839cd43cd39f24f04b ""
+  "E:/Work/Biruni University/Masters/2/Crypto/Final-Project/docs/presentation/_latexmk/presentation.toc" 1779304172.24935 377 4f1bb3288be0ebeaddee9e774304dfa4 ""
+  "_latexmk/presentation.aux" 1779304172.23275 8726 07a22127511aff1781f7dd3b75dc2009 "xelatex"
   "_latexmk/presentation.bbl" 1779299725.94674 16006 9d41d707a32c518c054d8dfb39af6894 "biber _latexmk/presentation"
-  "_latexmk/presentation.nav" 1779299779.23646 3846 17f130baac1c8b5c07ec70f4de902d80 "xelatex"
-  "_latexmk/presentation.out" 1779299779.23158 771 e55d5e95d73988839cd43cd39f24f04b "xelatex"
-  "_latexmk/presentation.run.xml" 1779299779.23646 2493 e765ab6cc31b3df1408e25b196dff627 "xelatex"
-  "_latexmk/presentation.toc" 1779299779.23646 377 4f1bb3288be0ebeaddee9e774304dfa4 "xelatex"
+  "_latexmk/presentation.nav" 1779304172.24935 3846 17f130baac1c8b5c07ec70f4de902d80 "xelatex"
+  "_latexmk/presentation.out" 1779304172.24252 771 e55d5e95d73988839cd43cd39f24f04b "xelatex"
+  "_latexmk/presentation.run.xml" 1779304172.24837 2493 e765ab6cc31b3df1408e25b196dff627 "xelatex"
+  "_latexmk/presentation.toc" 1779304172.24935 377 4f1bb3288be0ebeaddee9e774304dfa4 "xelatex"
   "figs/architecture.png" 1779299500.88056 144563 0a0e6b06af6c4c7207c9e33ce6ef1ad6 ""
   "figs/pipeline.png" 1779299500.89911 162245 292dcba4455a62c7bffabf5be8979ea7 ""
   "figs/results.png" 1779299500.86201 146776 cfe9b160db4bac63dd80450c0b05d22d ""
-  "presentation.tex" 1779299586.81592 10108 50f031815899b522fb8c8ee874e9be0b ""
+  "presentation.tex" 1779304139.46075 10709 f6a90e9f17ee5819248ff1c9fd4ec78c ""
   (generated)
   "_latexmk/presentation.aux"
   "_latexmk/presentation.bcf"
