@@ -1,0 +1,40 @@
+# Python virtual environment
+.venv/
+venv/
+env/
+
+# uv cache
+.uv/
+
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Generated data (reproducible from pipeline)
+data/raw/
+data/processed/
+data/multiseed/
+
+# Trained models (reproducible from pipeline)
+models/*.pkl
+models/*.png
+models/*.csv
+
+# LaTeX build artifacts
+_latexmk/
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.run.xml
+*.synctex.gz
+*.xdv
+
+# OS
+.DS_Store
+Thumbs.db
