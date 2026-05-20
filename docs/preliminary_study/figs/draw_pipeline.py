@@ -1,9 +1,11 @@
 """Data pipeline / ML workflow diagram for preliminary study."""
 
 from pathlib import Path
+
 import graphviz
 
 OUT_DIR = Path(__file__).parent
+
 
 def main():
     dot = graphviz.Digraph(
@@ -42,10 +44,14 @@ def main():
         sg.node("feat_vec", "Feature\nMatrix", shape="cylinder", fillcolor="#F9E79F")
 
     with dot.subgraph(name="cluster_model") as sg:
-        sg.attr(label="Modelling & Evaluation", style="filled", fillcolor="#FDEDEC", color="#E74C3C")
+        sg.attr(
+            label="Modelling & Evaluation", style="filled", fillcolor="#FDEDEC", color="#E74C3C"
+        )
         sg.node("cv", "5-Fold\nStratified CV", fillcolor="#FADBD8")
         sg.node("search", "RandomizedSearchCV\n(hyperparameter tuning)", fillcolor="#FADBD8")
-        sg.node("rf", "Random Forest\n(class_weight=balanced)", fillcolor="#EC7063", fontcolor="white")
+        sg.node(
+            "rf", "Random Forest\n(class_weight=balanced)", fillcolor="#EC7063", fontcolor="white"
+        )
         sg.node("metrics", "Accuracy / F1 /\nROC-AUC / CM", fillcolor="#FADBD8")
 
     dot.edge("gen", "raw")
@@ -55,7 +61,9 @@ def main():
     dot.edge("split", "td")
     dot.edge("split", "card")
     dot.edge("split", "ent")
-    dot.edges([("count", "feat_vec"), ("td", "feat_vec"), ("card", "feat_vec"), ("ent", "feat_vec")])
+    dot.edges(
+        [("count", "feat_vec"), ("td", "feat_vec"), ("card", "feat_vec"), ("ent", "feat_vec")]
+    )
     dot.edge("feat_vec", "cv")
     dot.edge("cv", "search")
     dot.edge("search", "rf")
@@ -64,6 +72,7 @@ def main():
     out = OUT_DIR / "pipeline"
     dot.render(str(out), cleanup=True)
     print(f"Saved {out}.png")
+
 
 if __name__ == "__main__":
     main()

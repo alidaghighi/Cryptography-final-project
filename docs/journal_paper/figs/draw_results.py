@@ -8,11 +8,12 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent.parent))
 
 import joblib
 import matplotlib
+
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from sklearn.metrics import roc_curve, auc
+from sklearn.metrics import auc, roc_curve
 
 OUT_DIR = Path(__file__).parent
 MODEL_PATH = OUT_DIR.parent.parent.parent / "models" / "best_model.pkl"
@@ -35,8 +36,7 @@ def generate_roc():
     fig, axes = plt.subplots(1, 2, figsize=(10, 4))
 
     # ROC curve
-    axes[0].plot(fpr, tpr, color="#2980B9", lw=2,
-                 label=f"Random Forest (AUC = {roc_auc:.3f})")
+    axes[0].plot(fpr, tpr, color="#2980B9", lw=2, label=f"Random Forest (AUC = {roc_auc:.3f})")
     axes[0].plot([0, 1], [0, 1], color="gray", lw=1, linestyle="--", label="Chance")
     axes[0].set_xlim([0.0, 1.0])
     axes[0].set_ylim([0.0, 1.02])

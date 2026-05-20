@@ -1,9 +1,11 @@
 """Detailed feature pipeline diagram for journal paper."""
 
 from pathlib import Path
+
 import graphviz
 
 OUT_DIR = Path(__file__).parent
+
 
 def main():
     dot = graphviz.Digraph(
@@ -34,7 +36,9 @@ def main():
         sg.node("f5", "Group 5\nShannon\nSequence Entropy", fillcolor="#FAD7A0")
 
     dot.node("vec", "Feature Vector\n(24-dim)", shape="cylinder", fillcolor="#F9E79F")
-    dot.node("label", "Session Label\n(0=benign, 1=malicious)", shape="diamond", fillcolor="#E8DAEF")
+    dot.node(
+        "label", "Session Label\n(0=benign, 1=malicious)", shape="diamond", fillcolor="#E8DAEF"
+    )
     dot.node("train", "Random Forest\nTraining", fillcolor="#EC7063", fontcolor="white")
 
     dot.edge("raw", "sess")
@@ -50,6 +54,7 @@ def main():
     out = OUT_DIR / "feature_pipeline"
     dot.render(str(out), cleanup=True)
     print(f"Saved {out}.png")
+
 
 if __name__ == "__main__":
     main()
