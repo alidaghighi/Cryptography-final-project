@@ -28,189 +28,200 @@ in Smart Grid Control Systems}
 % ── Slide 2 — Agenda ─────────────────────────────────────────────────────────
 \begin{frame}{Agenda}
   \tableofcontents[hideallsubsections]
-  \note{Six sections: motivation for the work, background and related literature,
-        our formal threat model, the dataset and feature engineering, experimental
-        results including ablation, and a brief conclusion with future directions.}
+  \note{Six sections: motivation, background, threat model, data and features, results,
+        and conclusion.}
 \end{frame}
 
 % ═════════════════════════════════════════════════════════════════════════════
 \section{Motivation}
 % ═════════════════════════════════════════════════════════════════════════════
 
-% ── Slide 3 — The Gap ────────────────────────────────────────────────────────
+% ── Slide 3 — The Gap (text) ─────────────────────────────────────────────────
 \begin{frame}{The Security Gap in Smart Grid Hosts}
-  \begin{columns}[T]
-    \begin{column}{0.53\textwidth}
-      Smart grids converge IP networks with Windows-based SCADA and RTU hosts,
-      creating an IT/OT boundary actively exploited by adversaries---Stuxnet~(2010),
-      Ukrainian grid attacks~(2015, 2016), Colonial Pipeline~(2021).
+  Smart grids converge IP networks with Windows-based SCADA and RTU hosts,
+  creating an IT/OT boundary actively exploited by adversaries --- Stuxnet~(2010),
+  Ukrainian grid attacks~(2015, 2016), Colonial Pipeline~(2021).
 
-      \vspace{0.5em}
-      \begin{itemize}
-        \item NERC CIP-007 \emph{mandates} event logging on applicable cyber assets
-        \item IEC~62351 specifies audit trails for power communications
-        \pause
-        \item \textbf{These logs are collected but never used for automated detection}
-      \end{itemize}
+  \vspace{0.7em}
+  \begin{itemize}
+    \item NERC CIP-007 \emph{mandates} event logging on all applicable cyber assets
+    \item IEC~62351 specifies audit trails for power system communications
+    \pause
+    \item \textbf{These logs are collected for compliance but never used for automated
+          intrusion detection}
+  \end{itemize}
 
-      \vspace{0.5em}
-      \pause
-      \textbf{Goal:} apply machine learning to Windows Event Logs at Purdue
-      Levels~1--3 to detect malicious sessions in real time.
-    \end{column}
-    \begin{column}{0.45\textwidth}
-      \includegraphics[width=\textwidth]{figs/architecture.png}
-    \end{column}
-  \end{columns}
-  \note{Regulatory logging is mandated but the data is never used for detection.
-        Architecture figure shows the IT/OT convergence zone we target. This is
-        the core motivation for the entire project.}
+  \vspace{0.7em}
+  \pause
+  \textbf{Goal:} apply machine learning to Windows Event Logs at Purdue
+  Levels~1--3 to detect malicious host sessions in real time.
+  \note{Core motivation: regulatory logging is mandated, terabytes of Windows Event
+        Log data exist on SCADA hosts, but zero automated detection is performed on them.}
+\end{frame}
+
+% ── Slide 4 — Architecture figure ────────────────────────────────────────────
+\begin{frame}{Smart Grid IT/OT Architecture}
+  \begin{center}
+    \includegraphics[width=0.88\textwidth,height=0.80\textheight,keepaspectratio]{figs/architecture.png}
+  \end{center}
+  \note{This is the architecture we target: Purdue model Levels 1 through 3. Windows
+        hosts appear at all three levels. Our pipeline ingests their event logs centrally.}
 \end{frame}
 
 % ═════════════════════════════════════════════════════════════════════════════
 \section{Background}
 % ═════════════════════════════════════════════════════════════════════════════
 
-% ── Slide 4 — Related Work ───────────────────────────────────────────────────
+% ── Slide 5 — Related Work ───────────────────────────────────────────────────
 \begin{frame}{Prior Work and Research Gap}
-  Three research streams inform this work---each leaves a gap we fill:
+  Three research streams inform this work --- each leaves a gap we fill:
 
-  \vspace{0.4em}
-  \begin{columns}[T]
-    \begin{column}{0.50\textwidth}
-      \textbf{Log anomaly detection} (Drain, DeepLog, LogAnomaly) targets
-      distributed IT logs---HDFS, syslog, OpenStack---not Windows Security
-      Event IDs in operational technology.
+  \vspace{0.5em}
+  \textbf{Log anomaly detection} (Drain, DeepLog, LogAnomaly) targets distributed
+  IT logs --- HDFS, syslog, OpenStack --- not Windows Security Event IDs in OT.
 
-      \vspace{0.4em}
-      \textbf{ICS/SCADA IDS} (Carcano, Goldenberg, SWaT dataset) monitors
-      network traffic and process measurements, not host-level audit logs.
+  \vspace{0.5em}
+  \textbf{ICS/SCADA IDS} (Carcano, Goldenberg, SWaT dataset) monitors network
+  traffic and physical process measurements, not host-level audit logs.
 
-      \vspace{0.4em}
-      \textbf{Windows malware detection} (Achmad 2025, \"{O}nal 2025,
-      Zhen 2025) focuses on IT endpoints, not OT hosts with ICS-specific
-      event semantics.
-    \end{column}
-    \begin{column}{0.46\textwidth}
-      \begin{block}{Research Gap \cite{mitchell2014survey}}
-        Host-level IDS is rare in the cyber-physical systems literature.
-        No prior work targets Windows Event Logs at ICS Purdue~L1--L3.
-      \end{block}
+  \vspace{0.5em}
+  \textbf{Windows malware detection} (Achmad 2025, \"{O}nal 2025, Zhen 2025) focuses
+  on IT endpoints, not OT hosts with ICS-specific event semantics.
 
-      \vspace{0.5em}
-      \textbf{This work} is the first framework combining Windows Event Log
-      semantics with ICS-specific threat modelling in smart grid environments.
-    \end{column}
-  \end{columns}
-  \note{Three streams, three gaps. The block quote from Mitchell and Chen 2014
-        directly motivates the contribution. Emphasise the OT/IT semantic mismatch.}
+  \vspace{0.6em}
+  \begin{block}{Confirmed gap \cite{mitchell2014survey}}
+    Host-level IDS is rare in the cyber-physical systems literature.
+    No prior work targets Windows Event Logs at Purdue L1--L3 in smart grids.
+    \textbf{This work is the first such framework.}
+  \end{block}
+  \note{Three streams, three gaps. Mitchell and Chen 2014 directly confirms the absence
+        of host-level IDS in CPS. Emphasise the OT/IT semantic mismatch.}
 \end{frame}
 
 % ═════════════════════════════════════════════════════════════════════════════
 \section{Threat Model}
 % ═════════════════════════════════════════════════════════════════════════════
 
-% ── Slide 5 — Threat Model ───────────────────────────────────────────────────
-\begin{frame}{Threat Model}
-  \begin{columns}[T]
-    \begin{column}{0.48\textwidth}
-      \begin{block}{Adversary Profile}
-        Foothold on Level~3 IT host via phishing or supply-chain compromise.
-        Valid or cracked domain credentials. Network access across a
-        misconfigured IT/OT DMZ.
-      \end{block}
-      \vspace{0.5em}
-      \begin{block}{Attack Goal}
-        Persist $\rightarrow$ escalate privileges $\rightarrow$ execute
-        disruptive payload (rogue PLC commands or operator denial-of-visibility).
-      \end{block}
-    \end{column}
-    \begin{column}{0.48\textwidth}
-      \textbf{Four MITRE ATT\&CK ICS patterns modelled:}
-      \begin{enumerate}
-        \item \textbf{Lateral movement} --- repeated 4625 failures then 4624
-              success from unexpected source
-        \item \textbf{Persistence} --- 7045 service install on SCADA host,
-              followed by 7036 state change
-        \item \textbf{Privilege escalation} --- 4672 + anomalous 4688
-              (\texttt{mimikatz.exe}, \texttt{psexec.exe})
-        \item \textbf{Reconnaissance} --- burst of 8--20 object accesses
-              (4663) in $<30$~s on HMI or RTU hosts
-      \end{enumerate}
-    \end{column}
-  \end{columns}
-  \note{Adversary starts at Level 3 with valid credentials. Each of the four attack
-        patterns produces a distinct Windows Event Log signature we can detect.}
+% ── Slide 6 — Threat Model: adversary ────────────────────────────────────────
+\begin{frame}{Threat Model: Adversary and Goals}
+  \begin{block}{Starting Position}
+    Foothold on Level~3 IT host via phishing or supply-chain compromise.
+    Valid or cracked domain credentials.
+    Network access across a misconfigured IT/OT DMZ.
+  \end{block}
+
+  \vspace{0.8em}
+  \begin{block}{Attack Chain}
+    \centering
+    \large
+    Persist $\;\longrightarrow\;$ Escalate privileges $\;\longrightarrow\;$
+    Execute disruptive payload
+
+    \vspace{0.3em}
+    \normalsize
+    (rogue PLC commands \textit{or} denial of operator visibility)
+  \end{block}
+  \note{Adversary starts with a Level 3 foothold and valid credentials. The goal is
+        to reach the OT layer and cause physical impact.}
+\end{frame}
+
+% ── Slide 7 — Threat Model: attack patterns ──────────────────────────────────
+\begin{frame}{Threat Model: MITRE ATT\&CK ICS Patterns}
+  Four attack categories modelled, each producing a distinct Windows Event Log signature:
+
+  \vspace{0.6em}
+  \begin{enumerate}
+    \item \textbf{Lateral movement} --- 3--8 consecutive Event~4625 logon failures from an
+          unexpected source IP, followed by a 4624 success
+
+    \vspace{0.3em}
+    \item \textbf{Persistence} --- Event~7045 (service install) on a SCADA host, followed
+          by 7036 (state change) and 4688 (process creation)
+
+    \vspace{0.3em}
+    \item \textbf{Privilege escalation} --- Event~4672 (special privileges) immediately
+          preceding 4688 with an anomalous binary (\texttt{mimikatz.exe},
+          \texttt{psexec.exe})
+
+    \vspace{0.3em}
+    \item \textbf{Reconnaissance} --- burst of 8--20 Event~4663 (object access) records
+          within 30~seconds on HMI or RTU hosts
+  \end{enumerate}
+  \note{Each pattern maps to MITRE ATT&CK for ICS. Evasive variants slow down lateral
+        movement and reconnaissance to make single-feature detection harder.}
 \end{frame}
 
 % ═════════════════════════════════════════════════════════════════════════════
 \section{Data and Features}
 % ═════════════════════════════════════════════════════════════════════════════
 
-% ── Slide 6 — Synthetic Dataset ──────────────────────────────────────────────
-\begin{frame}{Synthetic Dataset: Why and How}
-  \begin{columns}[T]
-    \begin{column}{0.53\textwidth}
-      No publicly available Windows Event Log dataset exists for smart grid
-      SCADA or RTU environments~\cite{conti2021survey,nafees2023}.
-      Synthetic generation is established practice: Goh et al.\
-      \cite{goh2016swat} built the SWaT testbed for the same reason; Chen
-      et al.\ \cite{chen2022} used APT emulation when real logs were
-      unavailable.
+% ── Slide 8 — Synthetic Data: justification + stats ──────────────────────────
+\begin{frame}{Synthetic Dataset: Justification and Statistics}
+  No publicly available Windows Event Log dataset exists for smart grid SCADA or
+  RTU environments~\cite{conti2021survey,nafees2023}. Synthetic generation is established
+  practice: Goh et al.\ \cite{goh2016swat} built the SWaT testbed for the same reason;
+  Chen et al.\ \cite{chen2022} used APT emulation when real logs were unavailable.
 
-      \vspace{0.5em}
-      \textbf{Dataset:} 6{,}000 sessions --- 5{,}000 benign + 1{,}000
-      malicious --- comprising \textbf{89{,}288 events} at a 5:1 class ratio.\\[0.3em]
-      13 Windows Event IDs $\cdot$ 7 smart grid hostnames.\\[0.3em]
-      Includes \emph{evasive variants}: rate-limited lateral movement and
-      slow reconnaissance to prevent trivial single-feature separation.
-    \end{column}
-    \begin{column}{0.45\textwidth}
-      \includegraphics[width=\textwidth]{figs/pipeline.png}
-    \end{column}
-  \end{columns}
-  \note{Justify synthetic data first---no real dataset exists. Evasive variants
-        are key: they prevent the classifier from relying on a single trivially
-        separable feature, making the evaluation realistic.}
+  \vspace{0.6em}
+  \begin{itemize}
+    \item \textbf{6{,}000 sessions:} 5{,}000 benign $+$ 1{,}000 malicious (5:1 ratio)
+    \item \textbf{89{,}288 total events} across 13 Windows Event IDs
+    \item \textbf{7 smart grid hostnames:} SCADA-HMI-01, RTU-CTRL-03,
+          \texttt{eng\_station}, \texttt{historian}, \ldots
+    \item \textbf{Evasive variants:} rate-limited lateral movement (60--300~s between
+          failures) and slow reconnaissance (2--9~s burst intervals) prevent trivial
+          single-feature separation
+  \end{itemize}
+  \note{Justify synthetic data up front. Evasive variants are the key design decision
+        that makes the evaluation realistic rather than circular.}
 \end{frame}
 
-% ── Slide 7 — Feature Engineering ───────────────────────────────────────────
-\begin{frame}{Session-Level Feature Engineering}
-  Events are grouped into sessions; each session produces a \textbf{24-dimensional
-  feature vector} without any feature scaling:
+% ── Slide 9 — Data pipeline figure ───────────────────────────────────────────
+\begin{frame}{Data Pipeline: Generation to Evaluation}
+  \begin{center}
+    \includegraphics[width=0.90\textwidth,height=0.80\textheight,keepaspectratio]{figs/pipeline.png}
+  \end{center}
+  \note{Full pipeline: synthetic generator, CSV output, session-level feature extraction,
+        train/val/test split, model training, and evaluation.}
+\end{frame}
 
-  \vspace{0.3em}
+% ── Slide 10 — Feature Engineering ───────────────────────────────────────────
+\begin{frame}{Session-Level Feature Engineering}
+  Events grouped into sessions; each session produces a \textbf{24-dimensional vector}
+  with no feature scaling required:
+
+  \vspace{0.4em}
   \begin{table}
     \centering
     \begin{tabular}{llc}
       \toprule
       Group & Features & Dim. \\
       \midrule
-      Event frequency counts  & count per event ID $+$ total event count      & 14 \\
+      Event frequency counts  & count per event ID $+$ total                  & 14 \\
       Time-delta statistics   & mean, std, min, max inter-event gap (seconds) &  4 \\
       Host/user cardinality   & unique sources, users, hostnames per session   &  3 \\
       Rare-event flags        & binary: event in $<$5\% of benign sessions     & var \\
-      Sequence entropy        & $H = -\textstyle\sum_e p_e \log_2 p_e$        &  1 \\
+      Sequence entropy        & $H = -\sum_e p_e \log_2 p_e$                  &  1 \\
       \bottomrule
     \end{tabular}
   \end{table}
 
-  \vspace{0.3em}
+  \vspace{0.4em}
   \begin{block}{Design rationale}
-    Mixed feature types (counts, statistics, binary flags) require no normalisation.
-    Session abstraction avoids the inference latency of deep sequence models while
-    still capturing temporal burst structure through time-delta statistics.
+    Mixed feature types handled natively by tree ensembles without normalisation.
+    Session abstraction avoids deep sequence model latency while capturing temporal
+    burst structure through time-delta statistics.
   \end{block}
-  \note{Five groups, 24 dimensions total. The session abstraction is what makes this
-        approach deployable alongside a SIEM. Entropy alone achieves F1 = 0.77 in
-        isolation, confirming it carries real signal.}
+  \note{Five groups, 24 dimensions. Entropy alone reaches F1 = 0.77 in isolation,
+        confirming real signal. The session abstraction is what makes SIEM integration
+        feasible at sub-second latency.}
 \end{frame}
 
 % ═════════════════════════════════════════════════════════════════════════════
 \section{Results}
 % ═════════════════════════════════════════════════════════════════════════════
 
-% ── Slide 8 — Classification Results ─────────────────────────────────────────
+% ── Slide 11 — Classification Results ────────────────────────────────────────
 \begin{frame}{Classification Results: Six-Method Comparison}
   Random Forest (class\_weight=balanced, RandomizedSearchCV, 5-fold stratified CV)
   versus five baselines:
@@ -233,33 +244,35 @@ in Smart Grid Control Systems}
     \end{tabular}
   \end{table}
 
-  \vspace{0.2em}
+  \vspace{0.3em}
   \begin{columns}[T]
-    \begin{column}{0.50\textwidth}
-      \small RF mean $\pm$ std across 5 independent seeds:
-      F1 $= 0.999 \pm 0.001$ $\cdot$ AUC $= 1.000 \pm 0.000$.\\
-      All metrics computed from pipeline output---not manually entered.
+    \begin{column}{0.52\textwidth}
+      \small RF stability across 5 independent seeds:
+      F1 $= 0.999 \pm 0.001$ $\;\cdot\;$ AUC $= 1.000 \pm 0.000$.\\
+      All metrics computed from the actual pipeline output.
     \end{column}
-    \begin{column}{0.46\textwidth}
+    \begin{column}{0.44\textwidth}
       \begin{block}{\small No-label lower bound}
-        \small Isolation Forest (F1 = 0.601) quantifies how hard detection
-        is without any labelled attack sessions.
+        \small Isolation Forest F1 = 0.601 shows detection difficulty
+        without any labelled attack sessions.
       \end{block}
     \end{column}
   \end{columns}
-  \note{Six baselines covering unsupervised to boosted ensemble. Multi-seed stability
-        (std = 0.001) rules out a lucky split. All numbers are real pipeline output.}
+  \note{Six baselines from unsupervised to boosted ensemble. Multi-seed std = 0.001
+        rules out a lucky split. All numbers are real pipeline output.}
 \end{frame}
 
-% ── Slide 9 — ROC + Feature Importances ──────────────────────────────────────
+% ── Slide 12 — ROC + Feature Importances ─────────────────────────────────────
 \begin{frame}{ROC Curve and Feature Importances}
-  \includegraphics[width=\textwidth]{figs/results.png}
-  \note{Left panel: ROC curve hugs top-left corner, AUC = 1.0.
-        Right panel: timing features (td_max, td_std, td_min) dominate---
-        event counts are second. This ranking directly predicts the ablation result.}
+  \begin{center}
+    \includegraphics[width=\textwidth,height=0.82\textheight,keepaspectratio]{figs/results.png}
+  \end{center}
+  \note{Left: ROC curve hugs top-left corner, AUC = 1.0. Right: timing features
+        (td_max, td_std, td_min) dominate importance ranking, event counts second.
+        This directly predicts the ablation result on the next slide.}
 \end{frame}
 
-% ── Slide 10 — Ablation ──────────────────────────────────────────────────────
+% ── Slide 13 — Ablation ──────────────────────────────────────────────────────
 \begin{frame}{Ablation Study: Feature Group Contribution}
   \begin{columns}[T]
     \begin{column}{0.46\textwidth}
@@ -281,19 +294,19 @@ in Smart Grid Control Systems}
       \end{table}
     \end{column}
     \begin{column}{0.50\textwidth}
-      Groups~3--5 show zero marginal delta because Groups~1 and~2 already
-      fully separate the classes on this dataset. Entropy alone achieves
-      F1~$=~0.77$---real signal, but redundant once counts and timing are present.
+      Groups~3--5 show zero marginal delta because Groups~1 and~2 already fully
+      separate the classes. Entropy alone achieves F1~$= 0.77$ in isolation ---
+      real signal, but redundant once counts and timing are present.
 
       \vspace{0.5em}
       \begin{block}{Practical takeaway}
-        If timestamp resolution is unavailable, event counts are the most
-        valuable feature group to preserve ($\Delta$F1 = $-0.056$ when removed).
-        On noisier real logs, Groups~3--5 are expected to recover importance.
+        If timestamp resolution is unavailable, preserve event counts first
+        ($\Delta$F1 $= {-0.056}$ on removal). On noisier real-world logs,
+        Groups~3--5 are expected to recover importance.
       \end{block}
     \end{column}
   \end{columns}
-  \note{Real computed deltas. Groups 1 and 2 carry discriminative load.
+  \note{Real computed deltas. Groups 1 and 2 carry the discriminative load.
         Zero delta for Groups 3-5 means class-level redundancy, not uninformativeness.}
 \end{frame}
 
@@ -301,52 +314,52 @@ in Smart Grid Control Systems}
 \section{Conclusion}
 % ═════════════════════════════════════════════════════════════════════════════
 
-% ── Slide 11 — Conclusion ────────────────────────────────────────────────────
+% ── Slide 14 — Conclusion ────────────────────────────────────────────────────
 \begin{frame}{Conclusion and Future Work}
   \begin{columns}[T]
     \begin{column}{0.54\textwidth}
       \textbf{Contributions:}
       \begin{itemize}
+        \small
         \item First open-source framework for Windows Event Log malware
               detection in smart grid ICS (Purdue L1--L3)
         \item 24-feature session pipeline with evasive attack variants
-              preventing trivial feature separation
-        \item F1 $= 0.999 \pm 0.001$ across 5 seeds; ROC-AUC $= 1.000$
-        \item Event counts most discriminative ($\Delta$F1 $= -0.056$
-              on removal); timing statistics second ($-0.028$)
-        \item Inference $<$0.5~s per 900-session batch on one CPU core
+        \item F1 $= 0.999 \pm 0.001$ (5 seeds); ROC-AUC $= 1.000$
+        \item Event counts most discriminative ($\Delta$F1 $= {-0.056}$);
+              timing statistics second ($-0.028$)
+        \item Inference $<$0.5~s per 900-session batch, single CPU core
       \end{itemize}
     \end{column}
     \begin{column}{0.43\textwidth}
       \begin{block}{Future Work}
         \begin{itemize}
-          \item Evaluation on real ICS logs from controlled red-team exercises
-          \item Multi-class ATT\&CK technique attribution
-          \item Online learning for concept drift (ADWIN)
-          \item Adversarial robustness against evasive attackers on real logs
+          \small
+          \item Real ICS logs from red-team exercises
+          \item Multi-class ATT\&CK attribution
+          \item Online learning for concept drift
+          \item Adversarial robustness on real logs
         \end{itemize}
       \end{block}
     \end{column}
   \end{columns}
-  \note{Five contributions, four future directions. The open-source reproducibility
-        is the core community contribution given the absence of real ICS datasets.}
+  \note{Five contributions, four future directions. Open-source reproducibility is
+        the core community contribution given the absence of real ICS datasets.}
 \end{frame}
 
-% ── Slide 12 — References ────────────────────────────────────────────────────
+% ── Slide 15 — References ────────────────────────────────────────────────────
 \begin{frame}[allowframebreaks]{References}
   \printbibliography[heading=none]
-  \note{Key references underpinning this work. No spoken content required here.}
+  \note{Key references. No spoken content required here.}
 \end{frame}
 
-% ── Slide 13 — Q\&A ──────────────────────────────────────────────────────────
+% ── Slide 16 — Q\&A ──────────────────────────────────────────────────────────
 \begin{frame}{Questions}
   \begin{center}
     \Large Thank you.\\[1em]
     \normalsize Questions welcome.
   \end{center}
-  \note{Open the floor to questions. If no immediate questions, offer the most
-        common one: does near-perfect accuracy on synthetic data translate to
-        real-world performance?}
+  \note{Open the floor. If no questions: offer the most common one --- does
+        near-perfect synthetic accuracy translate to real-world performance?}
 \end{frame}
 
 \end{document}
