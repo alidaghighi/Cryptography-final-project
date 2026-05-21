@@ -15,9 +15,10 @@
 
 \titleformat{\section}[block]{\large\bfseries\filcenter}{}{0em}{}[\titlerule]
 
-\title{\textbf{Teleprompter Script}\\
+\title{\textbf{Teleprompter Script}\\[0.3em]
 \large AI-Driven Malware Detection via Windows Event Log Engineering\\
-in Smart Grid Control Systems}
+in Smart Grid Control Systems\\[0.3em]
+\normalsize Target runtime: 15 minutes}
 \author{}
 \date{}
 
@@ -30,115 +31,129 @@ in Smart Grid Control Systems}
 \newpage
 
 %%% ------------------------------------------------------------------
-\section*{Slide 1 --- Title}
-\addcontentsline{toc}{section}{Slide 1 --- Title}
-\markboth{Slide 1 --- Title}{Slide 1 --- Title}
+\section*{Slide 1 — Title \hfill \normalfont\small $\approx$0:30}
+\addcontentsline{toc}{section}{Slide 1 — Title}
+\markboth{Slide 1 — Title}{Slide 1 — Title}
 
-Good morning and welcome. Today I will present our framework for artificial intelligence-driven malware detection using Windows Event Log engineering in smart grid control systems. This work addresses a critical gap at the intersection of industrial control system security and machine learning, specifically targeting the under-studied layer of host-level Windows audit logs within operational technology environments. \textit{[pause]} We will walk through the problem motivation, our threat model, the synthetic data generation approach, feature engineering pipeline, model design, and experimental results, closing with practical deployment considerations. \textit{[click to next slide]}
-
-%%% ------------------------------------------------------------------
-\section*{Slide 2 --- Agenda}
-\addcontentsline{toc}{section}{Slide 2 --- Agenda}
-\markboth{Slide 2 --- Agenda}{Slide 2 --- Agenda}
-
-The agenda has six major sections. We begin with the motivation---understanding why smart grid control systems are attractive targets and why Windows Event Logs are both a regulatory requirement and an untapped detection surface. We then review the related literature on log anomaly detection and ICS intrusion detection systems. After that, I will present our formal threat model, followed by the data generation and feature engineering methodology. We will look at experimental results including the ablation study, and conclude with a discussion of real-world deployment constraints. \textit{[click to next slide]}
+Good morning, and welcome. Today I am presenting our framework for artificial intelligence-driven malware detection in smart grid control systems, using Windows Event Log engineering as the data source. This work sits at the intersection of industrial control system security and machine learning, targeting a layer of the system that has been mandated by regulation but never actually used for automated intrusion detection. I will walk through the problem, our approach, and the results in approximately fifteen minutes. \textit{[click to next slide]}
 
 %%% ------------------------------------------------------------------
-\section*{Slide 3 --- Smart Grid Cyber Threat Landscape}
-\addcontentsline{toc}{section}{Slide 3 --- Smart Grid Cyber Threat Landscape}
-\markboth{Slide 3 --- Threat Landscape}{Slide 3 --- Threat Landscape}
+\section*{Slide 2 — Agenda \hfill \normalfont\small $\approx$0:30}
+\addcontentsline{toc}{section}{Slide 2 — Agenda}
+\markboth{Slide 2 — Agenda}{Slide 2 — Agenda}
 
-The electric grid is no longer air-gapped. The integration of IP connectivity, programmable logic controllers, and Windows-based SCADA systems has created a convergence zone where IT and operational technology interact daily. This expanded attack surface has been exploited in high-profile incidents---Stuxnet demonstrated in 2010 that Windows hosts embedded in nuclear centrifuge control loops were viable entry points, and the 2015 Ukrainian grid attacks showed that adversaries could traverse the IT/OT boundary to cause physical power outages. \textit{[click]} Regulatory frameworks have responded: NERC Critical Infrastructure Protection standard CIP-007 mandates event logging on all applicable cyber assets, and IEC~62351 specifies audit trail requirements for power system communications. \textit{[click]} What these mandates produce is terabytes of Windows Event Log data on SCADA hosts---but this data is almost never used for automated intrusion detection. \textit{[click]} That gap is the central motivation for this work. The figure on the right shows the architecture we target.
-
-%%% ------------------------------------------------------------------
-\section*{Slide 4 --- Related Work: Log Anomaly Detection}
-\addcontentsline{toc}{section}{Slide 4 --- Related Work: Log Anomaly Detection}
-\markboth{Slide 4 --- Related Work (Logs)}{Slide 4 --- Related Work (Logs)}
-
-The system log anomaly detection literature has produced impressive results over the last decade. Drain, published at ICWS 2017, introduced an online log-parsing algorithm using a fixed-depth tree structure that extracts stable log templates from high-velocity streams in logarithmic time. DeepLog, from CCS 2017, was perhaps the most influential contribution: it modelled sequences of log event keys using LSTM networks, treating each next-key prediction as a classification problem and flagging deviations as anomalies. LogAnomaly extended this by incorporating semantic word vectors derived from log templates, capturing both sequential and quantitative anomalies. \textit{[pause]} The common limitation of all these works is their focus on distributed computing infrastructure---HDFS, Linux syslog, OpenStack---rather than Windows systems in industrial control environments. None of them exploit the semantic structure of Windows Security Event IDs, which encode precise information about authentication, process creation, and object access. Our approach fills this gap.
+We have six sections. First, the motivation---why smart grid Windows hosts are a relevant and under-studied detection surface. Then a brief background on related work and where we fit. After that, our formal threat model, followed by the dataset and feature engineering pipeline. The bulk of the time goes to experimental results, including an ablation study. We close with a short conclusion and future directions. \textit{[click to next slide]}
 
 %%% ------------------------------------------------------------------
-\section*{Slide 5 --- Related Work: ICS Intrusion Detection}
-\addcontentsline{toc}{section}{Slide 5 --- Related Work: ICS Intrusion Detection}
-\markboth{Slide 5 --- Related Work (ICS)}{Slide 5 --- Related Work (ICS)}
+\section*{Slide 3 — The Security Gap in Smart Grid Hosts \hfill \normalfont\small $\approx$1:30}
+\addcontentsline{toc}{section}{Slide 3 — The Security Gap in Smart Grid Hosts}
+\markboth{Slide 3 — Motivation}{Slide 3 — Motivation}
 
-In the ICS domain, Carcano and colleagues proposed a multidimensional critical-state analysis that captures safe operating envelopes as polytopes in the joint measurement-command space. Goldenberg and Wool built deterministic finite automata from Modbus/TCP protocol specifications, achieving zero false positives on a power utility testbed. The SWaT dataset from Singapore University of Technology and Design provided the first publicly available ICS security benchmark, though it captures physical process measurements and network packets rather than Windows host audit logs. \textit{[click]} A 2014 ACM Computing Surveys paper by Mitchell and Chen confirmed that host-level intrusion detection is rare in the cyber-physical systems literature---the research community has concentrated on the network and process layers. \textit{[click]} Our contribution is therefore novel: we are the first to target Windows Event Logs at Purdue model Levels one through three within a smart grid context.
+Modern smart grids are no longer air-gapped. They integrate IP-connected Windows workstations running SCADA software, human-machine interfaces, remote terminal units, and historian servers---all within the same network fabric as corporate IT. This convergence has been exploited in some of the most consequential cyber attacks of the last fifteen years. Stuxnet in 2010 targeted Windows hosts embedded in nuclear centrifuge control loops. The 2015 and 2016 Ukrainian grid attacks combined spear phishing with lateral movement through the IT/OT boundary to physically disconnect power to hundreds of thousands of homes. Colonial Pipeline in 2021 showed that IT-side ransomware could force an entire pipeline operator to manually shut down OT systems out of caution. \textit{[click]}
 
-%%% ------------------------------------------------------------------
-\section*{Slide 6 --- Threat Model}
-\addcontentsline{toc}{section}{Slide 6 --- Threat Model}
-\markboth{Slide 6 --- Threat Model}{Slide 6 --- Threat Model}
+The regulatory response has been thorough. NERC CIP-007 mandates event logging on all applicable cyber assets in the bulk electric system. IEC 62351 specifies audit trail requirements for power system communications. Utilities are legally required to collect Windows Event Logs from their SCADA hosts. \textit{[click]}
 
-Our adversary has three goals: gain persistent access to SCADA hosts, escalate privileges to the system or domain-administrator level, and ultimately execute a disruptive or destructive payload---this could be rogue command injection into a PLC or simply service disruption to deny operator visibility. \textit{[click]} In terms of capabilities, we assume the adversary has already compromised at least one Level~3 IT host, for instance through spear phishing or a supply chain attack. They possess valid or cracked domain credentials and have network connectivity across the IT/OT boundary through a misconfigured DMZ or a legitimate remote access tunnel. \textit{[click]} From this starting point, we model four specific attack categories grounded in the MITRE ATT\&CK for ICS framework: lateral movement through credential brute forcing, persistence through malicious service installation, privilege escalation through offensive tool execution, and reconnaissance through rapid object access bursts. Each of these produces a distinguishable pattern in the Windows Event Log that our feature engineering pipeline is designed to capture.
+The problem is that these logs are almost never used for automated intrusion detection. They are collected, stored for compliance, and ignored from a security monitoring perspective. The figure on the right shows the IT/OT architecture we target---Purdue model Levels one through three. Our goal is to close that gap using machine learning on the event logs that are already being generated. \textit{[click to next slide]}
 
 %%% ------------------------------------------------------------------
-\section*{Slide 7 --- Synthetic Event Log Generator}
-\addcontentsline{toc}{section}{Slide 7 --- Synthetic Event Log Generator}
-\markboth{Slide 7 --- Data Generation}{Slide 7 --- Data Generation}
+\section*{Slide 4 — Prior Work and Research Gap \hfill \normalfont\small $\approx$1:30}
+\addcontentsline{toc}{section}{Slide 4 — Prior Work and Research Gap}
+\markboth{Slide 4 — Background}{Slide 4 — Background}
 
-Because labelled Windows Event Log data from real ICS environments is not publicly available---due to privacy, liability, and classified-information constraints---we built a synthetic generator. The generator produces structured CSV records with eight fields: timestamp, event ID, source, user, hostname, description, label, and session ID. Benign sessions simulate realistic operator workflows with a logon event, variable object-access and process-creation activity, and a terminal logoff, with inter-event gaps drawn from a uniform distribution representing normal operator think-time. \textit{[pause]} Our dataset contains six thousand labelled sessions---five thousand benign and one thousand malicious---comprising just over fifty-four thousand individual events. The five-to-one class ratio reflects a realistic operational environment where malicious sessions are rare. Smart grid hostnames follow the naming conventions you would find in a real utility: SCADA-HMI-01, RTU-CTRL-03, eng\_station, and historian. The figure on the right shows the full data pipeline from generation through model evaluation.
+Three research streams are directly relevant, and each one leaves a gap we fill. The first is log anomaly detection: tools like Drain, DeepLog, and LogAnomaly have achieved impressive results on distributed system logs---HDFS, Linux syslog, OpenStack. But none of them were designed for Windows Security Event IDs, which carry structured semantics about authentication, process creation, and object access that generic log parsers do not exploit. They also do not model ICS-specific threat patterns.
 
-%%% ------------------------------------------------------------------
-\section*{Slide 8 --- Session-Level Feature Engineering}
-\addcontentsline{toc}{section}{Slide 8 --- Session-Level Feature Engineering}
-\markboth{Slide 8 --- Feature Engineering}{Slide 8 --- Feature Engineering}
+The second stream is ICS intrusion detection. Carcano and colleagues used critical-state analysis on SCADA command sequences; Goldenberg and Wool built finite automata over Modbus/TCP traffic; the SWaT dataset from Singapore provides the community's main ICS benchmark. But all of these work at the network or physical process level---none of them look at Windows host audit logs.
 
-The core of our approach is the session-level feature engineering pipeline. Rather than processing individual events, we group events by session and extract a compact twenty-four-dimensional feature vector. The first group captures event frequency counts for each of thirteen Windows Event IDs plus a total count---this distinguishes attack patterns that rely on specific event types. The second group---and the most discriminative as we will see---captures time-delta statistics: the mean, standard deviation, minimum, and maximum of inter-event gaps in seconds. Reconnaissance attacks, which burst dozens of object-access events within thirty seconds, produce dramatically different time-delta profiles than normal operator sessions. \textit{[pause]} The third group captures cardinality---unique sources, users, and hostnames---as a lateral-spread indicator. Group four uses rare-event flags for event IDs appearing in fewer than five percent of benign training sessions. And group five computes Shannon entropy over the event-ID distribution within each session, capturing the randomness or monotony of event sequences. Together these five groups produce a compact, interpretable vector with no feature scaling required.
+The third stream is Windows malware detection on IT endpoints---recent work from 2024 and 2025 has used Sysmon logs, event ID sequences, and graph-based provenance analysis. The gap here is the operational context: OT systems run legacy Windows versions, have different software baselines, and generate fundamentally different event patterns than corporate IT hosts. \textit{[pause]}
 
-%%% ------------------------------------------------------------------
-\section*{Slide 9 --- Model: Random Forest}
-\addcontentsline{toc}{section}{Slide 9 --- Model: Random Forest}
-\markboth{Slide 9 --- Model}{Slide 9 --- Model}
-
-We selected Random Forest as the primary classifier for four reasons. \textit{[click]} First, it handles the heterogeneous mixture of integer counts, continuous statistics, and binary flags in our feature vector without requiring normalisation---a practical advantage for deployment pipelines. \textit{[click]} Second, the \texttt{class\_weight=balanced} setting compensates for the five-to-one class imbalance by assigning per-sample weights inversely proportional to class frequencies, without requiring synthetic oversampling. \textit{[click]} Third, feature importance scores derived from mean decrease in Gini impurity provide an inherently interpretable ranking, directly supporting the ablation analysis. \textit{[click]} Fourth, and critically for operational deployment, inference requires only a fixed number of tree traversals per session---our measurements show sub-millisecond latency per session on commodity hardware, well within the ten-millisecond operational requirement. The training protocol uses Randomized Search CV over twenty hyperparameter configurations with five-fold stratified cross-validation, maximising macro F1.
+Mitchell and Chen confirmed in a 2014 ACM Computing Surveys paper that host-level intrusion detection is rare in the cyber-physical systems literature. That finding still holds. Our work is, to our knowledge, the first framework specifically targeting Windows Event Logs at ICS Purdue Levels one through three in a smart grid environment. \textit{[click to next slide]}
 
 %%% ------------------------------------------------------------------
-\section*{Slide 10 --- Classification Results}
-\addcontentsline{toc}{section}{Slide 10 --- Classification Results}
-\markboth{Slide 10 --- Results}{Slide 10 --- Results}
+\section*{Slide 5 — Threat Model \hfill \normalfont\small $\approx$1:00}
+\addcontentsline{toc}{section}{Slide 5 — Threat Model}
+\markboth{Slide 5 — Threat Model}{Slide 5 — Threat Model}
 
-The results table compares our Random Forest against six baselines, including strong competitors such as XGBoost and the unsupervised Isolation Forest. The Isolation Forest, which receives no attack labels during training, achieves only zero-point-six-zero-one macro F1---this is the no-label lower bound relevant to zero-day deployment where labelled attack sessions may be unavailable. Logistic Regression reaches zero-point-nine-four-two and SVM reaches zero-point-eight-four-four, confirming the features are not linearly separable in raw form. Decision Tree achieves zero-point-nine-eight-four, showing that simple tree rules capture most of the signal. XGBoost, a strong gradient-boosted baseline, reaches zero-point-nine-nine-eight. The Random Forest achieves the best macro F1 of zero-point-nine-nine-nine and ROC-AUC of one-point-zero. Critically, this result is confirmed stable across five independent random seeds---standard deviation of zero-point-zero-zero-one---ruling out a lucky split. All numbers reported here are computed from the actual pipeline output, not manually entered.
+Our adversary model is grounded in MITRE ATT\&CK for ICS. We assume the attacker has already established a foothold on a Level~3 IT host---through spear phishing or a supply-chain compromise---and possesses valid or cracked domain credentials. They have network access across the IT/OT boundary through a misconfigured DMZ or a legitimate remote-access tunnel that has been hijacked. Their goal is to persist on the OT network, escalate privileges, and ultimately execute a disruptive payload---either rogue commands to a PLC or denial of operator visibility.
 
-%%% ------------------------------------------------------------------
-\section*{Slide 11 --- ROC Curve and Feature Importances}
-\addcontentsline{toc}{section}{Slide 11 --- ROC Curve and Feature Importances}
-\markboth{Slide 11 --- ROC and Importances}{Slide 11 --- ROC and Importances}
-
-\textit{[show figure]} The left panel shows the ROC curve for the Random Forest on the test set---a perfect curve hugging the top-left corner, confirming the AUC of one. The right panel shows the top-ten feature importances. The five most important features are all timing-related: maximum inter-event gap, gap standard deviation, minimum gap, object-access count, and mean gap. Note that logoff count, which one might expect to be dominant, has been deprioritised because we deliberately made benign sessions sometimes omit the final logoff---mimicking dropped connections---and malicious sessions sometimes include it. This design choice prevents the model from relying on a single trivially-separable feature and forces it to combine timing and count evidence. This ranking directly informs the ablation study on the next slide.
+We model four specific attack patterns that produce distinct Windows Event Log signatures. Lateral movement through credential brute-forcing generates repeated Event~4625 logon failures followed by a 4624 success from an unexpected source IP. Persistence through malicious service installation generates Event~7045 on a SCADA host followed by 7036 state change. Privilege escalation generates a 4672 special-privileges assignment immediately preceding a 4688 process creation with an anomalous binary name---mimikatz or psexec. And reconnaissance generates a burst of 8 to 20 Event~4663 object-access records within 30 seconds on HMI or RTU hosts. Each of these becomes a learnable pattern in our feature space. \textit{[click to next slide]}
 
 %%% ------------------------------------------------------------------
-\section*{Slide 12 --- Ablation Study}
-\addcontentsline{toc}{section}{Slide 12 --- Ablation Study}
-\markboth{Slide 12 --- Ablation}{Slide 12 --- Ablation}
+\section*{Slide 6 — Synthetic Dataset: Why and How \hfill \normalfont\small $\approx$1:30}
+\addcontentsline{toc}{section}{Slide 6 — Synthetic Dataset: Why and How}
+\markboth{Slide 6 — Dataset}{Slide 6 — Dataset}
 
-The ablation study systematically removes one feature group at a time, retrains with identical hyperparameters, and re-evaluates macro F1 on the held-out test set---all results are computed, not estimated. Removing Group~1, the event frequency counts, causes the largest drop: macro F1 falls from one-point-zero to zero-point-nine-four-four---a drop of zero-point-zero-five-six. \textit{[click]} Removing Group~2, time-delta statistics, causes the second-largest drop to zero-point-nine-seven-two. Removing Groups~3 through~5---cardinality, rare-event flags, and sequence entropy---shows zero marginal contribution. This does not mean entropy is uninformative: tested in isolation it achieves macro F1 of zero-point-seven-seven. Rather, it means that event counts and timing already provide sufficient separation, making entropy redundant once those features are present. On noisier operational logs we expect Groups~3--5 to recover importance. The practical takeaway is that if timestamp resolution is unavailable, event counts remain the single most valuable feature group.
+Before discussing the generator, I want to address the question you may already be thinking: why synthetic data? The answer is simple---no publicly available Windows Event Log dataset exists for smart grid SCADA or RTU hosts. Conti and colleagues confirmed this in a comprehensive 2021 survey of ICS security testbeds and datasets. Nafees and colleagues attribute the gap to liability constraints and the unwillingness of energy operators to disclose network topology through released logs. This is not a problem unique to our work. Goh and colleagues built the entire SWaT Secure Water Treatment testbed precisely because no real ICS attack data was available, and that dataset is now the standard benchmark in the field. Chen and colleagues in 2022 synthesised APT-style Windows audit sequences for the same reason. We follow the same precedent.
 
-%%% ------------------------------------------------------------------
-\section*{Slide 13 --- Deployment Considerations}
-\addcontentsline{toc}{section}{Slide 13 --- Deployment Considerations}
-\markboth{Slide 13 --- Deployment}{Slide 13 --- Deployment}
-
-Real-world deployment raises four significant challenges. \textit{[click]} First, class imbalance: the five-to-one ratio in our dataset is already challenging, but operational environments may see five-hundred-to-one or higher ratios where malicious sessions are extremely rare events. Techniques such as SMOTE oversampling, cost-sensitive learning, or reformulating detection as anomaly scoring against a benign-only model should be evaluated as the class ratio approaches operational reality. \textit{[click]} Second, concept drift: Windows Event Log distributions change over time as software is updated, organisations restructure, and operational patterns shift. Periodic retraining on sliding windows of recent data and integration with online drift detectors such as ADWIN are recommended. \textit{[click]} Third, GDPR compliance: Windows Event Logs may contain personally identifiable information---usernames, hostnames, IP addresses. Our session-level feature aggregation is inherently privacy-preserving since it produces only statistical summaries, but the raw log collection must be governed by pseudonymisation and retention policies aligned with both NERC CIP-007 and GDPR. \textit{[click]} Fourth, latency is not a concern: the full feature extraction and inference pipeline processes nine hundred test sessions in under zero-point-five seconds on a single CPU core, making the framework compatible with standard SIEM batch-mode integration patterns.
+Our generator produces 6{,}000 labelled sessions: 5{,}000 benign and 1{,}000 malicious, for a total of 89{,}288 individual events at a 5-to-1 class ratio. Benign sessions simulate realistic operator workflows---logon, interleaved object-access and process-creation events representative of SCADA client use, and a terminal logoff, with inter-event gaps drawn from a distribution modelling normal operator think-time. Importantly, we also include evasive attack variants: rate-limited lateral movement that spaces credential failures 60 to 300 seconds apart, and slow reconnaissance that extends burst intervals. These variants prevent the model from relying on a single trivially separable feature and make the evaluation more realistic. The pipeline figure on the right shows the full flow from generation through evaluation. \textit{[click to next slide]}
 
 %%% ------------------------------------------------------------------
-\section*{Slide 14 --- Conclusion}
-\addcontentsline{toc}{section}{Slide 14 --- Conclusion}
-\markboth{Slide 14 --- Conclusion}{Slide 14 --- Conclusion}
+\section*{Slide 7 — Session-Level Feature Engineering \hfill \normalfont\small $\approx$1:30}
+\addcontentsline{toc}{section}{Slide 7 — Session-Level Feature Engineering}
+\markboth{Slide 7 — Features}{Slide 7 — Features}
 
-To summarise: we have presented the first open-source framework specifically targeting Windows Event Log-based malware detection in smart grid industrial control systems. The framework consists of a synthetic event log generator covering four MITRE ATT\&CK ICS attack categories, a twenty-four-dimensional session-level feature engineering pipeline, and a class-imbalance-robust Random Forest classifier. On the synthetic benchmark, the framework achieves macro F1 of zero-point-nine-nine-nine and ROC-AUC of one-point-zero, stable across five random seeds with standard deviation below zero-point-zero-zero-two. The generator includes adversarially-timed evasive attack variants that reduce single-feature separability from one-point-zero to zero-point-eight-six, confirming the model relies on feature combination rather than a single perfect indicator. The ablation study, computed from real pipeline output, establishes that event counts are the most discriminative group, followed by time-delta statistics. Inference latency is under half a second per batch, confirming operational feasibility. \textit{[pause]} The open-source nature of the framework directly addresses the data availability barrier that has historically limited ICS security research. Future directions include evaluation on real ICS event logs from controlled red-team exercises, extension to multi-class MITRE ATT\&CK technique attribution, online learning for concept drift adaptation, and adversarial robustness evaluation.
+The core of our approach is the session-level feature engineering pipeline. Rather than treating the event log as an unbounded stream and applying sequence modelling, we segment events into sessions using a 30-minute inactivity timeout---standard practice in network session analysis---and extract a compact 24-dimensional feature vector from each session.
 
-%%% ------------------------------------------------------------------
-\section*{Slide 15 --- References}
-\addcontentsline{toc}{section}{Slide 15 --- References}
-\markboth{Slide 15 --- References}{Slide 15 --- References}
+The table on the slide shows the five feature groups. The first group computes occurrence counts for each of the 13 Windows Event IDs in our schema, plus a total event count---14 dimensions. The second group computes time-delta statistics: the mean, standard deviation, minimum, and maximum of the inter-event gap in seconds within each session---4 dimensions. This is where reconnaissance and lateral-movement attacks are most visible: a burst of 20 object-access events in 30 seconds produces dramatically different timing statistics than normal operator sessions separated by minutes of think-time. The third group captures the number of unique source IPs, usernames, and hostnames within a session---3 dimensions---serving as a lateral-spread indicator. The fourth group flags event IDs that appear in fewer than 5 percent of benign training sessions as binary indicators. The fifth group computes Shannon entropy over the event-ID distribution within the session.
 
-\textit{[This slide displays automatically. No spoken content required. Remain silent or offer to discuss any reference in detail during Q\&A.]}
+Together these 24 features require no scaling, handle mixed types natively in a tree ensemble, and keep inference latency in the millisecond range---well within the requirements of SIEM integration. \textit{[click to next slide]}
 
 %%% ------------------------------------------------------------------
-\section*{Slide 16 --- Questions}
-\addcontentsline{toc}{section}{Slide 16 --- Questions}
-\markboth{Slide 16 --- Questions}{Slide 16 --- Questions}
+\section*{Slide 8 — Classification Results \hfill \normalfont\small $\approx$2:00}
+\addcontentsline{toc}{section}{Slide 8 — Classification Results}
+\markboth{Slide 8 — Results}{Slide 8 — Results}
 
-Thank you for your attention. I am happy to take questions on any aspect of the work---the threat model, the feature engineering choices, the evaluation methodology, or the deployment considerations. \textit{[pause and make eye contact with the audience]} \textit{[if no immediate questions: ``Perhaps I can start with the question I am most often asked, which is whether near-perfect accuracy on synthetic data translates to real-world performance---the honest answer is that we do not know yet, and that evaluation on real ICS event logs from controlled red-team exercises is our highest-priority future work. The generator's evasive attack variants give us some confidence that the feature set is not overly naive, but nothing substitutes for real operational data.'']}
+We compare Random Forest against five baselines, ranging from an unsupervised Isolation Forest to XGBoost. Let me walk through the table. The Isolation Forest, which receives no attack labels during training, achieves macro F1 of 0.601---this is the no-label lower bound, representing what an anomaly detector could achieve if labelled attack sessions were unavailable, as in a zero-day scenario. Logistic Regression reaches 0.942, and SVM with an RBF kernel reaches 0.844---both confirming that the features are not perfectly linearly separable, which is consistent with the evasive attack variants we designed. Decision Tree achieves 0.984, showing that simple tree rules capture most of the signal. XGBoost is a very strong baseline at 0.998---it nearly matches Random Forest. The Random Forest achieves macro F1 of 0.999 and ROC-AUC of 1.000.
+
+The model was selected because it handles mixed feature types without normalisation, the class\_weight=balanced setting compensates for the 5-to-1 imbalance without oversampling, feature importances provide interpretability, and sub-millisecond inference per session makes deployment feasible. Hyperparameters were tuned via RandomizedSearchCV with 20 configurations and 5-fold stratified cross-validation maximising macro F1.
+
+Critically, to rule out a lucky data split, we repeated the full pipeline---generate, preprocess, featurize, train, evaluate---across five independent random seeds. The mean F1 is 0.999 with standard deviation 0.001. All numbers in this table were computed from the actual pipeline; no values were manually entered into the paper. \textit{[click to next slide]}
+
+%%% ------------------------------------------------------------------
+\section*{Slide 9 — ROC Curve and Feature Importances \hfill \normalfont\small $\approx$1:00}
+\addcontentsline{toc}{section}{Slide 9 — ROC Curve and Feature Importances}
+\markboth{Slide 9 — ROC and Importances}{Slide 9 — ROC and Importances}
+
+\textit{[show figure]} The left panel shows the ROC curve for the Random Forest on the held-out test set. It hugs the top-left corner throughout, confirming the AUC of 1.0. The right panel shows the top-ten feature importances by mean decrease in Gini impurity.
+
+Notice that the five most important features are all timing-related: maximum inter-event gap, gap standard deviation, minimum gap, and mean gap dominate. Object-access count---count of Event~4663---is also highly ranked. This ranking directly predicts what we will see in the ablation study on the next slide. The timing features carry the most discriminative signal because evasive attacks, while stretching their timing, still leave a detectable pattern relative to normal operator sessions. \textit{[click to next slide]}
+
+%%% ------------------------------------------------------------------
+\section*{Slide 10 — Ablation Study \hfill \normalfont\small $\approx$1:30}
+\addcontentsline{toc}{section}{Slide 10 — Ablation Study}
+\markboth{Slide 10 — Ablation}{Slide 10 — Ablation}
+
+The ablation study removes one feature group at a time, retrains with identical hyperparameters, and re-evaluates macro F1 on the same held-out test set. All numbers are computed, not estimated. The full model achieves F1 of 1.000.
+
+Removing Group~1---event frequency counts---causes the largest drop: F1 falls to 0.944, a delta of negative 0.056. This is the most critical group. Removing Group~2---time-delta statistics---causes the second-largest drop to 0.972. Removing Groups~3 through~5---cardinality, rare-event flags, and sequence entropy---shows zero marginal impact.
+
+I want to be clear about what zero delta means here: it does not mean entropy is uninformative. Tested in isolation, entropy achieves F1 of 0.77---that is real signal. The zero marginal delta means that given event counts and timing, entropy adds nothing further because those two groups already fully separate benign from malicious sessions in this dataset.
+
+The practical implication is important for deployment. If you are deploying to a Windows system where timestamp resolution is coarse or unavailable---some legacy OT systems log events with one-second or one-minute granularity---you should prioritise event counts. On noisier real-world logs where counts and timing are less clean, we expect Groups~3 through~5 to recover importance. \textit{[click to next slide]}
+
+%%% ------------------------------------------------------------------
+\section*{Slide 11 — Conclusion and Future Work \hfill \normalfont\small $\approx$1:00}
+\addcontentsline{toc}{section}{Slide 11 — Conclusion and Future Work}
+\markboth{Slide 11 — Conclusion}{Slide 11 — Conclusion}
+
+To summarise the contributions. We have presented the first open-source framework for Windows Event Log-based malware detection specifically designed for smart grid industrial control systems at Purdue Levels one through three. The framework includes a synthetic event log generator covering four MITRE ATT\&CK ICS attack categories with evasive variants, a 24-dimensional session-level feature engineering pipeline, and a class-imbalance-robust Random Forest classifier. The framework achieves macro F1 of 0.999 with standard deviation 0.001 across five independent seeds and ROC-AUC of 1.0. Event counts are the most discriminative feature group; removing them drops F1 by 0.056. Inference runs in under half a second per 900-session batch on a single CPU core, confirming operational feasibility.
+
+The open-source nature of the framework directly addresses the data availability barrier that has limited ICS security research. Future directions include evaluation on real ICS event logs from controlled red-team exercises, extension to multi-class MITRE ATT\&CK technique attribution, online learning for concept drift, and adversarial robustness evaluation. \textit{[click to references, then Q\&A]}
+
+%%% ------------------------------------------------------------------
+\section*{Slide 12 — References \hfill \normalfont\small silent}
+\addcontentsline{toc}{section}{Slide 12 — References}
+\markboth{Slide 12 — References}{Slide 12 — References}
+
+\textit{[This slide displays automatically. No spoken content required. Remain
+silent or briefly offer to discuss any reference in detail during Q\&A.]}
+
+%%% ------------------------------------------------------------------
+\section*{Slide 13 — Questions \hfill \normalfont\small open}
+\addcontentsline{toc}{section}{Slide 13 — Questions}
+\markboth{Slide 13 — Questions}{Slide 13 — Questions}
+
+Thank you for your attention. I am happy to take questions on any aspect of the work---the threat model, the feature engineering choices, the evaluation methodology, or the synthetic data justification. \textit{[pause and make eye contact]}
+
+\textit{[If no immediate questions, offer the most common one:]} Perhaps I can start with the question I am most often asked: does near-perfect accuracy on synthetic data translate to real-world performance? The honest answer is that we do not know yet, and evaluation on real ICS event logs from controlled red-team exercises is our highest-priority future work. The generator's evasive attack variants give us some confidence that the feature set is not overly naive---single-feature maximum F1 drops to 0.86 with evasive attacks---but nothing substitutes for real operational data.
 
 \end{document}
