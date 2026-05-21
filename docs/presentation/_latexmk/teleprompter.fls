@@ -48,6 +48,8 @@ INPUT E:\Work\Biruni University\Masters\2\Crypto\Final-Project\docs\presentation
 INPUT E:\Work\Biruni University\Masters\2\Crypto\Final-Project\docs\presentation\_latexmk\teleprompter.aux
 INPUT E:\Work\Biruni University\Masters\2\Crypto\Final-Project\docs\presentation\_latexmk\teleprompter.aux
 OUTPUT E:\Work\Biruni University\Masters\2\Crypto\Final-Project\docs\presentation\_latexmk\teleprompter.aux
+INPUT C:\Users\Ali\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
+INPUT C:\Users\Ali\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT C:\Users\Ali\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
 INPUT C:\Users\Ali\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr8.tfm
 INPUT C:\Users\Ali\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr6.tfm
@@ -65,4 +67,8 @@ INPUT E:\Work\Biruni University\Masters\2\Crypto\Final-Project\docs\presentation
 INPUT E:\Work\Biruni University\Masters\2\Crypto\Final-Project\docs\presentation\_latexmk\teleprompter.toc
 OUTPUT E:\Work\Biruni University\Masters\2\Crypto\Final-Project\docs\presentation\_latexmk\teleprompter.toc
 OUTPUT E:\Work\Biruni University\Masters\2\Crypto\Final-Project\docs\presentation\_latexmk\teleprompter.xdv
+INPUT C:\Users\Ali\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr9.tfm
+INPUT C:\Users\Ali\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi9.tfm
+INPUT C:\Users\Ali\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmsy9.tfm
+INPUT C:\Users\Ali\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex9.tfm
 INPUT E:\Work\Biruni University\Masters\2\Crypto\Final-Project\docs\presentation\_latexmk\teleprompter.aux

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.10.14)  20 MAY 2026 23:28
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.10.14)  21 MAY 2026 13:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1354,7 +1354,7 @@ Package biblatex Info: Reference segment=0 on input line 18.
 
 (E:\Work\Biruni University\Masters\2\Crypto\Final-Project\docs\presentation\_la
 texmk\presentation.nav)
-Overfull \vbox (44.70393pt too high) detected at line 25
+Overfull \vbox (44.70393pt too high) detected at line 26
  []
 
 
@@ -1364,53 +1364,40 @@ Overfull \vbox (44.70393pt too high) detected at line 25
 ]
 (E:\Work\Biruni University\Masters\2\Crypto\Final-Project\docs\presentation\_la
 texmk\presentation.toc)
-Overfull \vbox (50.13632pt too high) detected at line 32
- []
-
-
 
 [2
 
 ]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 34.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 36.
 
  (C:\Users\Ali\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 34.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 36.
 
 
 (C:\Users\Ali\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <10.95> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 34.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 36.
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <8> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 34.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 36.
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <6> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 34.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 36.
 
 
 [3
 
 ]
-File: figs/architecture.png Graphic file (type bmp)
-<figs/architecture.png>
-
 
 [4
 
 ]
-File: figs/architecture.png Graphic file (type bmp)
-<figs/architecture.png>
-
 
 [5
 
 ]
-File: figs/architecture.png Graphic file (type bmp)
-<figs/architecture.png>
-
 
 [6
 
@@ -1426,6 +1413,10 @@ File: figs/architecture.png Graphic file (type bmp)
 [8
 
 ]
+Overfull \vbox (15.93625pt too high) detected at line 99
+ []
+
+
 
 [9
 
@@ -1434,6 +1425,9 @@ File: figs/architecture.png Graphic file (type bmp)
 [10
 
 ]
+LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <12> not available
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 126.
+
 
 [11
 
@@ -1450,10 +1444,27 @@ File: figs/architecture.png Graphic file (type bmp)
 [14
 
 ]
+File: figs/pipeline.png Graphic file (type bmp)
+<figs/pipeline.png>
+
 
 [15
 
 ]
+
+Package fontspec Warning: 
+(fontspec)                \addfontfeature(s) ignored on line 218; it cannot be
+(fontspec)                used with a font that wasn't selected by a fontspec
+(fontspec)                command.
+(fontspec)                 
+(fontspec)                 The current font is "\TU/lmss/bx/n/10.95 ".
+(fontspec)                  The requested feature is "Numbers={Monospaced}". 
+
+
+Overfull \vbox (26.03165pt too high) detected at line 218
+ []
+
+
 
 [16
 
@@ -1462,10 +1473,23 @@ File: figs/architecture.png Graphic file (type bmp)
 [17
 
 ]
-File: figs/pipeline.png Graphic file (type bmp)
-<figs/pipeline.png>
 
-Overfull \vbox (185.19633pt too high) detected at line 135
+Package fontspec Warning: 
+(fontspec)                \addfontfeature(s) ignored on line 263; it cannot be
+(fontspec)                used with a font that wasn't selected by a fontspec
+(fontspec)                command.
+(fontspec)                 
+(fontspec)                 The current font is "\TU/lmss/m/n/10 ".
+(fontspec)                  The requested feature is "Numbers={Monospaced}". 
+
+LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <10> not available
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 263.
+LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <7> not available
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 263.
+LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <5> not available
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 263.
+
+Overfull \vbox (14.71083pt too high) detected at line 263
  []
 
 
@@ -1473,20 +1497,28 @@ Overfull \vbox (185.19633pt too high) detected at line 135
 [18
 
 ]
-
-Package fontspec Warning: 
-(fontspec)                \addfontfeature(s) ignored on line 157; it cannot be
-(fontspec)                used with a font that wasn't selected by a fontspec
-(fontspec)                command.
-(fontspec)                 
-(fontspec)                 The current font is "\TU/lmss/m/n/6 ".
-(fontspec)                  The requested feature is "Numbers={Monospaced}". 
-
+File: figs/results.png Graphic file (type bmp)
+<figs/results.png>
 
 
 [19
 
 ]
+
+Package fontspec Warning: 
+(fontspec)                \addfontfeature(s) ignored on line 311; it cannot be
+(fontspec)                used with a font that wasn't selected by a fontspec
+(fontspec)                command.
+(fontspec)                 
+(fontspec)                 The current font is "\TU/lmss/m/n/10 ".
+(fontspec)                  The requested feature is "Numbers={Monospaced}". 
+
+
+Overfull \hbox (15.42723pt too wide) in paragraph at lines 311--311
+ [] 
+ []
+
+
 
 [20
 
@@ -1500,125 +1532,21 @@ Package fontspec Warning:
 
 ]
 
+LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <10> not available
+(Font)              Font shape `TU/lmr/m/sc' tried instead on input line 353.
+
+
+
 [23
 
 ]
 
 [24
 
+
 ]
 
 [25
-
-]
-
-Package fontspec Warning: 
-(fontspec)                \addfontfeature(s) ignored on line 205; it cannot be
-(fontspec)                used with a font that wasn't selected by a fontspec
-(fontspec)                command.
-(fontspec)                 
-(fontspec)                 The current font is "\TU/lmss/m/n/10 ".
-(fontspec)                  The requested feature is "Numbers={Monospaced}". 
-
-LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <10> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 205.
-LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <7> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 205.
-LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <5> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 205.
-
-
-[26
-
-]
-File: figs/results.png Graphic file (type bmp)
-<figs/results.png>
-
-
-[27
-
-]
-
-Package fontspec Warning: 
-(fontspec)                \addfontfeature(s) ignored on line 237; it cannot be
-(fontspec)                used with a font that wasn't selected by a fontspec
-(fontspec)                command.
-(fontspec)                 
-(fontspec)                 The current font is "\TU/lmss/m/n/6 ".
-(fontspec)                  The requested feature is "Numbers={Monospaced}". 
-
-
-
-[28
-
-]
-
-Package fontspec Warning: 
-(fontspec)                \addfontfeature(s) ignored on line 237; it cannot be
-(fontspec)                used with a font that wasn't selected by a fontspec
-(fontspec)                command.
-(fontspec)                 
-(fontspec)                 The current font is "\TU/lmss/m/n/8 ".
-(fontspec)                  The requested feature is "Numbers={Monospaced}". 
-
-
-
-[29
-
-]
-
-[30
-
-]
-
-[31
-
-]
-
-[32
-
-]
-
-[33
-
-]
-
-[34
-
-]
-
-[35
-
-]
-
-[36
-
-]
-
-[37
-
-]
-
-LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <10> not available
-(Font)              Font shape `TU/lmr/m/sc' tried instead on input line 285.
-
-
-
-[38
-
-]
-
-[39
-
-
-]
-
-[40
-
-
-]
-
-[41
 
 ]
 \tf@nav=\write7
@@ -1638,19 +1566,19 @@ LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-09-02>
  ***********
 Package rerunfilecheck Info: File `presentation.out' has not changed.
-(rerunfilecheck)             Checksum: E55D5E95D73988839CD43CD39F24F04B;771.
+(rerunfilecheck)             Checksum: 0F5FA8185E7D789E8A9E06451629A384;597.
 Package logreq Info: Writing requests to 'presentation.run.xml'.
 \openout1 = `presentation.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 34620 strings out of 403196
- 729287 string characters out of 5456329
- 1584315 words of memory out of 5000000
- 62546 multiletter control sequences out of 15000+600000
- 635522 words of font info for 93 fonts, out of 8000000 for 9000
+ 34622 strings out of 403196
+ 729202 string characters out of 5456329
+ 1581804 words of memory out of 5000000
+ 62544 multiletter control sequences out of 15000+600000
+ 637084 words of font info for 100 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  128i,13n,126p,1881b,5114s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on E:\Work\Biruni University\Masters\2\Crypto\Final-Project\docs
-\presentation\_latexmk\presentation.xdv (41 pages, 263888 bytes).
+\presentation\_latexmk\presentation.xdv (25 pages, 160092 bytes).

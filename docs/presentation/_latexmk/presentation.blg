@@ -1,15 +1,15 @@
 [0] Config.pm:328> INFO - This is Biber 2.21
 [0] Config.pm:331> INFO - Logfile is '_latexmk/presentation.blg'
-[111] biber-MSWIN64:342> INFO - === 
-[149] Biber.pm:421> INFO - Reading '_latexmk/presentation.bcf'
-[276] Biber.pm:1002> INFO - Found 8 citekeys in bib section 0
-[291] Biber.pm:4487> INFO - Processing section 0
-[302] Biber.pm:4678> INFO - Looking for bibtex file 'references.bib' for section 0
-[350] bibtex.pm:1713> INFO - LaTeX decoding ...
-[370] bibtex.pm:1519> INFO - Found BibTeX data source 'references.bib'
-[466] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[466] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[467] Biber.pm:4307> INFO - Sorting list 'none/global//global/global/global' of type 'entry' with template 'none' and locale 'en-US'
-[467] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
-[475] bbl.pm:676> INFO - Writing '_latexmk/presentation.bbl' with encoding 'UTF-8'
-[482] bbl.pm:779> INFO - Output to _latexmk/presentation.bbl
+[137] biber-MSWIN64:342> INFO - === 
+[178] Biber.pm:421> INFO - Reading '_latexmk/presentation.bcf'
+[320] Biber.pm:1002> INFO - Found 5 citekeys in bib section 0
+[338] Biber.pm:4487> INFO - Processing section 0
+[351] Biber.pm:4678> INFO - Looking for bibtex file 'references.bib' for section 0
+[399] bibtex.pm:1713> INFO - LaTeX decoding ...
+[424] bibtex.pm:1519> INFO - Found BibTeX data source 'references.bib'
+[494] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[494] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[494] Biber.pm:4307> INFO - Sorting list 'none/global//global/global/global' of type 'entry' with template 'none' and locale 'en-US'
+[494] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
+[499] bbl.pm:676> INFO - Writing '_latexmk/presentation.bbl' with encoding 'UTF-8'
+[502] bbl.pm:779> INFO - Output to _latexmk/presentation.bbl
